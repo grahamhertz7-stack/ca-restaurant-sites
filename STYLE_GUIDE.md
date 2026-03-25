@@ -153,16 +153,16 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 ## Existing Sites to Rebuild
 These currently use the old dark template and should be migrated:
-- [ ] nakas-broiler.html
-- [ ] las-islas-marias.html
-- [ ] callos-la-rosca.html
-- [ ] pupuseria-la-ceiba.html
-- [ ] mis-amigos-tacos.html
-- [ ] submarine-crab.html
-- [ ] don-chema.html
-- [ ] dominguez-tacos.html
-- [ ] honduras-mi-sabor.html
-- [ ] ten-raku-korean-bbq.html
+- [x] nakas-broiler.html
+- [x] las-islas-marias.html
+- [x] callos-la-rosca.html
+- [x] pupuseria-la-ceiba.html
+- [x] mis-amigos-tacos.html
+- [x] submarine-crab.html
+- [x] don-chema.html
+- [x] dominguez-tacos.html
+- [x] honduras-mi-sabor.html
+- [x] ten-raku-korean-bbq.html
 - [x] mexicanica-taco-truck.html ← reference design
 
 ---
