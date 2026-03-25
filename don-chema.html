@@ -3,131 +3,982 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pescaderia y Restaurante Don Chema | South Gate, CA</title>
+<title>Don Chema Pescaderia — South Gate, CA</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --white: #fafaf8;
+    --black: #111110;
+    --accent: #0e7490;
+    --mist: #f2f2f0;
+    --mid: #777772;
+    --border: rgba(17,17,16,0.08);
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Georgia', serif; background: #001520; color: #f0ead8; }
-  header { background: linear-gradient(135deg, #004D6E, #007BA7); padding: 60px 20px; text-align: center; }
-  header h1 { font-size: 2.6em; letter-spacing: 2px; text-shadow: 1px 2px 8px rgba(0,0,0,0.4); }
-  header p.tagline { font-size: 1.2em; margin-top: 10px; color: #7EC8E3; font-style: italic; }
-  .badge { display: inline-block; background: #7EC8E3; color: #001520; padding: 6px 18px; border-radius: 20px; font-weight: bold; margin-top: 15px; font-family: sans-serif; }
-  nav { background: #000e18; display: flex; justify-content: center; gap: 20px; padding: 15px; flex-wrap: wrap; align-items: center; }
-  nav a { color: #7EC8E3; text-decoration: none; font-family: sans-serif; font-weight: bold; font-size: 0.95em; }
-  .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.9em; }
-  .carousel-wrap { position: relative; overflow: hidden; height: 360px; background: #000; }
-  .carousel-inner { display: flex; transition: transform 0.7s ease; height: 100%; }
-  .carousel-inner img { min-width: 100%; height: 360px; object-fit: cover; flex-shrink: 0; }
-  .carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.6)); padding: 15px 20px; font-family: sans-serif; font-size: 0.9em; color: #eee; }
-  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; font-size: 1.6em; padding: 10px 16px; cursor: pointer; z-index: 10; border-radius: 4px; }
-  .carousel-btn.prev { left: 10px; } .carousel-btn.next { right: 10px; }
-  .carousel-dots { position: absolute; bottom: 10px; right: 15px; display: flex; gap: 7px; }
-  .carousel-dots span { width: 9px; height: 9px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; display: inline-block; transition: background 0.3s; }
-  .carousel-dots span.active { background: #fff; }
-  .hero-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 30px 20px; background: #000e18; }
-  .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-size: 1em; font-weight: bold; text-decoration: none; font-family: sans-serif; }
-  .btn-call { background: #27AE60; color: white; } .btn-doordash { background: #FF3008; color: white; } .btn-maps { background: #4285F4; color: white; }
-  .section { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
-  h2 { font-size: 1.8em; color: #7EC8E3; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 10px; }
-  .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-top: 10px; }
-  .menu-item { background: #000e18; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; text-align: center; }
-  .menu-item span { font-size: 1.5em; } .menu-item p { margin-top: 8px; font-size: 0.9em; font-family: sans-serif; }
-  .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-family: sans-serif; }
-  .day { font-weight: bold; color: #7EC8E3; }
-  .review-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 18px 20px; font-family: sans-serif; margin-bottom: 15px; }
-  .rv-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-  .rv-author { font-weight: bold; font-size: 0.95em; } .rv-stars { color: #FFD700; } .rv-text { font-size: 0.88em; line-height: 1.65; opacity: 0.88; }
-  .review-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
-  .review-links a { display: inline-block; padding: 10px 20px; border-radius: 6px; font-family: sans-serif; font-size: 0.9em; font-weight: bold; text-decoration: none; }
-  .rl-google { background: #4285F4; color: white; } .rl-yelp { background: #D32323; color: white; }
-  .contact-box { background: #000e18; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: center; font-family: sans-serif; }
-  .phone { font-size: 2em; color: #7EC8E3; margin: 10px 0; }
-  footer { background: rgba(0,0,0,0.4); text-align: center; padding: 25px; font-family: sans-serif; font-size: 0.85em; color: #666; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 5rem;
+    background: rgba(250,250,248,0.94);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--black);
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--mid);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  .nav-cta {
+    background: var(--black) !important;
+    color: var(--white) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 6px;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  /* ── LANG ── */
+  .lang-toggle {
+    display: flex;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--mid);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active { background: var(--black); color: var(--white); }
+  .lang-btn:hover:not(.active) { color: var(--black); }
+
+  .float-lang {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    z-index: 200;
+    display: flex;
+    border: 1px solid var(--border);
+    background: rgba(250,250,248,0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(17,17,16,0.1);
+  }
+
+  .float-lang .lang-btn { font-size: 0.85rem; padding: 0.5rem 0.9rem; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding: 10rem 5rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--mist);
+    z-index: 0;
+    clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ecfeff;
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s ease forwards;
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s ease forwards;
+  }
+
+  .hero-title em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.8;
+    max-width: 440px;
+    margin: 1.5rem 0 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s ease forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s ease forwards;
+  }
+
+  .hero-right {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.6s ease forwards;
+  }
+
+  .hero-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 4px 40px rgba(17,17,16,0.08);
+    border: 1px solid var(--border);
+  }
+
+  .hero-card-emoji { font-size: 5rem; display: block; margin-bottom: 1.5rem; }
+
+  .hero-card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-card-text { font-size: 0.9rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
+
+  .hero-card-location {
+    margin-top: 1.8rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .location-dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .location-text { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+  .location-text strong { color: var(--black); font-weight: 600; display: block; margin-bottom: 0.2rem; }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: var(--black);
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+    border-radius: 8px;
+  }
+
+  .btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(14,116,144,0.25); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--black);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+    border-radius: 8px;
+  }
+
+  .btn-secondary:hover { border-color: var(--black); transform: translateY(-2px); }
+
+  /* ── STRIP ── */
+  .strip { background: var(--black); padding: 0.85rem 0; overflow: hidden; }
+
+  .strip-inner {
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+    animation: stripScroll 22s linear infinite;
+  }
+
+  @keyframes stripScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .strip-item {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250,250,248,0.6);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .strip-dot { width: 3px; height: 3px; background: var(--accent); border-radius: 50%; }
+
+  /* ── ABOUT ── */
+  .about {
+    padding: 8rem 5rem;
+    background: var(--white);
+  }
+
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .about-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-title em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .about-body {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--black);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .stat-lbl {
+    font-size: 0.72rem;
+    color: var(--mid);
+    margin-top: 0.3rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  .quote-block {
+    background: var(--mist);
+    border-radius: 16px;
+    padding: 2.5rem;
+    border-left: 3px solid var(--accent);
+  }
+
+  .quote-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--black);
+    margin-bottom: 1rem;
+  }
+
+  .quote-attr {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ── MENU ── */
+  .menu-section {
+    padding: 8rem 5rem;
+    background: var(--mist);
+  }
+
+  .menu-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-header { margin-bottom: 4rem; }
+
+  .section-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--black);
+  }
+
+  .section-title em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .menu-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 2.2rem 1.8rem;
+    border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+
+  .menu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(17,17,16,0.08); }
+
+  .menu-emoji { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+  .menu-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .menu-desc { font-size: 0.86rem; color: var(--mid); line-height: 1.65; font-weight: 300; margin-bottom: 1rem; }
+
+  .menu-tag {
+    display: inline-block;
+    background: #ecfeff;
+    color: var(--accent);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+  }
+
+  /* ── REVIEWS ── */
+  .reviews {
+    padding: 8rem 5rem;
+    background: var(--white);
+  }
+
+  .reviews-inner { max-width: 1100px; margin: 0 auto; }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .review-card {
+    background: var(--mist);
+    border-radius: 14px;
+    padding: 2.2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(17,17,16,0.07); }
+
+  .review-stars { color: #e6a817; font-size: 0.85rem; margin-bottom: 1rem; }
+
+  .review-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+
+  .review-author {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  /* ── CTA ── */
+  .cta {
+    padding: 8rem 5rem;
+    background: var(--black);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '🐟';
+    position: absolute;
+    font-size: 30rem;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .cta-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-title em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .cta-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(250,250,248,0.5);
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 4rem;
+  }
+
+  .btn-white {
+    background: var(--white);
+    color: var(--black);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+    border-radius: 8px;
+  }
+
+  .btn-white:hover { background: var(--accent); color: var(--white); transform: translateY(-2px); }
+
+  .btn-outline-white {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid rgba(250,250,248,0.2);
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+    border-radius: 8px;
+  }
+
+  .btn-outline-white:hover { border-color: var(--white); transform: translateY(-2px); }
+
+  .cta-info {
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(250,250,248,0.08);
+  }
+
+  .info-block { text-align: center; }
+
+  .info-lbl {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .info-val {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(250,250,248,0.8);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0a0a09;
+    padding: 2.5rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .footer-logo span { color: var(--accent); }
+
+  .footer-tagline {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: rgba(250,250,248,0.3);
+  }
+
+  .footer-copy {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: rgba(250,250,248,0.2);
+    text-transform: uppercase;
+  }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 8rem 2rem 4rem; gap: 3rem; }
+    .hero-right { display: none; }
+    .about { padding: 5rem 2rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .menu-section { padding: 5rem 2rem; }
+    .menu-grid { grid-template-columns: 1fr 1fr; }
+    .reviews { padding: 5rem 2rem; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .cta { padding: 5rem 2rem; }
+    .cta-info { gap: 2rem; }
+    footer { padding: 2rem; flex-direction: column; text-align: center; }
+    .about-stats { gap: 2rem; flex-wrap: wrap; }
+  }
+
+  @media (max-width: 600px) { .menu-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
-<header>
-  <h1>🐟 Pescaderia y Restaurante Don Chema</h1>
-  <p class="tagline">Fresh Mexican Seafood & Fish Market · South Gate, CA</p>
-  <div class="badge">⭐ 4.8 · 96 Reviews</div>
-</header>
-<nav>
-  <a href="#menu">Menu</a><a href="#hours">Hours</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-  <a href="https://www.google.com/maps/place/?q=place_id:ChIJIZdx2SrNwoARryKC7z_tTOU" target="_blank" class="menu-modal-btn">📋 View on Maps</a>
-</nav>
-<div class="carousel-wrap">
-  <div class="carousel-inner">
-    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEHHNLCHNpnJ3e6XvY0ba2dp8DhwmXwEOpRZgZzzibnC2Pwv1b5RwkM9IzQa5-yJOTw96QPdZ_AqzThseqjJL4sjz6bEmFFmELrjv4R0lOHtZGRebojjOWtvmkkMXUESskRzh4eVBxrvc-OTlfdkznBFXotXL_e5H-dt9_6L3trQKWPYxbzgL4uIcYgVq8MdsRDfShM-T3Bkk9fdhnVOpMZ0VX6TCaLFi4j41sHj4TXGyASz8PgmaCA0-DWVn78Y5PeHhozyU4oF23yp0jlNrz9RxUKE5p8DOqHYkWsU_6rJvQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEGbUhE7HE4pWcVUxBJelRBg2uwlkH9FC6IVczX6cUR2gxJOODqHueF_-bQlhfLjet3owTDFEQUu0cPhgdc_xwmYjq_6jnHWCWDVmTa_rgv9JGZWiTiD9KaZgMFM25cx-A19zu8k-N2sJnv55wfKseT5BWvn3rEU4HGD6VXke8j5Dn833wJuOKyF6zIUdamNfWV3WRZ-p8VAYK-NTp6iwbLzEBwrQj6prA2KZ-sJZjoM9MFXZlxplRWZyI3vWroc6W7IFCIHmSFoHAb-jCp-LpURJ_z9wmeyzCbW46Y9Ovvz1paslgY4J7GGNp5d6rZQqkGBmMFGgCyNLb-SxwVJqN3FpvNeBOmCkrj00vpsVQqXk33AUMWCLwU1sYWFTeXjLCeZHJP_TAY8_eEyhGYKGGou3f8CCwjZulUkkhxbye-n/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEFCNG43jGdqmutxFj0GXp2Szdunmch2KEHzmrnHlZtSTcg5WleCfDcUEB5awM7jirRTGB5phXhAGZDL-kuLsfTVdM_DEijHrR14r-zBCT-w2Tr0BkbAyhG2Gl8269VOK5sz2kM_jC5mTzD0mZOAh4nwDj4e-d2zipJSmoIpvb0waMkXgrOuwoD5ntWCXVQxuCLxM5cXXpIDivhtn5BQiXdznO6MzKAgEIt9zAEWcB6cYPzRyUn1V27nMGvbxKb2ZcyObVmT98v9qWbJbVzJTaVLZe5QBR7GGM7SBLgYheIdqaSbxPRy-vFk7Gjk2dbhvGbIkOPj-VvybgrbHXEZdZA7rmv4KgQ-KKgwBORzaWrSvuxatYEbfIYC7D9K9RrSbc1Tv91CEUYWddp9EmhC3FIXh_PiVSQDNM36B74_GQI/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEF18gzvt97u8LVHxbz3f2UlN5d_y7bgkuArqPcYOuKdpE9-pcv3JOTvi1QfMuVLlYS8q8_iuUZsDppLW9V7MVRRSXya3aIP3Eyqr-JFDNMCBB5xkZnttLc1TR2_VckEnUH_pkBdxTqQGS7kNb8e94-bWthJ-uLiBpUCI-TN3GZ-Zf4thwXA7D8A9pX_Flu1xdDF6UCfBr420k50VUiZ8a7OlmArTQXVBE1X0AcMJnV4eFKsd3_wiDvL-Y10Qcym61pkDI6IF5Rlg4XJ8-NFBdW33TmS62qnjHPfFrMIRLrO0Quv4JVX6xGuVMy2mKaWhoXqHjqJ_m6codfLMTpXxHQBlfyqfgcbH3-cc81EuiDem2LYhRSLZVqteSQcOZaiNu_FZX19flscoW518ONpiS0VJs9ysMmcmiL3XfGQaaA/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEEDTj-0XtqcTDWFzusyzSMVnLKgOHyDTJYDYlkmk4KK2lRr1PvIMeRKZx13LRSvf-XZGVZgxFfp-WqR6qZjUJI7dVHlyvEiANx07w_2VGRzj2viYwAFXAK1THB4Gg-UJ7v_ahXUM-mm3dN3mUCf_r5qblDBqgHqIHLxKuuuI1wwSsF-ArohRhUAWIU0KO-8K8uO3w3ZdgAQRqpLirP07sMFpe86diq0qYjJqUyAxUFR64dEPI085GrnjJ9ybs-MWH4MSv1WQ1I5t459v9ugBECV4Y2U5avSlU8t6_TScLbIxBEjEhih7F_4O1zqPce65rh21SLJqjGDbToSF3MMG4ztaTFUokkQCnpHVJXCGaUMIbBkRB3F7beLwesjchPqu9ZGrWMqSGc6Wi1F9U8JdvJN6wyd2S0nJBO85YoHXGHD/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEGZbKAq63vLYicn9KRvqiKWYaX6PTDDh7oB0VeR2SmMTqqsPR_k5x-iHATYYZGhVvqatJi6uZllu5XdsnTJXzuKwrukHuM0jgdot9-Zl1_v8bJzr2fNJ8XhNHjsN8YjIJul_7LbWvupB2Fny4sr40dC941QMSUBy7HsJIKl8lzJbCib10BElIEOtZFt4g-Mj6GOomPV-NG6Aj1YdEZYTngDzeI12KDLYcZdXTM8Hclc9B1IZDjM2hwLtFbAmAEfb6gnQP2WoMAlrXYMc2_UG6HvzXiq2npw8ACiv4Es_OhV4ToRu-wgTVi9kcOPLORRfMAiWQbeX0fxmS-Pzjcsqc3U4WVIj7yQ7MTwEhIJfz2pADVf_9nNI3DsM5eDLS4tC48iCKMJcsgg1qeCJYlBGumlMGo9WWDK7Bzr5K_LDDA/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-  </div>
-  <button class="carousel-btn prev">&#8249;</button><button class="carousel-btn next">&#8250;</button>
-  <div class="carousel-dots">    <span  class="active"></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div class="carousel-caption"></div>
-</div>
-<div class="hero-links">
-  <a href="tel:+13235633554" class="btn btn-call">📞 (323) 563-3554</a>
-  <a href="https://www.doordash.com/search/store/Don%20Chema%20South%20Gate" target="_blank" class="btn btn-doordash">🛵 DoorDash</a>
-  <a href="https://www.google.com/maps/place/?q=place_id:ChIJIZdx2SrNwoARryKC7z_tTOU" target="_blank" class="btn btn-maps">📍 Directions</a>
-</div>
-<div class="section" id="menu">
-  <h2>Menu Highlights</h2>
-  <div class="menu-grid">    <div class="menu-item"><span>🐟</span><p>Whole Fried Fish</p></div>
-    <div class="menu-item"><span>🦐</span><p>Camarones a la Diabla</p></div>
-    <div class="menu-item"><span>🌮</span><p>Fish Tacos</p></div>
-    <div class="menu-item"><span>🥣</span><p>Ceviche</p></div>
-    <div class="menu-item"><span>🌊</span><p>Aguachiles</p></div>
-    <div class="menu-item"><span>🫙</span><p>Mariscos Cocktail</p></div>
-  </div>
-</div>
-<div class="section" id="hours">
-  <h2>Hours</h2>
-  <div class="hours-grid"><div class="day">Hours</div><div>Call to confirm</div></div>
-  <p style="margin-top:15px; font-family:sans-serif; font-size:0.9em; opacity:0.7">📞 Call (323) 563-3554 for today's hours.</p>
-</div>
-<div class="section" id="reviews">
-  <h2>⭐ Real Reviews</h2>
-    <div class="review-card"><div class="rv-top"><span class="rv-author">👤 ihatesushi89</span><span class="rv-stars">★★★★★</span></div><div class="rv-text">"Camarones are delicious. Mojarras are very tender but plenty of flavor. So succulent. Shrimp is full of flavor. I believe it comes with a butter sauce substance.  Don't blame me if it doesn't. Just saw what I had on my tray."</div></div>
-    <div class="review-card"><div class="rv-top"><span class="rv-author">👤 Ivan Valencia</span><span class="rv-stars">★★★★★</span></div><div class="rv-text">"GREATEST PESCADERIA in Los Angeles area. Everything is super fresh and flavorful. Prices are phenomenal for the quality of food they sell."</div></div>
-    <div class="review-card"><div class="rv-top"><span class="rv-author">👤 Epoxy J</span><span class="rv-stars">★★★★★</span></div><div class="rv-text">"Definitely the best spot for fresh seafood if you’re in the Downey/South Gate area and surrounding cities. I was looking for some shrimp for some aguachiles to make at home and came across this place on Google. I stopped by and took a box of their 13/15 shrimp. Very fresh shrimp,"</div></div>
 
-  <div class="review-links">
-    <a href="https://www.google.com/maps/place/?q=place_id:ChIJIZdx2SrNwoARryKC7z_tTOU" target="_blank" class="rl-google">🗺️ All Reviews on Google</a>
-    <a href="https://www.yelp.com/search?find_desc=don+chema&find_loc=South+Gate%2C+CA" target="_blank" class="rl-yelp">⭐ Reviews on Yelp</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Don <span>Chema</span></div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#menu" data-en="Menu" data-es="Menú">Menu</a></li>
+      <li><a href="#about" data-en="About" data-es="Nosotros">About</a></li>
+      <li><a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a></li>
+      <li><a href="#visit" class="nav-cta" data-en="Find Us" data-es="Encuéntranos">Find Us</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<!-- FLOATING TOGGLE -->
+<div class="float-lang">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('es')">ES</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag" data-en="🐟 South Gate, CA" data-es="🐟 South Gate, CA">🐟 South Gate, CA</div>
+    <h1 class="hero-title">Don <em>Chema</em><br>Pescaderia</h1>
+    <p class="hero-subtitle" data-en="The greatest pescaderia in the Los Angeles area. Impossibly fresh seafood, bold Mexican flavors, and prices that can't be beat." data-es="La mejor pescadería del área de Los Ángeles. Mariscos increíblemente frescos, sabores mexicanos intensos y precios que no tienen competencia.">The greatest pescaderia in the Los Angeles area. Impossibly fresh seafood, bold Mexican flavors, and prices that can't be beat.</p>
+    <div class="hero-actions">
+      <a href="tel:+13235633554" class="btn-primary" data-en="📞 Call (323) 563-3554" data-es="📞 Llamar (323) 563-3554">📞 Call (323) 563-3554</a>
+      <a href="#menu" class="btn-secondary" data-en="🐠 See Menu" data-es="🐠 Ver Menú">🐠 See Menu</a>
+      <a href="#visit" class="btn-secondary" data-en="Find Us" data-es="Encuéntranos">Find Us</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <span class="hero-card-emoji">🦞</span>
+      <div class="hero-card-title" data-en="Fresh from the ocean daily." data-es="Fresco del océano cada día.">Fresh from the ocean daily.</div>
+      <p class="hero-card-text" data-en="Whole fried fish, aguachiles, camarones a la diabla, ceviche — all made with seafood so fresh you can taste it." data-es="Pescado frito entero, aguachiles, camarones a la diabla, ceviche — todo preparado con mariscos tan frescos que se nota en cada bocado.">Whole fried fish, aguachiles, camarones a la diabla, ceviche — all made with seafood so fresh you can taste it.</p>
+      <div class="hero-card-location">
+        <div class="location-dot"></div>
+        <div class="location-text">
+          <strong data-en="9804 Atlantic Ave, South Gate" data-es="9804 Atlantic Ave, South Gate">9804 Atlantic Ave, South Gate</strong>
+          <span data-en="Fish market + full restaurant" data-es="Pescadería y restaurante completo">Fish market + full restaurant</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-item">🐟 Mexican Seafood &amp; Fish Market <span class="strip-dot"></span></span>
+    <span class="strip-item">⭐ 4.8 Stars · 96 Reviews <span class="strip-dot"></span></span>
+    <span class="strip-item">🦐 Camarones a la Diabla <span class="strip-dot"></span></span>
+    <span class="strip-item">🌮 Fish Tacos <span class="strip-dot"></span></span>
+    <span class="strip-item">📍 South Gate, CA <span class="strip-dot"></span></span>
+    <span class="strip-item">🥣 Ceviche &amp; Aguachiles <span class="strip-dot"></span></span>
+    <span class="strip-item">🐟 Mexican Seafood &amp; Fish Market <span class="strip-dot"></span></span>
+    <span class="strip-item">⭐ 4.8 Stars · 96 Reviews <span class="strip-dot"></span></span>
+    <span class="strip-item">🦐 Camarones a la Diabla <span class="strip-dot"></span></span>
+    <span class="strip-item">🌮 Fish Tacos <span class="strip-dot"></span></span>
+    <span class="strip-item">📍 South Gate, CA <span class="strip-dot"></span></span>
+    <span class="strip-item">🥣 Ceviche &amp; Aguachiles <span class="strip-dot"></span></span>
   </div>
 </div>
-<div class="section" id="contact">
-  <h2>Contact & Location</h2>
-  <div class="contact-box">
-    <div class="phone">📞 (323) 563-3554</div>
-    <div style="color:#aaa; margin-bottom:15px">9804 Atlantic Ave, South Gate, CA 90280, USA</div>
-    <a href="https://www.google.com/maps/place/?q=place_id:ChIJIZdx2SrNwoARryKC7z_tTOU" target="_blank" class="btn btn-maps">📍 Open in Google Maps</a>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="about-inner">
+    <div class="reveal">
+      <p class="about-eyebrow" data-en="About Don Chema" data-es="Sobre Don Chema">About Don Chema</p>
+      <h2 class="about-title" data-en="South Gate's best<br><em>pescaderia.</em>" data-es="La mejor<br><em>pescadería</em> de South Gate.">South Gate's best<br><em>pescaderia.</em></h2>
+      <p class="about-body" data-en="Don Chema Pescaderia is a South Gate institution serving the freshest Mexican seafood in the LA area. From the fish market up front to the full-service restaurant in back, everything is made with quality and care." data-es="Don Chema Pescadería es una institución de South Gate que sirve los mariscos mexicanos más frescos del área de LA. Desde la pescadería al frente hasta el restaurante completo en la parte trasera, todo se prepara con calidad y esmero.">Don Chema Pescaderia is a South Gate institution serving the freshest Mexican seafood in the LA area. From the fish market up front to the full-service restaurant in back, everything is made with quality and care.</p>
+      <p class="about-body" data-en="Whether you're picking up raw shrimp to cook at home or sitting down for mojarras and camarones a la diabla, the quality is undeniable. Prices are phenomenal for what you get." data-es="Ya sea que vengas a comprar camarones crudos para cocinar en casa o a sentarte a disfrutar unas mojarras y camarones a la diabla, la calidad es innegable. Los precios son increíbles para lo que recibes.">Whether you're picking up raw shrimp to cook at home or sitting down for mojarras and camarones a la diabla, the quality is undeniable. Prices are phenomenal for what you get.</p>
+      <a href="tel:+13235633554" class="btn-primary" style="margin-top:0.5rem;" data-en="📞 (323) 563-3554" data-es="📞 (323) 563-3554">📞 (323) 563-3554</a>
+      <div class="about-stats">
+        <div>
+          <div class="stat-val">4.8★</div>
+          <div class="stat-lbl" data-en="Google Rating" data-es="Calificación">Google Rating</div>
+        </div>
+        <div>
+          <div class="stat-val">96</div>
+          <div class="stat-lbl" data-en="Reviews" data-es="Reseñas">Reviews</div>
+        </div>
+        <div>
+          <div class="stat-val">Fresh</div>
+          <div class="stat-lbl" data-en="Every Day" data-es="Todos los Días">Every Day</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="quote-block">
+        <p class="quote-text" data-en='"GREATEST PESCADERIA in Los Angeles area. Everything is super fresh and flavorful. Prices are phenomenal for the quality of food they sell."' data-es='"LA MEJOR PESCADERÍA del área de Los Ángeles. Todo está súper fresco y lleno de sabor. Los precios son fenomenales para la calidad de comida que ofrecen."'>"GREATEST PESCADERIA in Los Angeles area. Everything is super fresh and flavorful. Prices are phenomenal for the quality of food they sell."</p>
+        <div class="quote-attr">— Ivan Valencia · Google Review</div>
+      </div>
+    </div>
   </div>
-</div>
-<footer><p>© 2025 Pescaderia y Restaurante Don Chema · South Gate, CA</p></footer>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="menu-section">
+  <div class="menu-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-en="What We Serve" data-es="Lo Que Servimos">What We Serve</p>
+      <h2 class="section-title" data-en="The <em>Menu</em>" data-es="El <em>Menú</em>">The <em>Menu</em></h2>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <span class="menu-emoji">🐟</span>
+        <div class="menu-name" data-en="Whole Fried Fish" data-es="Mojarra Frita">Whole Fried Fish</div>
+        <p class="menu-desc" data-en="Tender, juicy whole mojarra fried to golden perfection. Full of flavor and served with all the fixings." data-es="Mojarra entera tierna y jugosa frita a la perfección dorada. Llena de sabor y servida con todos los acompañamientos.">Tender, juicy whole mojarra fried to golden perfection. Full of flavor and served with all the fixings.</p>
+        <span class="menu-tag" data-en="House Specialty" data-es="Especialidad de la Casa">House Specialty</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-1">
+        <span class="menu-emoji">🦐</span>
+        <div class="menu-name" data-en="Camarones a la Diabla" data-es="Camarones a la Diabla">Camarones a la Diabla</div>
+        <p class="menu-desc" data-en="Shrimp swimming in a fiery, buttery red sauce. Succulent, spicy, and absolutely delicious." data-es="Camarones bañados en una salsa roja ardiente y mantequillosa. Suculentos, picantes y absolutamente deliciosos.">Shrimp swimming in a fiery, buttery red sauce. Succulent, spicy, and absolutely delicious.</p>
+        <span class="menu-tag" data-en="Fan Favorite" data-es="Favorito del Público">Fan Favorite</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-2">
+        <span class="menu-emoji">🌮</span>
+        <div class="menu-name" data-en="Fish Tacos" data-es="Tacos de Pescado">Fish Tacos</div>
+        <p class="menu-desc" data-en="Fresh fish tacos made with the same quality seafood from the market. Simple, clean, and delicious." data-es="Tacos de pescado fresco elaborados con los mismos mariscos de calidad de la pescadería. Sencillos, limpios y deliciosos.">Fresh fish tacos made with the same quality seafood from the market. Simple, clean, and delicious.</p>
+        <span class="menu-tag" data-en="Street Style" data-es="Estilo Callejero">Street Style</span>
+      </div>
+      <div class="menu-card reveal">
+        <span class="menu-emoji">🥣</span>
+        <div class="menu-name" data-en="Ceviche" data-es="Ceviche">Ceviche</div>
+        <p class="menu-desc" data-en="Classic Mexican ceviche made with the freshest catch, lime, cilantro, and serrano. Bright and refreshing." data-es="Ceviche mexicano clásico hecho con la captura más fresca, limón, cilantro y serrano. Fresco y refrescante.">Classic Mexican ceviche made with the freshest catch, lime, cilantro, and serrano. Bright and refreshing.</p>
+        <span class="menu-tag" data-en="So Fresh" data-es="Muy Fresco">So Fresh</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-1">
+        <span class="menu-emoji">🌊</span>
+        <div class="menu-name" data-en="Aguachiles" data-es="Aguachiles">Aguachiles</div>
+        <p class="menu-desc" data-en="Raw shrimp cured in fiery chile water with cucumber and red onion. A punchy, spicy classic of the northwest coast." data-es="Camarones crudos curados en agua de chile con pepino y cebolla morada. Un clásico picante y sabroso de la costa noroeste.">Raw shrimp cured in fiery chile water with cucumber and red onion. A punchy, spicy classic of the northwest coast.</p>
+        <span class="menu-tag" data-en="Chef's Pick" data-es="Elección del Chef">Chef's Pick</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-2">
+        <span class="menu-emoji">🫙</span>
+        <div class="menu-name" data-en="Mariscos Cocktail" data-es="Cóctel de Mariscos">Mariscos Cocktail</div>
+        <p class="menu-desc" data-en="A generous seafood cocktail packed with shrimp, octopus, or mixed seafood in a tangy tomato broth. Great as a starter or meal." data-es="Un generoso cóctel de mariscos con camarones, pulpo o mariscos mixtos en un caldo de tomate ácido. Ideal como entrada o plato principal.">A generous seafood cocktail packed with shrimp, octopus, or mixed seafood in a tangy tomato broth. Great as a starter or meal.</p>
+        <span class="menu-tag" data-en="Must Try" data-es="Imperdible">Must Try</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO CAROUSEL -->
+<section style="background: var(--black); padding: 4rem 0; overflow: hidden;">
+  <div style="max-width:1100px; margin: 0 auto; padding: 0 5rem;">
+    <p class="section-eyebrow reveal" style="color: var(--accent); text-align: center; margin-bottom: 2rem;" data-en="From the Kitchen" data-es="Desde la Cocina">From the Kitchen</p>
+  </div>
+  <div style="display: flex; gap: 1rem; overflow-x: auto; padding: 0 5rem; scrollbar-width: none;">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEHHNLCHNpnJ3e6XvY0ba2dp8DhwmXwEOpRZgZzzibnC2Pwv1b5RwkM9IzQa5-yJOTw96QPdZ_AqzThseqjJL4sjz6bEmFFmELrjv4R0lOHtZGRebojjOWtvmkkMXUESskRzh4eVBxrvc-OTlfdkznBFXotXL_e5H-dt9_6L3trQKWPYxbzgL4uIcYgVq8MdsRDfShM-T3Bkk9fdhnVOpMZ0VX6TCaLFi4j41sHj4TXGyASz8PgmaCA0-DWVn78Y5PeHhozyU4oF23yp0jlNrz9RxUKE5p8DOqHYkWsU_6rJvQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Don Chema food" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEGbUhE7HE4pWcVUxBJelRBg2uwlkH9FC6IVczX6cUR2gxJOODqHueF_-bQlhfLjet3owTDFEQUu0cPhgdc_xwmYjq_6jnHWCWDVmTa_rgv9JGZWiTiD9KaZgMFM25cx-A19zu8k-N2sJnv55wfKseT5BWvn3rEU4HGD6VXke8j5Dn833wJuOKyF6zIUdamNfWV3WRZ-p8VAYK-NTp6iwbLzEBwrQj6prA2KZ-sJZjoM9MFXZlxplRWZyI3vWroc6W7IFCIHmSFoHAb-jCp-LpURJ_z9wmeyzCbW46Y9Ovvz1paslgY4J7GGNp5d6rZQqkGBmMFGgCyNLb-SxwVJqN3FpvNeBOmCkrj00vpsVQqXk33AUMWCLwU1sYWFTeXjLCeZHJP_TAY8_eEyhGYKGGou3f8CCwjZulUkkhxbye-n/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Don Chema food" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEFCNG43jGdqmutxFj0GXp2Szdunmch2KEHzmrnHlZtSTcg5WleCfDcUEB5awM7jirRTGB5phXhAGZDL-kuLsfTVdM_DEijHrR14r-zBCT-w2Tr0BkbAyhG2Gl8269VOK5sz2kM_jC5mTzD0mZOAh4nwDj4e-d2zipJSmoIpvb0waMkXgrOuwoD5ntWCXVQxuCLxM5cXXpIDivhtn5BQiXdznO6MzKAgEIt9zAEWcB6cYPzRyUn1V27nMGvbxKb2ZcyObVmT98v9qWbJbVzJTaVLZe5QBR7GGM7SBLgYheIdqaSbxPRy-vFk7Gjk2dbhvGbIkOPj-VvybgrbHXEZdZA7rmv4KgQ-KKgwBORzaWrSvuxatYEbfIYC7D9K9RrSbc1Tv91CEUYWddp9EmhC3FIXh_PiVSQDNM36B74_GQI/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Don Chema food" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEF18gzvt97u8LVHxbz3f2UlN5d_y7bgkuArqPcYOuKdpE9-pcv3JOTvi1QfMuVLlYS8q8_iuUZsDppLW9V7MVRRSXya3aIP3Eyqr-JFDNMCBB5xkZnttLc1TR2_VckEnUH_pkBdxTqQGS7kNb8e94-bWthJ-uLiBpUCI-TN3GZ-Zf4thwXA7D8A9pX_Flu1xdDF6UCfBr420k50VUiZ8a7OlmArTQXVBE1X0AcMJnV4eFKsd3_wiDvL-Y10Qcym61pkDI6IF5Rlg4XJ8-NFBdW33TmS62qnjHPfFrMIRLrO0Quv4JVX6xGuVMy2mKaWhoXqHjqJ_m6codfLMTpXxHQBlfyqfgcbH3-cc81EuiDem2LYhRSLZVqteSQcOZaiNu_FZX19flscoW518ONpiS0VJs9ysMmcmiL3XfGQaaA/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Don Chema food" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEEDTj-0XtqcTDWFzusyzSMVnLKgOHyDTJYDYlkmk4KK2lRr1PvIMeRKZx13LRSvf-XZGVZgxFfp-WqR6qZjUJI7dVHlyvEiANx07w_2VGRzj2viYwAFXAK1THB4Gg-UJ7v_ahXUM-mm3dN3mUCf_r5qblDBqgHqIHLxKuuuI1wwSsF-ArohRhUAWIU0KO-8K8uO3w3ZdgAQRqpLirP07sMFpe86diq0qYjJqUyAxUFR64dEPI085GrnjJ9ybs-MWH4MSv1WQ1I5t459v9ugBECV4Y2U5avSlU8t6_TScLbIxBEjEhih7F_4O1zqPce65rh21SLJqjGDbToSF3MMG4ztaTFUokkQCnpHVJXCGaUMIbBkRB3F7beLwesjchPqu9ZGrWMqSGc6Wi1F9U8JdvJN6wyd2S0nJBO85YoHXGHD/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Don Chema food" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEGZbKAq63vLYicn9KRvqiKWYaX6PTDDh7oB0VeR2SmMTqqsPR_k5x-iHATYYZGhVvqatJi6uZllu5XdsnTJXzuKwrukHuM0jgdot9-Zl1_v8bJzr2fNJ8XhNHjsN8YjIJul_7LbWvupB2Fny4sr40dC941QMSUBy7HsJIKl8lzJbCib10BElIEOtZFt4g-Mj6GOomPV-NG6Aj1YdEZYTngDzeI12KDLYcZdXTM8Hclc9B1IZDjM2hwLtFbAmAEfb6gnQP2WoMAlrXYMc2_UG6HvzXiq2npw8ACiv4Es_OhV4ToRu-wgTVi9kcOPLORRfMAiWQbeX0fxmS-Pzjcsqc3U4WVIj7yQ7MTwEhIJfz2pADVf_9nNI3DsM5eDLS4tC48iCKMJcsgg1qeCJYlBGumlMGo9WWDK7Bzr5K_LDDA/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Don Chema food" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="reviews">
+  <div class="reviews-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-en="What People Say" data-es="Lo Que Dice la Gente">What People Say</p>
+      <h2 class="section-title" data-en="4.8 Stars · <em>96 Reviews</em>" data-es="4.8 Estrellas · <em>96 Reseñas</em>">4.8 Stars · <em>96 Reviews</em></h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-en='"Camarones are delicious. Mojarras are very tender but plenty of flavor. So succulent. Shrimp is full of flavor — I believe it comes with a butter sauce substance. Don't blame me if it doesn't. Just saw what I had on my tray."' data-es='"Los camarones están deliciosos. Las mojarras son muy tiernas pero con mucho sabor. Tan suculentas. El camarón está lleno de sabor — creo que viene con una salsa de mantequilla. No me culpen si no es así. Solo sé lo que vi en mi bandeja."'>"Camarones are delicious. Mojarras are very tender but plenty of flavor. So succulent. Shrimp is full of flavor — I believe it comes with a butter sauce substance."</p>
+        <div class="review-author">ihatesushi89 · Google Review</div>
+      </div>
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-en='"GREATEST PESCADERIA in Los Angeles area. Everything is super fresh and flavorful. Prices are phenomenal for the quality of food they sell."' data-es='"LA MEJOR PESCADERÍA del área de Los Ángeles. Todo está súper fresco y lleno de sabor. Los precios son fenomenales para la calidad de comida que ofrecen."'>"GREATEST PESCADERIA in Los Angeles area. Everything is super fresh and flavorful. Prices are phenomenal for the quality of food they sell."</p>
+        <div class="review-author">Ivan Valencia · Google Review</div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-en='"Definitely the best spot for fresh seafood if you're in the Downey/South Gate area. I was looking for shrimp for aguachiles and came across this place. Stopped by and took a box of their 13/15 shrimp. Very fresh shrimp."' data-es='"Definitivamente el mejor lugar para mariscos frescos si estás en el área de Downey/South Gate. Buscaba camarones para aguachiles y encontré este lugar. Pasé y compré una caja de sus camarones 13/15. Camarones muy frescos."'>"Definitely the best spot for fresh seafood if you're in the Downey/South Gate area. I was looking for shrimp for aguachiles and came across this place. Very fresh shrimp."</p>
+        <div class="review-author">Epoxy J · Google Review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="visit" class="cta">
+  <p class="cta-eyebrow reveal" data-en="Come Visit Us" data-es="Visítanos">Come Visit Us</p>
+  <h2 class="cta-title reveal" data-en="Fresh seafood.<br><em>Real prices.</em>" data-es="Mariscos frescos.<br><em>Precios reales.</em>">Fresh seafood.<br><em>Real prices.</em></h2>
+  <p class="cta-sub reveal" data-en="Find us at 9804 Atlantic Ave in South Gate. Call ahead or just walk in — the fish market is open daily." data-es="Encuéntranos en 9804 Atlantic Ave en South Gate. Llama antes o simplemente entra — la pescadería está abierta todos los días.">Find us at 9804 Atlantic Ave in South Gate. Call ahead or just walk in — the fish market is open daily.</p>
+  <div class="cta-actions reveal">
+    <a href="tel:+13235633554" class="btn-white" data-en="📞 Call (323) 563-3554" data-es="📞 Llamar (323) 563-3554">📞 Call (323) 563-3554</a>
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJIZdx2SrNwoARryKC7z_tTOU" target="_blank" class="btn-outline-white" data-en="📍 9804 Atlantic Ave, South Gate" data-es="📍 9804 Atlantic Ave, South Gate">📍 9804 Atlantic Ave, South Gate</a>
+  </div>
+  <div class="cta-info reveal">
+    <div class="info-block">
+      <div class="info-lbl" data-en="Phone" data-es="Teléfono">Phone</div>
+      <div class="info-val">(323) 563-3554</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="Location" data-es="Ubicación">Location</div>
+      <div class="info-val" data-en="South Gate, CA 90280" data-es="South Gate, CA 90280">South Gate, CA 90280</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="Rating" data-es="Calificación">Rating</div>
+      <div class="info-val">⭐ 4.8 · 96 Reviews</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="Service" data-es="Servicio">Service</div>
+      <div class="info-val" data-en="Dine-In &amp; Market" data-es="Restaurante y Mercado">Dine-In &amp; Market</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Don <span>Chema</span> Pescaderia</div>
+  <div class="footer-tagline" data-en="Greatest pescaderia in Los Angeles." data-es="La mejor pescadería de Los Ángeles.">Greatest pescaderia in Los Angeles.</div>
+  <div class="footer-copy">© 2025 Don Chema · South Gate, CA</div>
+</footer>
+
 <script>
-(function() {
-  var inner = document.querySelector('.carousel-inner');
-  var dots = document.querySelectorAll('.carousel-dots span');
-  var total = inner ? inner.children.length : 0; var idx = 0;
-  function go(n) {
-    idx = (n+total)%total;
-    inner.style.transform='translateX(-'+(idx*100)+'%)';
-    dots.forEach(function(d,i){ d.classList.toggle('active',i===idx); });
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) el.innerHTML = text;
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+    document.documentElement.lang = lang;
   }
-  document.querySelector('.carousel-btn.prev').addEventListener('click',function(){go(idx-1);});
-  document.querySelector('.carousel-btn.next').addEventListener('click',function(){go(idx+1);});
-  dots.forEach(function(d,i){d.addEventListener('click',function(){go(i);});});
-  setInterval(function(){go(idx+1);},4000); go(0);
-})();
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>
