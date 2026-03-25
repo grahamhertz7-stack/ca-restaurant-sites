@@ -42,6 +42,20 @@
   .carousel-dots span.active { background: #fff; }
 
   .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.95em; }
+
+  .reviews-section { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
+  .reviews-section h2 { font-size: 1.8em; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 10px; }
+  .review-cards { display: grid; gap: 18px; }
+  .review-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 18px 20px; font-family: sans-serif; }
+  .review-card .rv-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .review-card .rv-author { font-weight: bold; font-size: 0.95em; }
+  .review-card .rv-stars { color: #FFD700; font-size: 1em; }
+  .review-card .rv-text { font-size: 0.88em; line-height: 1.65; opacity: 0.88; }
+  .review-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+  .review-links a { display: inline-block; padding: 10px 20px; border-radius: 6px; font-family: sans-serif; font-size: 0.9em; font-weight: bold; text-decoration: none; }
+  .rl-google { background: #4285F4; color: white; }
+  .rl-yelp { background: #D32323; color: white; }
+
 </style>
 </head>
 <body>
@@ -108,6 +122,33 @@
     <a href="https://www.google.com/maps/search/Carnitas+El+Artista+510+N+La+Brea+Ave+Inglewood+CA" target="_blank" class="btn btn-maps">📍 Open in Google Maps</a>
   </div>
 </div>
+
+<div class="reviews-section" id="reviews">
+  <h2>⭐ Real Reviews</h2>
+  <div class="review-cards">
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 TONY GARCIA</span><span class="rv-stars">★★★☆☆</span></div>
+      <div class="rv-text">"We called days in advance to reserve a spot for the paint and sip event they were having on 3/6/2026 but that didn’t mean anything as there were no available seating when we got there . There was not reservation system and they only had space available for their friends and famil"</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 BriAnne Timmons</span><span class="rv-stars">★★★★★</span></div>
+      <div class="rv-text">"I had the carnitas plate, they gave me so much carnitas so it was a really good value and it was probably the best carnitas i’ve ever had. crispy edges with tender perfectly cooked pork. SO good. $16 well spent!"</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 NESCOTT24</span><span class="rv-stars">★★★★★</span></div>
+      <div class="rv-text">"Chilaquiles for the win!
+
+Great family restaurant to give business too. They are apart of the community and help each other out.
+
+I ordered a chilaquiles verde carnitas burrito with a Pacifico beer and it was a great lunch. The burrito was so large that I ate it in three sittings"</div>
+    </div>
+  </div>
+  <div class="review-links">
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJE-a5Sey2woARIOmT8DcN7fo" target="_blank" class="rl-google">🗺️ See All Reviews on Google</a>
+    <a href="https://www.yelp.com/biz/carnitas-el-artista-inglewood" target="_blank" class="rl-yelp">⭐ Read Reviews on Yelp</a>
+  </div>
+</div>
+
 <footer><p>© 2025 Carnitas El Artista · Inglewood, CA · Fresh Mexican</p></footer>
 
 <script>

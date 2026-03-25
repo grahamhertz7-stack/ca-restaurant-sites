@@ -43,6 +43,20 @@
   .carousel-dots span.active { background: #fff; }
 
   .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.95em; }
+
+  .reviews-section { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
+  .reviews-section h2 { font-size: 1.8em; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 10px; }
+  .review-cards { display: grid; gap: 18px; }
+  .review-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 18px 20px; font-family: sans-serif; }
+  .review-card .rv-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .review-card .rv-author { font-weight: bold; font-size: 0.95em; }
+  .review-card .rv-stars { color: #FFD700; font-size: 1em; }
+  .review-card .rv-text { font-size: 0.88em; line-height: 1.65; opacity: 0.88; }
+  .review-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+  .review-links a { display: inline-block; padding: 10px 20px; border-radius: 6px; font-family: sans-serif; font-size: 0.9em; font-weight: bold; text-decoration: none; }
+  .rl-google { background: #4285F4; color: white; }
+  .rl-yelp { background: #D32323; color: white; }
+
 </style>
 </head>
 <body>
@@ -117,6 +131,29 @@
     <a href="https://www.google.com/maps/search/Naka%27s+Broiler+1961+W+El+Segundo+Blvd+Compton+CA" target="_blank" class="btn btn-maps">📍 Open in Google Maps</a>
   </div>
 </div>
+
+<div class="reviews-section" id="reviews">
+  <h2>⭐ Real Reviews</h2>
+  <div class="review-cards">
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 Zion Russe</span><span class="rv-stars">★☆☆☆☆</span></div>
+      <div class="rv-text">"Was not allowed to dine in so when I arrived back home the food was cold the omelet was a egg thin and a crepe dessert folded over a egg The owner is RUDE his weird and I will not ever refer his food to no one Bad Business. The owner brought out the food in a bag would not allow "</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 Michawn Browning</span><span class="rv-stars">★☆☆☆☆</span></div>
+      <div class="rv-text">"Came here for the first time and the guy the owner is very rude to his customers. I was going to leave the first time he was rude but we decided to support a local black owned business. He comes to my car while I’m opening my food checking it to tell us we gotta eat somewhere els"</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 Geoffrey G</span><span class="rv-stars">★★☆☆☆</span></div>
+      <div class="rv-text">"First time I ever walked in a place that served prepared food and said, "Don't eat in here." There were tables and chairs that I guess the people don't want to use. The owner may have high blood pressure or diabetes. Because there was literally no salt on the burger and fries. It"</div>
+    </div>
+  </div>
+  <div class="review-links">
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJgVC_oEzKwoARSbymWy1QPUQ" target="_blank" class="rl-google">🗺️ See All Reviews on Google</a>
+    <a href="https://www.yelp.com/biz/nakas-broiler-compton" target="_blank" class="rl-yelp">⭐ Read Reviews on Yelp</a>
+  </div>
+</div>
+
 <footer><p>© 2025 Naka's Broiler · Compton, CA · Breakfast & Lunch</p></footer>
 
 <script>

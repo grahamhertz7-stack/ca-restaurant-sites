@@ -43,6 +43,20 @@
   .carousel-dots span.active { background: #fff; }
 
   .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.95em; }
+
+  .reviews-section { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
+  .reviews-section h2 { font-size: 1.8em; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 10px; }
+  .review-cards { display: grid; gap: 18px; }
+  .review-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 18px 20px; font-family: sans-serif; }
+  .review-card .rv-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .review-card .rv-author { font-weight: bold; font-size: 0.95em; }
+  .review-card .rv-stars { color: #FFD700; font-size: 1em; }
+  .review-card .rv-text { font-size: 0.88em; line-height: 1.65; opacity: 0.88; }
+  .review-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+  .review-links a { display: inline-block; padding: 10px 20px; border-radius: 6px; font-family: sans-serif; font-size: 0.9em; font-weight: bold; text-decoration: none; }
+  .rl-google { background: #4285F4; color: white; }
+  .rl-yelp { background: #D32323; color: white; }
+
 </style>
 </head>
 <body>
@@ -115,6 +129,35 @@
     <a href="https://www.google.com/maps/search/Honduras+Restaurant+Mi+Sabor+525+Rosecrans+Ave+Compton+CA" target="_blank" class="btn btn-maps">📍 Open in Google Maps</a>
   </div>
 </div>
+
+<div class="reviews-section" id="reviews">
+  <h2>⭐ Real Reviews</h2>
+  <div class="review-cards">
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 S Jay</span><span class="rv-stars">★★★★★</span></div>
+      <div class="rv-text">"Where do I start????? 👀
+
+The service here was absolutely phenomenal, hands down top tier customer service.
+
+I spoke very little Español and the nice friendly lady made my entire experience well worth it. We were able to make great communication.
+
+I would 100000% recommend this re"</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 Alondra Cazun</span><span class="rv-stars">★★★★★</span></div>
+      <div class="rv-text">"Hands down the best pollo con tajadas Ever!!!! This place had me eating with my fingers, sucking them and wishing my husband would get full so he’d stop eating out of my plate! 😆 the serving is enough for 2 adults for sure! Highly recommend this Restaurant! 🫶🏼🫶🏼🫶🏼"</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 Eyleen Simmons</span><span class="rv-stars">★★★★★</span></div>
+      <div class="rv-text">"I don’t really give out reviews, but I must because the food was pretty good. Everything was seasoned to perfection. Also, I placed this order over the phone and the lady that answered the phone was very nice and kind. They went above and beyond with their customer service."</div>
+    </div>
+  </div>
+  <div class="review-links">
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJJ-fLfQDLwoARk4mLKOXHw3Q" target="_blank" class="rl-google">🗺️ See All Reviews on Google</a>
+    <a href="https://www.yelp.com/biz/honduras-restaurant-mi-sabor-compton" target="_blank" class="rl-yelp">⭐ Read Reviews on Yelp</a>
+  </div>
+</div>
+
 <footer><p>© 2025 Honduras Restaurant Mi Sabor · Compton, CA</p></footer>
 
 <script>
