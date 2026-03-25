@@ -1,116 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ten-Raku Korean BBQ | All You Can Eat – Lynwood, CA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ten-Raku Korean BBQ — Lynwood, CA</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  * {margin:0;padding:0;box-sizing:border-box}
-  body {font-family:'Georgia',serif;background:#0d0000;color:#f0ead8}
-  header {background:linear-gradient(135deg,#8B0000,#C0392B);padding:60px 20px;text-align:center}
-  header h1 {font-size:2.6em;letter-spacing:2px;text-shadow:1px 2px 8px rgba(0,0,0,.4)}
-  header p.tagline {font-size:1.2em;margin-top:10px;color:#FFD700;font-style:italic}
-  .badge {display:inline-block;background:#FFD700;color:#0d0000;padding:6px 18px;border-radius:20px;font-weight:bold;margin-top:15px;font-family:sans-serif}
-  nav {background:#060000;display:flex;justify-content:center;gap:20px;padding:15px;flex-wrap:wrap;align-items:center}
-  nav a {color:#FFD700;text-decoration:none;font-family:sans-serif;font-weight:bold;font-size:.95em}
-  .menu-modal-btn {display:inline-block;background:#27AE60;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-family:sans-serif;font-weight:bold;font-size:.9em}
-  .carousel-wrap {position:relative;overflow:hidden;height:360px;background:#000}
-  .carousel-inner {display:flex;transition:transform .7s ease;height:100%}
-  .carousel-inner img {min-width:100%;height:360px;object-fit:cover;flex-shrink:0}
-  .carousel-caption {position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:15px 20px;font-family:sans-serif;font-size:.9em;color:#eee}
-  .carousel-btn {position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;font-size:1.6em;padding:10px 16px;cursor:pointer;z-index:10;border-radius:4px}
-  .carousel-btn.prev {left:10px}.carousel-btn.next {right:10px}
-  .carousel-dots {position:absolute;bottom:10px;right:15px;display:flex;gap:7px}
-  .carousel-dots span {width:9px;height:9px;background:rgba(255,255,255,.4);border-radius:50%;cursor:pointer;display:inline-block;transition:background .3s}
-  .carousel-dots span.active {background:#fff}
-  .hero-links {display:flex;justify-content:center;gap:15px;flex-wrap:wrap;padding:30px 20px;background:#060000}
-  .btn {display:inline-block;padding:14px 28px;border-radius:8px;font-size:1em;font-weight:bold;text-decoration:none;font-family:sans-serif}
-  .btn-call {background:#27AE60;color:white}.btn-doordash {background:#FF3008;color:white}.btn-maps {background:#4285F4;color:white}
-  .section {max-width:800px;margin:0 auto;padding:50px 20px}
-  h2 {font-size:1.8em;color:#FFD700;margin-bottom:20px;border-bottom:2px solid rgba(255,255,255,.15);padding-bottom:10px}
-  .menu-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:15px;margin-top:10px}
-  .menu-item {background:#060000;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:15px;text-align:center}
-  .menu-item span {font-size:1.5em}.menu-item p {margin-top:8px;font-size:.9em;font-family:sans-serif}
-  .hours-grid {display:grid;grid-template-columns:1fr 1fr;gap:8px;font-family:sans-serif}
-  .day {font-weight:bold;color:#FFD700}
-  .review-card {background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:18px 20px;font-family:sans-serif;margin-bottom:15px}
-  .rv-top {display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-  .rv-author {font-weight:bold;font-size:.95em}.rv-stars {color:#FFD700}.rv-text {font-size:.88em;line-height:1.65;opacity:.88}
-  .review-links {display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-  .review-links a {display:inline-block;padding:10px 20px;border-radius:6px;font-family:sans-serif;font-size:.9em;font-weight:bold;text-decoration:none}
-  .rl-google {background:#4285F4;color:white}.rl-yelp {background:#D32323;color:white}
-  .contact-box {background:#060000;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:25px;text-align:center;font-family:sans-serif}
-  .phone {font-size:2em;color:#FFD700;margin:10px 0}
-  footer {background:rgba(0,0,0,.4);text-align:center;padding:25px;font-family:sans-serif;font-size:.85em;color:#666}
+  :root {
+    --white: #fafaf8;
+    --black: #111110;
+    --accent: #dc2626;
+    --mist: #f2f2f0;
+    --mid: #777772;
+    --border: rgba(17,17,16,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 5rem;
+    background: rgba(250,250,248,0.94);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--black); }
+  .nav-logo span { color: var(--accent); }
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--mid); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta { background: var(--black) !important; color: var(--white) !important; padding: 0.55rem 1.4rem; border-radius: 6px; font-size: 0.8rem !important; font-weight: 600 !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  .lang-toggle { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .lang-btn { background: transparent; border: none; color: var(--mid); font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; padding: 0.35rem 0.7rem; cursor: pointer; transition: all 0.2s; }
+  .lang-btn.active { background: var(--black); color: var(--white); }
+  .lang-btn:hover:not(.active) { color: var(--black); }
+
+  .float-lang { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; display: flex; border: 1px solid var(--border); background: rgba(250,250,248,0.95); backdrop-filter: blur(8px); border-radius: 6px; overflow: hidden; box-shadow: 0 4px 20px rgba(17,17,16,0.1); }
+  .float-lang .lang-btn { font-size: 0.85rem; padding: 0.5rem 0.9rem; }
+
+  .hero { min-height: 100vh; padding: 10rem 5rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; overflow: hidden; background: var(--white); }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: var(--mist); z-index: 0; clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%); }
+
+  .hero-left { position: relative; z-index: 2; opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: #fef2f2; color: var(--accent); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.8rem; opacity: 0; animation: fadeUp 0.7s 0.4s ease forwards; }
+  .hero-title { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.04em; color: var(--black); margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.8s 0.5s ease forwards; }
+  .hero-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--accent); }
+  .hero-subtitle { font-size: 1.05rem; font-weight: 300; color: var(--mid); line-height: 1.8; max-width: 440px; margin: 1.5rem 0 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.7s ease forwards; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.9s ease forwards; }
+  .hero-right { position: relative; z-index: 2; opacity: 0; animation: fadeUp 0.9s 0.6s ease forwards; }
+  .hero-card { background: var(--white); border-radius: 20px; padding: 3rem 2.5rem; box-shadow: 0 4px 40px rgba(17,17,16,0.08); border: 1px solid var(--border); }
+  .hero-card-emoji { font-size: 5rem; display: block; margin-bottom: 1.5rem; }
+  .hero-card-title { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--black); margin-bottom: 0.8rem; letter-spacing: -0.02em; }
+  .hero-card-text { font-size: 0.9rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
+  .hero-card-location { margin-top: 1.8rem; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.8rem; }
+  .location-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .location-text { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+  .location-text strong { color: var(--black); font-weight: 600; display: block; margin-bottom: 0.2rem; }
+
+  .btn-primary { background: var(--black); color: var(--white); padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: all 0.25s; display: inline-block; border-radius: 8px; }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(220,38,38,0.25); }
+  .btn-secondary { background: transparent; color: var(--black); padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: 1.5px solid var(--border); cursor: pointer; transition: all 0.25s; display: inline-block; border-radius: 8px; }
+  .btn-secondary:hover { border-color: var(--black); transform: translateY(-2px); }
+
+  .strip { background: var(--black); padding: 0.85rem 0; overflow: hidden; }
+  .strip-inner { display: flex; gap: 3rem; white-space: nowrap; animation: stripScroll 22s linear infinite; }
+  @keyframes stripScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .strip-item { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,250,248,0.6); display: flex; align-items: center; gap: 1rem; }
+  .strip-dot { width: 3px; height: 3px; background: var(--accent); border-radius: 50%; }
+
+  .about { padding: 8rem 5rem; background: var(--white); }
+  .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem; align-items: center; }
+  .about-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .about-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--black); margin-bottom: 1.5rem; }
+  .about-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--accent); }
+  .about-body { font-size: 1rem; font-weight: 300; color: var(--mid); line-height: 1.85; margin-bottom: 1.2rem; }
+  .about-stats { display: flex; gap: 3rem; margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+  .stat-val { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--black); letter-spacing: -0.03em; line-height: 1; }
+  .stat-lbl { font-size: 0.72rem; color: var(--mid); margin-top: 0.3rem; font-weight: 400; letter-spacing: 0.05em; }
+  .quote-block { background: var(--mist); border-radius: 16px; padding: 2.5rem; border-left: 3px solid var(--accent); }
+  .quote-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; font-style: italic; line-height: 1.8; color: var(--black); margin-bottom: 1rem; }
+  .quote-attr { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+
+  .menu-section { padding: 8rem 5rem; background: var(--mist); }
+  .menu-inner { max-width: 1100px; margin: 0 auto; }
+  .section-header { margin-bottom: 4rem; }
+  .section-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; color: var(--black); }
+  .section-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--accent); }
+  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .menu-card { background: var(--white); border-radius: 14px; padding: 2.2rem 1.8rem; border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s; cursor: default; }
+  .menu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(17,17,16,0.08); }
+  .menu-emoji { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .menu-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+  .menu-desc { font-size: 0.86rem; color: var(--mid); line-height: 1.65; font-weight: 300; margin-bottom: 1rem; }
+  .menu-tag { display: inline-block; background: #fef2f2; color: var(--accent); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 100px; }
+
+  .reviews { padding: 8rem 5rem; background: var(--white); }
+  .reviews-inner { max-width: 1100px; margin: 0 auto; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+  .review-card { background: var(--mist); border-radius: 14px; padding: 2.2rem; transition: transform 0.3s, box-shadow 0.3s; }
+  .review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(17,17,16,0.07); }
+  .review-stars { color: #e6a817; font-size: 0.85rem; margin-bottom: 1rem; }
+  .review-text { font-family: 'Instrument Serif', serif; font-size: 1rem; font-style: italic; line-height: 1.8; color: var(--black); margin-bottom: 1.5rem; }
+  .review-author { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); }
+
+  .cta { padding: 8rem 5rem; background: var(--black); text-align: center; position: relative; overflow: hidden; }
+  .cta::before { content: '🔥'; position: absolute; font-size: 30rem; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; pointer-events: none; }
+  .cta-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; position: relative; z-index: 1; }
+  .cta-title { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; color: var(--white); margin-bottom: 1.2rem; position: relative; z-index: 1; }
+  .cta-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--accent); }
+  .cta-sub { font-size: 1rem; font-weight: 300; color: rgba(250,250,248,0.5); margin-bottom: 3rem; position: relative; z-index: 1; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; margin-bottom: 4rem; }
+  .btn-white { background: var(--white); color: var(--black); padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: all 0.25s; display: inline-block; border-radius: 8px; }
+  .btn-white:hover { background: var(--accent); color: var(--white); transform: translateY(-2px); }
+  .btn-outline-white { background: transparent; color: var(--white); padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: 1.5px solid rgba(250,250,248,0.2); cursor: pointer; transition: all 0.25s; display: inline-block; border-radius: 8px; }
+  .btn-outline-white:hover { border-color: var(--white); transform: translateY(-2px); }
+  .cta-info { display: flex; gap: 4rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; padding-top: 3rem; border-top: 1px solid rgba(250,250,248,0.08); }
+  .info-block { text-align: center; }
+  .info-lbl { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .info-val { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500; color: rgba(250,250,248,0.8); }
+
+  footer { background: #0a0a09; padding: 2.5rem 5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+  .footer-logo span { color: var(--accent); }
+  .footer-tagline { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 0.9rem; color: rgba(250,250,248,0.3); }
+  .footer-copy { font-size: 0.68rem; letter-spacing: 0.08em; color: rgba(250,250,248,0.2); text-transform: uppercase; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 8rem 2rem 4rem; gap: 3rem; }
+    .hero-right { display: none; }
+    .about { padding: 5rem 2rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .menu-section { padding: 5rem 2rem; }
+    .menu-grid { grid-template-columns: 1fr 1fr; }
+    .reviews { padding: 5rem 2rem; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .cta { padding: 5rem 2rem; }
+    .cta-info { gap: 2rem; }
+    footer { padding: 2rem; flex-direction: column; text-align: center; }
+    .about-stats { gap: 2rem; flex-wrap: wrap; }
+  }
+  @media (max-width: 600px) { .menu-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
-<header>
-  <h1>🔥 Ten-Raku Korean BBQ</h1>
-  <p class="tagline">All You Can Eat Korean BBQ · Lynwood, CA</p>
-  <div class="badge">⭐ 4.7 · 1428 Reviews</div>
-</header>
-<nav>
-  <a href="#menu">Menu</a><a href="#hours">Hours</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-  <a href="https://www.google.com/maps/place/?q=place_id:ChIJwwlH_YnLwoARLIocxcadSqk" target="_blank" class="menu-modal-btn">📋 View on Maps</a>
-</nav>
-<div class="carousel-wrap">
-  <div class="carousel-inner">    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEHWM4RDxhlND943Y1pOSDigEtXWr5qyqEFQcZEB_ONqzxLLOAngCOCl92ixRIOmCxr5vOfClNriq3aF5SXXjkNIV-SIMWpeqP2VNs_itfiO9f128JtqMBcFzFPwinSudVFEJkv2WZUwUGb-1d3l1AMKM-nCs38mbn2vwTbkcfvXvIY-ogk-7hOk1GkG26nKZtLvjjbdcpQZSMzz1xwd2982J27g4-KZeXbm6Kg-oypOdcjm6alR-4D0Dh1kE_jtYNCsFNv-qqrD_TCLL7u4r2XUwcMawQyIHDI9PSR9P0oILQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEHVC7oSRe8oDkBD0hpgY5tiZTD0c7Yz_Lgs3DxJr683Q93pA7u9EzZnDunkI0RrCkEatqP73OTn0oDkLpripWgddLL_I6pBhk-PMoR4Ci8wjlgxCiyfq_SJ3bj9qtkfCPGb89UZ-THOf5_AZgMweX9GZzpXC6CvoYUjF9KS6qySdmi8Y6dqnt1RC5cAx5G9IUVTbwvnQKvJOHLN9JbSOo_6V__qeXa8rJiejnvDtDxGMV3KXd9zZrF9IKn0N_hb5XmDyeTuxk4JZu6-7U55IvUW3K9VhhSuultlN4eESEOAiQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEFbLEruK76HqnX9gI5CengzdYG_85IEXEb4gGHhE4TLzZc1BxkhuEsIpbKoR7wM44Z3KEThYFwY1mBZcQUB0Bds1AdR68F6fo5zRMAfSGBaFYSb82ZjYmzkJwgLZn7pYVcwDaDiOFwZADz16-_MPPAryZBGcYkxuieypkCE6HkaQDo0vU_d-d97M5ZZPSg6kjDk2vBuVmr78XviWLw-sV38YglpMxTU3ZRXimPp3HFWL0RqaMjkWpsA4yy94EE0naq0sAxSSc5RNNPeiWu5-jSfrUAQT-xuy4cXlRmqNCw1eoq5TVvzZN0Tz-mfmpuMByCYfCqsJ-fkvSpviJb0Yh6_8a2QsjhEMFeZycfNmxgHzsPgZ2MDHM6O7n-ktwTUGGm-HSYRTGaxpM26uZsjT3s139dHKyP42Bl5Z4joz9SqeZU/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEHzy8dRLEseIguxMXO7G35vIDNXX6iRPueWylhwo_3pfSqYthEUazZFQG1S1T_3DHAloGOgRiiOLH9712iTyuyI4CDjlDCD-u6c3fdPgJii8N80eRfdiGfocoH7ceaFpaSMfLc-A0LVe9IW64eWTqKjlOaduqa43BeYoom5u4VDTK-4O2pvfttUuugQI4wYz7aENqltRCDCAswshVWxMKGjzGpQ59I3HdFhQundu6INQSrboEuQ6BBIkDPQd7l5RkkoV6OVyMFfl1Y7Mk5hAgl1y3y0Waoipfdn9TOQnz8kPTXyDxFCwr0SJPreeWmxI0maWR1mNQO6xaDAOUAyVDero-IDCLN4aXI4rDyk1_luqIrkb2LrcKXivTATaR70gK6so6aqP5PUZjTXRgpnhdl4jG9BNp9hxAZtN53mgZ0S4SI/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEHE8KzMgso7wwzUp7lyQAHjTrXBNOxPUXvsfDtgUN5Se1Alcy6yud95BzK-OIkRBP-ZfiNs_5Np2px-gVv-v8OxGSymriLQtqgMGgR7HYyt4wJQVWlzZuspvShabQdZjz3n1bZ4lS2A2EfTrtfkLqnrPXZ92C7yYEdfxjCz8m3f-dvk3dP8e2-XasTYQMjv4WVu-tDCeLhn3QsodoQluKhD-WiWrmkY91shRtL2f59xVEExkNx0XZhap4oTw1wQidfvPjITM-AcRn7sS_6r6UhC0r8bDXewboMGnf0j7a9iD6BZf7bd9ZqbrW91ssXurHUQHvfl1ll6Hpkldur0ujapkM3ZIruXUOzjKlF6RoXLm6ElPPQQObaTrIRcfM5WQcTd09N4qjvbXsl9hRVeK78AizMAHCrAJN-E-Cwy5ywIB2E/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEHvdyHHiYCk9bEJF2uN5zdZkgV-eO6VJK0ccixFCqksmRppq2Puy6iU59OF3smdknN_U-qSpYVUaT691eDpG5oAJoSUvPzOsDr-dysgdB90ldsQvDIU5kKEwsppIK34z1pElBQ7Vn1Vr7TSFXtwcUnEEISKZ4YV8AxYgW8Pwvmw_5VRS7ci3Pw2q7-TBvPcEU_C9PlA0Km7sfpFefyZE4XQMUf2pSibnur7qQhj0tlhol28nv0zRv5B2QPvjxe2LjVoZrSTX92DOA1bv3KYddIWC2xsqlWBL2WffqhW87lmO02ar1UwcOk_t0GoFjlLYVLOpztifNVvq6B03CkgAwZOuPNqF45PjOL7A5eGwN-un02TOO6RWY3ubr34kvEER6zaMRUL4LcOs1oskJyEe_1NT_ToPd0vj6eX9nn442Nu0GYb0Rl_EN1oOFRBYw/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food" loading="lazy">
-</div>
-  <button class="carousel-btn prev">&#8249;</button><button class="carousel-btn next">&#8250;</button>
-  <div class="carousel-dots">    <span  class="active"></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-  <div class="carousel-caption"></div>
-</div>
-<div class="hero-links">
-  <a href="tel:+13104641683" class="btn btn-call">📞 (310) 464-1683</a>
-  <a href="https://www.doordash.com/search/store/Ten-Raku%20Korean%20BBQ%20Lynwood" target="_blank" class="btn btn-doordash">🛵 DoorDash</a>
-  <a href="https://www.google.com/maps/place/?q=place_id:ChIJwwlH_YnLwoARLIocxcadSqk" target="_blank" class="btn btn-maps">📍 Directions</a>
-</div>
-<div class="section" id="menu"><h2>All You Can Eat Menu</h2><div class="menu-grid">    <div class="menu-item"><span>🥩</span><p>AYCE Korean BBQ</p></div>
-    <div class="menu-item"><span>🫕</span><p>Bulgogi</p></div>
-    <div class="menu-item"><span>🍖</span><p>Galbi Short Ribs</p></div>
-    <div class="menu-item"><span>🐷</span><p>Samgyeopsal Pork Belly</p></div>
-    <div class="menu-item"><span>🦑</span><p>Grilled Squid</p></div>
-    <div class="menu-item"><span>🍜</span><p>Naengmyeon Noodles</p></div>
-</div></div>
-<div class="section" id="hours"><h2>Hours</h2>
-  <div class="hours-grid"><div class="day">Hours</div><div>Call to confirm</div></div>
-  <p style="margin-top:15px;font-family:sans-serif;font-size:.9em;opacity:.7">📞 Call (310) 464-1683 for today's hours.</p>
-</div>
-<div class="section" id="reviews"><h2>⭐ Real Reviews</h2>    <div class="review-card"><div class="rv-top"><span class="rv-author">👤 kimberly</span><span class="rv-stars">★★★★★</span></div><div class="rv-text">"Such a spacious and fun atmosphere! The waitresses were super friendly. The robots are pretty cool too. The meats were fresh and came out immediately after ordering them. I recommend the green apple soju.. it tastes like juice! I had such a fun and delicious time dining with my h"</div></div>
-    <div class="review-card"><div class="rv-top"><span class="rv-author">👤 Klarissa Robledo</span><span class="rv-stars">★★★★★</span></div><div class="rv-text">"This is my third time here and it has been nothing but great service. The food is fantastic and they have a variety based off on the menu you choose from. I myself would recommend the corn cheese its always a must have for me. The atmosphere is always so full of positive energy a"</div></div>
-    <div class="review-card"><div class="rv-top"><span class="rv-author">👤 Ang Gee</span><span class="rv-stars">★★★★☆</span></div><div class="rv-text">"We were told if we were missing one person from our group wasn't there. .even if he potentially wasn't coming.. that we couldn't be seated..when we finally sat .bcuz we said he wasn't coming...it didn't matter bcuz u pay per person & no one planned on staying longer..because of t"</div></div>
 
-  <div class="review-links">
-    <a href="https://www.google.com/maps/place/?q=place_id:ChIJwwlH_YnLwoARLIocxcadSqk" target="_blank" class="rl-google">🗺️ All Reviews on Google</a>
-    <a href="https://www.yelp.com/search?find_desc=ten+raku&find_loc=Lynwood%2C+CA" target="_blank" class="rl-yelp">⭐ Reviews on Yelp</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ten-<span>Raku</span></div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#menu" data-en="Menu" data-ko="메뉴">Menu</a></li>
+      <li><a href="#about" data-en="About" data-ko="소개">About</a></li>
+      <li><a href="#reviews" data-en="Reviews" data-ko="리뷰">Reviews</a></li>
+      <li><a href="#visit" class="nav-cta" data-en="Find Us" data-ko="찾아오기">Find Us</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ko')">한국어</button>
+    </div>
+  </div>
+</nav>
+
+<!-- FLOATING TOGGLE -->
+<div class="float-lang">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('ko')">한국어</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag" data-en="🔥 Lynwood, CA" data-ko="🔥 린우드, CA">🔥 Lynwood, CA</div>
+    <h1 class="hero-title">Ten-<em>Raku</em><br>Korean BBQ</h1>
+    <p class="hero-subtitle" data-en="All you can eat Korean BBQ in Lynwood. Fresh meats, fun atmosphere, robot servers, and flavors that keep you coming back." data-ko="린우드의 무한리필 한국식 바비큐. 신선한 고기, 즐거운 분위기, 로봇 서빙, 그리고 계속 찾게 만드는 맛.">All you can eat Korean BBQ in Lynwood. Fresh meats, fun atmosphere, robot servers, and flavors that keep you coming back.</p>
+    <div class="hero-actions">
+      <a href="tel:+13104641683" class="btn-primary" data-en="📞 전화 주문" data-ko="📞 전화 주문">📞 전화 주문</a>
+      <a href="#menu" class="btn-secondary" data-en="🥩 See Menu" data-ko="🥩 메뉴 보기">🥩 See Menu</a>
+      <a href="#visit" class="btn-secondary" data-en="Find Us" data-ko="찾아오기">Find Us</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <span class="hero-card-emoji">🔥</span>
+      <div class="hero-card-title" data-en="무한리필 한국식 바비큐" data-ko="무한리필 한국식 바비큐">무한리필 한국식 바비큐</div>
+      <p class="hero-card-text" data-en="All you can eat Korean BBQ with a huge variety of meats, fresh side dishes, and even robot servers. A full experience every time." data-ko="다양한 고기, 신선한 반찬, 심지어 로봇 서빙까지 갖춘 무한리필 한국식 바비큐. 매번 완벽한 경험.">All you can eat Korean BBQ with a huge variety of meats, fresh side dishes, and even robot servers. A full experience every time.</p>
+      <div class="hero-card-location">
+        <div class="location-dot"></div>
+        <div class="location-text">
+          <strong data-en="3102 E Imperial Hwy, Lynwood" data-ko="3102 E Imperial Hwy, 린우드">3102 E Imperial Hwy, Lynwood</strong>
+          <span data-en="Call to confirm hours" data-ko="영업시간 확인을 위해 전화 주세요">Call to confirm hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-item">🔥 All You Can Eat Korean BBQ <span class="strip-dot"></span></span>
+    <span class="strip-item">⭐ 4.7 Stars · 1,428 Reviews <span class="strip-dot"></span></span>
+    <span class="strip-item">🥩 Bulgogi &amp; Galbi <span class="strip-dot"></span></span>
+    <span class="strip-item">🤖 Robot Servers <span class="strip-dot"></span></span>
+    <span class="strip-item">📍 Lynwood, CA <span class="strip-dot"></span></span>
+    <span class="strip-item">🍺 Green Apple Soju <span class="strip-dot"></span></span>
+    <span class="strip-item">🔥 All You Can Eat Korean BBQ <span class="strip-dot"></span></span>
+    <span class="strip-item">⭐ 4.7 Stars · 1,428 Reviews <span class="strip-dot"></span></span>
+    <span class="strip-item">🥩 Bulgogi &amp; Galbi <span class="strip-dot"></span></span>
+    <span class="strip-item">🤖 Robot Servers <span class="strip-dot"></span></span>
+    <span class="strip-item">📍 Lynwood, CA <span class="strip-dot"></span></span>
+    <span class="strip-item">🍺 Green Apple Soju <span class="strip-dot"></span></span>
   </div>
 </div>
-<div class="section" id="contact"><h2>Contact & Location</h2>
-  <div class="contact-box">
-    <div class="phone">📞 (310) 464-1683</div>
-    <div style="color:#aaa;margin-bottom:15px">3102 E Imperial Hwy, Lynwood, CA 90262, USA</div>
-    <a href="https://www.google.com/maps/place/?q=place_id:ChIJwwlH_YnLwoARLIocxcadSqk" target="_blank" class="btn btn-maps">📍 Open in Google Maps</a>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="about-inner">
+    <div class="reveal">
+      <p class="about-eyebrow" data-en="About Ten-Raku" data-ko="텐라쿠 소개">About Ten-Raku</p>
+      <h2 class="about-title" data-en="Lynwood's<br>hottest <em>BBQ.</em>" data-ko="린우드 최고의<br><em>바비큐.</em>">Lynwood's<br>hottest <em>BBQ.</em></h2>
+      <p class="about-body" data-en="Ten-Raku Korean BBQ offers all-you-can-eat Korean BBQ in a spacious, fun atmosphere in Lynwood. With fresh meats that arrive right after you order and a menu packed with options, every visit is a full experience." data-ko="텐라쿠 한국식 바비큐는 린우드의 넓고 즐거운 공간에서 무한리필 한국식 바비큐를 제공합니다. 주문 직후 바로 나오는 신선한 고기와 다양한 메뉴로 매번 완벽한 경험을 선사합니다.">Ten-Raku Korean BBQ offers all-you-can-eat Korean BBQ in a spacious, fun atmosphere in Lynwood. Fresh meats arrive right after ordering, and the menu has something for everyone.</p>
+      <p class="about-body" data-en="The robot servers are a hit. The corn cheese is always a must-have. And the green apple soju? People say it tastes like juice. Positive energy fills the room every time." data-ko="로봇 서빙은 정말 인기가 많습니다. 콘치즈는 항상 필수 메뉴입니다. 그리고 그린 애플 소주? 사람들은 주스 같다고 합니다. 매번 활기찬 에너지가 가득합니다.">The robot servers are a hit. The corn cheese is a must-have. The green apple soju tastes like juice. Positive energy fills the room every time.</p>
+      <a href="tel:+13104641683" class="btn-primary" style="margin-top:0.5rem;" data-en="📞 (310) 464-1683" data-ko="📞 (310) 464-1683">📞 (310) 464-1683</a>
+      <div class="about-stats">
+        <div>
+          <div class="stat-val">4.7★</div>
+          <div class="stat-lbl" data-en="Google Rating" data-ko="구글 평점">Google Rating</div>
+        </div>
+        <div>
+          <div class="stat-val">1.4K</div>
+          <div class="stat-lbl" data-en="Reviews" data-ko="리뷰">Reviews</div>
+        </div>
+        <div>
+          <div class="stat-val">AYCE</div>
+          <div class="stat-lbl" data-en="All You Can Eat" data-ko="무한리필">All You Can Eat</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="quote-block">
+        <p class="quote-text" data-en='"Such a spacious and fun atmosphere! The waitresses were super friendly. The robots are pretty cool too. The meats were fresh and came out immediately after ordering. I recommend the green apple soju — it tastes like juice!"' data-ko='"넓고 즐거운 분위기! 직원들이 매우 친절했어요. 로봇도 정말 멋있었고요. 고기는 신선하고 주문 직후 바로 나왔어요. 그린 애플 소주 추천해요 — 주스 맛이에요!"'>"Such a spacious and fun atmosphere! The robots are cool too. Meats were fresh and came out immediately after ordering. The green apple soju tastes like juice!"</p>
+        <div class="quote-attr">— kimberly · Google Review</div>
+      </div>
+    </div>
   </div>
-</div>
-<footer><p>© 2025 Ten-Raku All You Can Eat Korean BBQ · Lynwood, CA</p></footer>
+</section>
+
+<!-- PHOTO STRIP -->
+<section style="background: var(--black); padding: 4rem 0; overflow: hidden;">
+  <div style="display: flex; gap: 1rem; overflow-x: auto; padding: 0 5rem; scrollbar-width: none;">
+    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEHWM4RDxhlND943Y1pOSDigEtXWr5qyqEFQcZEB_ONqzxLLOAngCOCl92ixRIOmCxr5vOfClNriq3aF5SXXjkNIV-SIMWpeqP2VNs_itfiO9f128JtqMBcFzFPwinSudVFEJkv2WZUwUGb-1d3l1AMKM-nCs38mbn2vwTbkcfvXvIY-ogk-7hOk1GkG26nKZtLvjjbdcpQZSMzz1xwd2982J27g4-KZeXbm6Kg-oypOdcjm6alR-4D0Dh1kE_jtYNCsFNv-qqrD_TCLL7u4r2XUwcMawQyIHDI9PSR9P0oILQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Ten-Raku BBQ" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEHVC7oSRe8oDkBD0hpgY5tiZTD0c7Yz_Lgs3DxJr683Q93pA7u9EzZnDunkI0RrCkEatqP73OTn0oDkLpripWgddLL_I6pBhk-PMoR4Ci8wjlgxCiyfq_SJ3bj9qtkfCPGb89UZ-THOf5_AZgMweX9GZzpXC6CvoYUjF9KS6qySdmi8Y6dqnt1RC5cAx5G9IUVTbwvnQKvJOHLN9JbSOo_6V__qeXa8rJiejnvDtDxGMV3KXd9zZrF9IKn0N_hb5XmDyeTuxk4JZu6-7U55IvUW3K9VhhSuultlN4eESEOAiQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Ten-Raku BBQ" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEFbLEruK76HqnX9gI5CengzdYG_85IEXEb4gGHhE4TLzZc1BxkhuEsIpbKoR7wM44Z3KEThYFwY1mBZcQUB0Bds1AdR68F6fo5zRMAfSGBaFYSb82ZjYmzkJwgLZn7pYVcwDaDiOFwZADz16-_MPPAryZBGcYkxuieypkCE6HkaQDo0vU_d-d97M5ZZPSg6kjDk2vBuVmr78XviWLw-sV38YglpMxTU3ZRXimPp3HFWL0RqaMjkWpsA4yy94EE0naq0sAxSSc5RNNPeiWu5-jSfrUAQT-xuy4cXlRmqNCw1eoq5TVvzZN0Tz-mfmpuMByCYfCqsJ-fkvSpviJb0Yh6_8a2QsjhEMFeZycfNmxgHzsPgZ2MDHM6O7n-ktwTUGGm-HSYRTGaxpM26uZsjT3s139dHKyP42Bl5Z4joz9SqeZU/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Ten-Raku BBQ" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEHzy8dRLEseIguxMXO7G35vIDNXX6iRPueWylhwo_3pfSqYthEUazZFQG1S1T_3DHAloGOgRiiOLH9712iTyuyI4CDjlDCD-u6c3fdPgJii8N80eRfdiGfocoH7ceaFpaSMfLc-A0LVe9IW64eWTqKjlOaduqa43BeYoom5u4VDTK-4O2pvfttUuugQI4wYz7aENqltRCDCAswshVWxMKGjzGpQ59I3HdFhQundu6INQSrboEuQ6BBIkDPQd7l5RkkoV6OVyMFfl1Y7Mk5hAgl1y3y0Waoipfdn9TOQnz8kPTXyDxFCwr0SJPreeWmxI0maWR1mNQO6xaDAOUAyVDero-IDCLN4aXI4rDyk1_luqIrkb2LrcKXivTATaR70gK6so6aqP5PUZjTXRgpnhdl4jG9BNp9hxAZtN53mgZ0S4SI/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Ten-Raku BBQ" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEHE8KzMgso7wwzUp7lyQAHjTrXBNOxPUXvsfDtgUN5Se1Alcy6yud95BzK-OIkRBP-ZfiNs_5Np2px-gVv-v8OxGSymriLQtqgMGgR7HYyt4wJQVWlzZuspvShabQdZjz3n1bZ4lS2A2EfTrtfkLqnrPXZ92C7yYEdfxjCz8m3f-dvk3dP8e2-XasTYQMjv4WVu-tDCeLhn3QsodoQluKhD-WiWrmkY91shRtL2f59xVEExkNx0XZhap4oTw1wQidfvPjITM-AcRn7sS_6r6UhC0r8bDXewboMGnf0j7a9iD6BZf7bd9ZqbrW91ssXurHUQHvfl1ll6Hpkldur0ujapkM3ZIruXUOzjKlF6RoXLm6ElPPQQObaTrIRcfM5WQcTd09N4qjvbXsl9hRVeK78AizMAHCrAJN-E-Cwy5ywIB2E/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Ten-Raku BBQ" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJwwlH_YnLwoARLIocxcadSqk/photos/AU_ZVEHvdyHHiYCk9bEJF2uN5zdZkgV-eO6VJK0ccixFCqksmRppq2Puy6iU59OF3smdknN_U-qSpYVUaT691eDpG5oAJoSUvPzOsDr-dysgdB90ldsQvDIU5kKEwsppIK34z1pElBQ7Vn1Vr7TSFXtwcUnEEISKZ4YV8AxYgW8Pwvmw_5VRS7ci3Pw2q7-TBvPcEU_C9PlA0Km7sfpFefyZE4XQMUf2pSibnur7qQhj0tlhol28nv0zRv5B2QPvjxe2LjVoZrSTX92DOA1bv3KYddIWC2xsqlWBL2WffqhW87lmO02ar1UwcOk_t0GoFjlLYVLOpztifNVvq6B03CkgAwZOuPNqF45PjOL7A5eGwN-un02TOO6RWY3ubr34kvEER6zaMRUL4LcOs1oskJyEe_1NT_ToPd0vj6eX9nn442Nu0GYb0Rl_EN1oOFRBYw/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Ten-Raku BBQ" style="height:280px; width:420px; object-fit:cover; border-radius:12px; flex-shrink:0;" loading="lazy">
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="menu-section">
+  <div class="menu-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-en="What We Grill" data-ko="우리가 굽는 것들">What We Grill</p>
+      <h2 class="section-title" data-en="The <em>Menu</em>" data-ko="<em>메뉴</em>">The <em>Menu</em></h2>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <span class="menu-emoji">🥩</span>
+        <div class="menu-name" data-en="AYCE Korean BBQ" data-ko="무한리필 한국식 바비큐">AYCE Korean BBQ</div>
+        <p class="menu-desc" data-en="All you can eat Korean BBQ with multiple tiers to choose from. Grill at the table, eat as much as you want." data-ko="다양한 등급의 무한리필 한국식 바비큐. 테이블에서 직접 구워 원하는 만큼 드세요.">All you can eat Korean BBQ with multiple tiers. Grill at the table, eat as much as you want.</p>
+        <span class="menu-tag" data-en="AYCE" data-ko="무한리필">AYCE</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-1">
+        <span class="menu-emoji">🫕</span>
+        <div class="menu-name" data-en="Bulgogi" data-ko="불고기">Bulgogi</div>
+        <p class="menu-desc" data-en="Thinly sliced marinated beef with a sweet and savory soy-sesame glaze. A Korean BBQ classic that caramelizes beautifully on the grill." data-ko="달콤하고 짭조름한 간장-참깨 소스에 재운 얇게 썬 소고기. 그릴에서 아름답게 캐러멜라이즈되는 한국식 바비큐의 정석.">Thinly sliced marinated beef with sweet and savory soy-sesame glaze. A Korean BBQ classic.</p>
+        <span class="menu-tag" data-en="Classic" data-ko="클래식">Classic</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-2">
+        <span class="menu-emoji">🍖</span>
+        <div class="menu-name" data-en="Galbi Short Ribs" data-ko="갈비">Galbi Short Ribs</div>
+        <p class="menu-desc" data-en="Flanken-style short ribs marinated in a rich soy-garlic-pear sauce. Juicy, tender, and deeply flavored — a crowd favorite." data-ko="진한 간장-마늘-배 소스에 재운 LA갈비. 육즙 풍부하고 부드러우며 깊은 맛이 일품인 인기 메뉴.">Flanken-style short ribs marinated in a rich soy-garlic-pear sauce. Juicy and deeply flavored.</p>
+        <span class="menu-tag" data-en="Fan Favorite" data-ko="인기 메뉴">Fan Favorite</span>
+      </div>
+      <div class="menu-card reveal">
+        <span class="menu-emoji">🐷</span>
+        <div class="menu-name" data-en="Samgyeopsal (Pork Belly)" data-ko="삼겹살">Samgyeopsal (Pork Belly)</div>
+        <p class="menu-desc" data-en="Thick-cut pork belly grilled tableside until crispy on the outside, tender inside. Wrap in lettuce with garlic and ssamjang." data-ko="테이블에서 직접 굽는 두툼한 삼겹살. 겉은 바삭하고 속은 부드럽게. 마늘과 쌈장과 함께 상추에 싸서 드세요.">Thick-cut pork belly grilled tableside until crispy outside, tender inside. Wrap in lettuce with garlic.</p>
+        <span class="menu-tag" data-en="Must Grill" data-ko="꼭 구워야">Must Grill</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-1">
+        <span class="menu-emoji">🧀</span>
+        <div class="menu-name" data-en="Corn Cheese" data-ko="콘치즈">Corn Cheese</div>
+        <p class="menu-desc" data-en="Sweet corn in a creamy, cheesy sauce — a K-BBQ side dish staple. Always a must-have according to every regular." data-ko="달콤한 옥수수에 크리미한 치즈 소스 — 한국식 바비큐의 필수 사이드 메뉴. 단골손님들이 항상 꼭 주문하는 메뉴.">Sweet corn in a creamy cheese sauce. Always a must-have according to every regular.</p>
+        <span class="menu-tag" data-en="Always Order" data-ko="항상 주문">Always Order</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-2">
+        <span class="menu-emoji">🍜</span>
+        <div class="menu-name" data-en="Naengmyeon Noodles" data-ko="냉면">Naengmyeon Noodles</div>
+        <p class="menu-desc" data-en="Cold buckwheat noodles in a chilled beef broth — the perfect finish to an AYCE Korean BBQ meal. Cool, refreshing, and satisfying." data-ko="차가운 소고기 육수에 담긴 차가운 메밀면 — 무한리필 한국식 바비큐 식사의 완벽한 마무리. 시원하고 상쾌하며 포만감이 있습니다.">Cold buckwheat noodles in chilled beef broth — the perfect finish to an AYCE meal.</p>
+        <span class="menu-tag" data-en="Great Finish" data-ko="식사 마무리">Great Finish</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="reviews">
+  <div class="reviews-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-en="What People Say" data-ko="고객 후기">What People Say</p>
+      <h2 class="section-title" data-en="4.7 Stars · <em>1,428 Reviews</em>" data-ko="4.7점 · <em>1,428개 리뷰</em>">4.7 Stars · <em>1,428 Reviews</em></h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-en='"Such a spacious and fun atmosphere! The waitresses were super friendly. The robots are pretty cool too. The meats were fresh and came out immediately after ordering. I recommend the green apple soju — it tastes like juice!"' data-ko='"넓고 즐거운 분위기! 직원들이 매우 친절했어요. 로봇도 정말 멋있었고요. 고기는 신선하고 주문 직후 바로 나왔어요. 그린 애플 소주 추천해요 — 주스 맛이에요!"'>"Such a spacious and fun atmosphere! The robots are cool. Meats were fresh and came immediately. The green apple soju tastes like juice!"</p>
+        <div class="review-author">kimberly · Google Review</div>
+      </div>
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-en='"This is my third time here and it has been nothing but great service. The food is fantastic with a great variety. I always recommend the corn cheese — always a must have. The atmosphere is always full of positive energy."' data-ko='"세 번째 방문인데 매번 훌륭한 서비스예요. 음식이 환상적이고 메뉴도 다양해요. 콘치즈는 항상 추천해요 — 꼭 먹어야 해요. 분위기는 항상 긍정적인 에너지로 가득해요."'>"Third time here, nothing but great service. Fantastic food with great variety. The corn cheese is always a must-have. Atmosphere is always full of positive energy."</p>
+        <div class="review-author">Klarissa Robledo · Google Review</div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text" data-en='"Good food and fun atmosphere overall. The AYCE selection is solid and the meats are fresh. Robot servers are a nice touch. Great spot for groups."' data-ko='"전반적으로 좋은 음식과 즐거운 분위기. 무한리필 메뉴가 훌륭하고 고기도 신선해요. 로봇 서빙이 재미있는 요소예요. 그룹 모임에 좋은 곳이에요."'>"Good food and fun atmosphere overall. The AYCE selection is solid and the meats are fresh. Robot servers are a nice touch. Great spot for groups."</p>
+        <div class="review-author">Ang Gee · Google Review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="visit" class="cta">
+  <p class="cta-eyebrow reveal" data-en="Come Eat With Us" data-ko="함께 식사하러 오세요">Come Eat With Us</p>
+  <h2 class="cta-title reveal" data-en="Light the grill.<br><em>Let's eat.</em>" data-ko="불을 피워요.<br><em>같이 먹어요.</em>">Light the grill.<br><em>Let's eat.</em></h2>
+  <p class="cta-sub reveal" data-en="3102 E Imperial Hwy in Lynwood. Call ahead to check hours and reserve your table." data-ko="린우드 3102 E Imperial Hwy. 전화해서 영업시간을 확인하고 테이블을 예약하세요.">3102 E Imperial Hwy in Lynwood. Call ahead to check hours and reserve your table.</p>
+  <div class="cta-actions reveal">
+    <a href="tel:+13104641683" class="btn-white" data-en="📞 전화 주문 (310) 464-1683" data-ko="📞 전화 주문 (310) 464-1683">📞 전화 주문 (310) 464-1683</a>
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJwwlH_YnLwoARLIocxcadSqk" target="_blank" class="btn-outline-white" data-en="📍 길 안내" data-ko="📍 길 안내">📍 길 안내</a>
+  </div>
+  <div class="cta-info reveal">
+    <div class="info-block">
+      <div class="info-lbl" data-en="영업시간" data-ko="영업시간">영업시간</div>
+      <div class="info-val" data-en="Call to Confirm" data-ko="전화 확인">Call to Confirm</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="Phone" data-ko="전화">Phone</div>
+      <div class="info-val">(310) 464-1683</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="위치" data-ko="위치">위치</div>
+      <div class="info-val" data-en="Lynwood, CA 90262" data-ko="린우드, CA 90262">Lynwood, CA 90262</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="가격" data-ko="가격">가격</div>
+      <div class="info-val">AYCE</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Ten-<span>Raku</span> Korean BBQ</div>
+  <div class="footer-tagline" data-en="무한리필 한국식 바비큐 · Lynwood, CA" data-ko="무한리필 한국식 바비큐 · 린우드, CA">무한리필 한국식 바비큐 · Lynwood, CA</div>
+  <div class="footer-copy">© 2025 Ten-Raku Korean BBQ · Lynwood, CA</div>
+</footer>
+
 <script>
-(function(){var inner=document.querySelector('.carousel-inner'),dots=document.querySelectorAll('.carousel-dots span'),total=inner?inner.children.length:0,idx=0;
-function go(n){idx=(n+total)%total;inner.style.transform='translateX(-'+(idx*100)+'%)';dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});}
-document.querySelector('.carousel-btn.prev').addEventListener('click',function(){go(idx-1);});
-document.querySelector('.carousel-btn.next').addEventListener('click',function(){go(idx+1);});
-dots.forEach(function(d,i){d.addEventListener('click',function(){go(i);});});
-setInterval(function(){go(idx+1);},4000);go(0);})();
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) el.innerHTML = text;
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const btnLang = btn.textContent.toLowerCase() === 'en' ? 'en' : 'ko';
+      btn.classList.toggle('active', btnLang === lang);
+    });
+    document.documentElement.lang = lang;
+  }
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>
