@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pescaderia y Restaurante Don Chema | South Gate, CA</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #001520; color: #f0ead8; }
+  header { background: linear-gradient(135deg, #004D6E, #007BA7); padding: 60px 20px; text-align: center; }
+  header h1 { font-size: 2.6em; letter-spacing: 2px; text-shadow: 1px 2px 8px rgba(0,0,0,0.4); }
+  header p.tagline { font-size: 1.2em; margin-top: 10px; color: #7EC8E3; font-style: italic; }
+  .badge { display: inline-block; background: #7EC8E3; color: #001520; padding: 6px 18px; border-radius: 20px; font-weight: bold; margin-top: 15px; font-family: sans-serif; }
+  nav { background: #000e18; display: flex; justify-content: center; gap: 20px; padding: 15px; flex-wrap: wrap; align-items: center; }
+  nav a { color: #7EC8E3; text-decoration: none; font-family: sans-serif; font-weight: bold; font-size: 0.95em; }
+  .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.9em; }
+  .carousel-wrap { position: relative; overflow: hidden; height: 360px; background: #000; }
+  .carousel-inner { display: flex; transition: transform 0.7s ease; height: 100%; }
+  .carousel-inner img { min-width: 100%; height: 360px; object-fit: cover; flex-shrink: 0; }
+  .carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.6)); padding: 15px 20px; font-family: sans-serif; font-size: 0.9em; color: #eee; }
+  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; font-size: 1.6em; padding: 10px 16px; cursor: pointer; z-index: 10; border-radius: 4px; }
+  .carousel-btn.prev { left: 10px; } .carousel-btn.next { right: 10px; }
+  .carousel-dots { position: absolute; bottom: 10px; right: 15px; display: flex; gap: 7px; }
+  .carousel-dots span { width: 9px; height: 9px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; display: inline-block; transition: background 0.3s; }
+  .carousel-dots span.active { background: #fff; }
+  .hero-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 30px 20px; background: #000e18; }
+  .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-size: 1em; font-weight: bold; text-decoration: none; font-family: sans-serif; }
+  .btn-call { background: #27AE60; color: white; } .btn-doordash { background: #FF3008; color: white; } .btn-maps { background: #4285F4; color: white; }
+  .section { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
+  h2 { font-size: 1.8em; color: #7EC8E3; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 10px; }
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-top: 10px; }
+  .menu-item { background: #000e18; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; text-align: center; }
+  .menu-item span { font-size: 1.5em; } .menu-item p { margin-top: 8px; font-size: 0.9em; font-family: sans-serif; }
+  .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-family: sans-serif; }
+  .day { font-weight: bold; color: #7EC8E3; }
+  .review-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 18px 20px; font-family: sans-serif; margin-bottom: 15px; }
+  .rv-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .rv-author { font-weight: bold; font-size: 0.95em; } .rv-stars { color: #FFD700; } .rv-text { font-size: 0.88em; line-height: 1.65; opacity: 0.88; }
+  .review-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+  .review-links a { display: inline-block; padding: 10px 20px; border-radius: 6px; font-family: sans-serif; font-size: 0.9em; font-weight: bold; text-decoration: none; }
+  .rl-google { background: #4285F4; color: white; } .rl-yelp { background: #D32323; color: white; }
+  .contact-box { background: #000e18; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: center; font-family: sans-serif; }
+  .phone { font-size: 2em; color: #7EC8E3; margin: 10px 0; }
+  footer { background: rgba(0,0,0,0.4); text-align: center; padding: 25px; font-family: sans-serif; font-size: 0.85em; color: #666; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🐟 Pescaderia y Restaurante Don Chema</h1>
+  <p class="tagline">Fresh Mexican Seafood & Fish Market · South Gate, CA</p>
+  <div class="badge">⭐ 4.8 · 96 Reviews</div>
+</header>
+<nav>
+  <a href="#menu">Menu</a><a href="#hours">Hours</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+  <a href="https://www.google.com/maps/place/?q=place_id:ChIJIZdx2SrNwoARryKC7z_tTOU" target="_blank" class="menu-modal-btn">📋 View on Maps</a>
+</nav>
+<div class="carousel-wrap">
+  <div class="carousel-inner">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEHHNLCHNpnJ3e6XvY0ba2dp8DhwmXwEOpRZgZzzibnC2Pwv1b5RwkM9IzQa5-yJOTw96QPdZ_AqzThseqjJL4sjz6bEmFFmELrjv4R0lOHtZGRebojjOWtvmkkMXUESskRzh4eVBxrvc-OTlfdkznBFXotXL_e5H-dt9_6L3trQKWPYxbzgL4uIcYgVq8MdsRDfShM-T3Bkk9fdhnVOpMZ0VX6TCaLFi4j41sHj4TXGyASz8PgmaCA0-DWVn78Y5PeHhozyU4oF23yp0jlNrz9RxUKE5p8DOqHYkWsU_6rJvQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEGbUhE7HE4pWcVUxBJelRBg2uwlkH9FC6IVczX6cUR2gxJOODqHueF_-bQlhfLjet3owTDFEQUu0cPhgdc_xwmYjq_6jnHWCWDVmTa_rgv9JGZWiTiD9KaZgMFM25cx-A19zu8k-N2sJnv55wfKseT5BWvn3rEU4HGD6VXke8j5Dn833wJuOKyF6zIUdamNfWV3WRZ-p8VAYK-NTp6iwbLzEBwrQj6prA2KZ-sJZjoM9MFXZlxplRWZyI3vWroc6W7IFCIHmSFoHAb-jCp-LpURJ_z9wmeyzCbW46Y9Ovvz1paslgY4J7GGNp5d6rZQqkGBmMFGgCyNLb-SxwVJqN3FpvNeBOmCkrj00vpsVQqXk33AUMWCLwU1sYWFTeXjLCeZHJP_TAY8_eEyhGYKGGou3f8CCwjZulUkkhxbye-n/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEFCNG43jGdqmutxFj0GXp2Szdunmch2KEHzmrnHlZtSTcg5WleCfDcUEB5awM7jirRTGB5phXhAGZDL-kuLsfTVdM_DEijHrR14r-zBCT-w2Tr0BkbAyhG2Gl8269VOK5sz2kM_jC5mTzD0mZOAh4nwDj4e-d2zipJSmoIpvb0waMkXgrOuwoD5ntWCXVQxuCLxM5cXXpIDivhtn5BQiXdznO6MzKAgEIt9zAEWcB6cYPzRyUn1V27nMGvbxKb2ZcyObVmT98v9qWbJbVzJTaVLZe5QBR7GGM7SBLgYheIdqaSbxPRy-vFk7Gjk2dbhvGbIkOPj-VvybgrbHXEZdZA7rmv4KgQ-KKgwBORzaWrSvuxatYEbfIYC7D9K9RrSbc1Tv91CEUYWddp9EmhC3FIXh_PiVSQDNM36B74_GQI/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEF18gzvt97u8LVHxbz3f2UlN5d_y7bgkuArqPcYOuKdpE9-pcv3JOTvi1QfMuVLlYS8q8_iuUZsDppLW9V7MVRRSXya3aIP3Eyqr-JFDNMCBB5xkZnttLc1TR2_VckEnUH_pkBdxTqQGS7kNb8e94-bWthJ-uLiBpUCI-TN3GZ-Zf4thwXA7D8A9pX_Flu1xdDF6UCfBr420k50VUiZ8a7OlmArTQXVBE1X0AcMJnV4eFKsd3_wiDvL-Y10Qcym61pkDI6IF5Rlg4XJ8-NFBdW33TmS62qnjHPfFrMIRLrO0Quv4JVX6xGuVMy2mKaWhoXqHjqJ_m6codfLMTpXxHQBlfyqfgcbH3-cc81EuiDem2LYhRSLZVqteSQcOZaiNu_FZX19flscoW518ONpiS0VJs9ysMmcmiL3XfGQaaA/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEEDTj-0XtqcTDWFzusyzSMVnLKgOHyDTJYDYlkmk4KK2lRr1PvIMeRKZx13LRSvf-XZGVZgxFfp-WqR6qZjUJI7dVHlyvEiANx07w_2VGRzj2viYwAFXAK1THB4Gg-UJ7v_ahXUM-mm3dN3mUCf_r5qblDBqgHqIHLxKuuuI1wwSsF-ArohRhUAWIU0KO-8K8uO3w3ZdgAQRqpLirP07sMFpe86diq0qYjJqUyAxUFR64dEPI085GrnjJ9ybs-MWH4MSv1WQ1I5t459v9ugBECV4Y2U5avSlU8t6_TScLbIxBEjEhih7F_4O1zqPce65rh21SLJqjGDbToSF3MMG4ztaTFUokkQCnpHVJXCGaUMIbBkRB3F7beLwesjchPqu9ZGrWMqSGc6Wi1F9U8JdvJN6wyd2S0nJBO85YoHXGHD/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJIZdx2SrNwoARryKC7z_tTOU/photos/AU_ZVEGZbKAq63vLYicn9KRvqiKWYaX6PTDDh7oB0VeR2SmMTqqsPR_k5x-iHATYYZGhVvqatJi6uZllu5XdsnTJXzuKwrukHuM0jgdot9-Zl1_v8bJzr2fNJ8XhNHjsN8YjIJul_7LbWvupB2Fny4sr40dC941QMSUBy7HsJIKl8lzJbCib10BElIEOtZFt4g-Mj6GOomPV-NG6Aj1YdEZYTngDzeI12KDLYcZdXTM8Hclc9B1IZDjM2hwLtFbAmAEfb6gnQP2WoMAlrXYMc2_UG6HvzXiq2npw8ACiv4Es_OhV4ToRu-wgTVi9kcOPLORRfMAiWQbeX0fxmS-Pzjcsqc3U4WVIj7yQ7MTwEhIJfz2pADVf_9nNI3DsM5eDLS4tC48iCKMJcsgg1qeCJYlBGumlMGo9WWDK7Bzr5K_LDDA/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+  </div>
+  <button class="carousel-btn prev">&#8249;</button><button class="carousel-btn next">&#8250;</button>
+  <div class="carousel-dots">    <span  class="active"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="carousel-caption"></div>
+</div>
+<div class="hero-links">
+  <a href="tel:+13235633554" class="btn btn-call">📞 (323) 563-3554</a>
+  <a href="https://www.doordash.com/search/store/Don%20Chema%20South%20Gate" target="_blank" class="btn btn-doordash">🛵 DoorDash</a>
+  <a href="https://www.google.com/maps/place/?q=place_id:ChIJIZdx2SrNwoARryKC7z_tTOU" target="_blank" class="btn btn-maps">📍 Directions</a>
+</div>
+<div class="section" id="menu">
+  <h2>Menu Highlights</h2>
+  <div class="menu-grid">    <div class="menu-item"><span>🐟</span><p>Whole Fried Fish</p></div>
+    <div class="menu-item"><span>🦐</span><p>Camarones a la Diabla</p></div>
+    <div class="menu-item"><span>🌮</span><p>Fish Tacos</p></div>
+    <div class="menu-item"><span>🥣</span><p>Ceviche</p></div>
+    <div class="menu-item"><span>🌊</span><p>Aguachiles</p></div>
+    <div class="menu-item"><span>🫙</span><p>Mariscos Cocktail</p></div>
+  </div>
+</div>
+<div class="section" id="hours">
+  <h2>Hours</h2>
+  <div class="hours-grid"><div class="day">Hours</div><div>Call to confirm</div></div>
+  <p style="margin-top:15px; font-family:sans-serif; font-size:0.9em; opacity:0.7">📞 Call (323) 563-3554 for today's hours.</p>
+</div>
+<div class="section" id="reviews">
+  <h2>⭐ Real Reviews</h2>
+    <div class="review-card"><div class="rv-top"><span class="rv-author">👤 ihatesushi89</span><span class="rv-stars">★★★★★</span></div><div class="rv-text">"Camarones are delicious. Mojarras are very tender but plenty of flavor. So succulent. Shrimp is full of flavor. I believe it comes with a butter sauce substance.  Don't blame me if it doesn't. Just saw what I had on my tray."</div></div>
+    <div class="review-card"><div class="rv-top"><span class="rv-author">👤 Ivan Valencia</span><span class="rv-stars">★★★★★</span></div><div class="rv-text">"GREATEST PESCADERIA in Los Angeles area. Everything is super fresh and flavorful. Prices are phenomenal for the quality of food they sell."</div></div>
+    <div class="review-card"><div class="rv-top"><span class="rv-author">👤 Epoxy J</span><span class="rv-stars">★★★★★</span></div><div class="rv-text">"Definitely the best spot for fresh seafood if you’re in the Downey/South Gate area and surrounding cities. I was looking for some shrimp for some aguachiles to make at home and came across this place on Google. I stopped by and took a box of their 13/15 shrimp. Very fresh shrimp,"</div></div>
+
+  <div class="review-links">
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJIZdx2SrNwoARryKC7z_tTOU" target="_blank" class="rl-google">🗺️ All Reviews on Google</a>
+    <a href="https://www.yelp.com/search?find_desc=don+chema&find_loc=South+Gate%2C+CA" target="_blank" class="rl-yelp">⭐ Reviews on Yelp</a>
+  </div>
+</div>
+<div class="section" id="contact">
+  <h2>Contact & Location</h2>
+  <div class="contact-box">
+    <div class="phone">📞 (323) 563-3554</div>
+    <div style="color:#aaa; margin-bottom:15px">9804 Atlantic Ave, South Gate, CA 90280, USA</div>
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJIZdx2SrNwoARryKC7z_tTOU" target="_blank" class="btn btn-maps">📍 Open in Google Maps</a>
+  </div>
+</div>
+<footer><p>© 2025 Pescaderia y Restaurante Don Chema · South Gate, CA</p></footer>
+<script>
+(function() {
+  var inner = document.querySelector('.carousel-inner');
+  var dots = document.querySelectorAll('.carousel-dots span');
+  var total = inner ? inner.children.length : 0; var idx = 0;
+  function go(n) {
+    idx = (n+total)%total;
+    inner.style.transform='translateX(-'+(idx*100)+'%)';
+    dots.forEach(function(d,i){ d.classList.toggle('active',i===idx); });
+  }
+  document.querySelector('.carousel-btn.prev').addEventListener('click',function(){go(idx-1);});
+  document.querySelector('.carousel-btn.next').addEventListener('click',function(){go(idx+1);});
+  dots.forEach(function(d,i){d.addEventListener('click',function(){go(i);});});
+  setInterval(function(){go(idx+1);},4000); go(0);
+})();
+</script>
+</body>
+</html>
