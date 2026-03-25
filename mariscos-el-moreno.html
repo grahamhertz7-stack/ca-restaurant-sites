@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariscos El Moreno | Lynwood</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #001520; color: #f0ead8; }
+  header { background: linear-gradient(135deg, #006994, #00BFFF); padding: 60px 20px; text-align: center; }
+  header h1 { font-size: 2.8em; letter-spacing: 2px; text-shadow: 1px 2px 8px rgba(0,0,0,0.4); }
+  header p.tagline { font-size: 1.2em; margin-top: 10px; color: #7EC8E3; font-style: italic; }
+  .badge { display: inline-block; background: #7EC8E3; color: #001520; padding: 6px 18px; border-radius: 20px; font-weight: bold; margin-top: 15px; font-family: sans-serif; }
+  nav { background: #000e18; display: flex; justify-content: center; gap: 20px; padding: 15px; flex-wrap: wrap; align-items: center; }
+  nav a { color: #7EC8E3; text-decoration: none; font-family: sans-serif; font-weight: bold; font-size: 0.95em; }
+  .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.9em; }
+  .carousel-wrap { position: relative; overflow: hidden; height: 360px; background: #000; }
+  .carousel-inner { display: flex; transition: transform 0.7s ease; height: 100%; }
+  .carousel-inner img { min-width: 100%; height: 360px; object-fit: cover; flex-shrink: 0; }
+  .carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.6)); padding: 15px 20px; font-family: sans-serif; font-size: 0.9em; color: #eee; }
+  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; font-size: 1.6em; padding: 10px 16px; cursor: pointer; z-index: 10; border-radius: 4px; }
+  .carousel-btn.prev { left: 10px; } .carousel-btn.next { right: 10px; }
+  .carousel-dots { position: absolute; bottom: 10px; right: 15px; display: flex; gap: 7px; }
+  .carousel-dots span { width: 9px; height: 9px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; display: inline-block; transition: background 0.3s; }
+  .carousel-dots span.active { background: #fff; }
+  .hero-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 30px 20px; background: #000e18; }
+  .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-size: 1em; font-weight: bold; text-decoration: none; font-family: sans-serif; }
+  .btn-call { background: #27AE60; color: white; }
+  .btn-doordash { background: #FF3008; color: white; }
+  .btn-maps { background: #4285F4; color: white; }
+  .section { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
+  h2 { font-size: 1.8em; color: #7EC8E3; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 10px; }
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-top: 10px; }
+  .menu-item { background: #000e18; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; text-align: center; }
+  .menu-item span { font-size: 1.5em; }
+  .menu-item p { margin-top: 8px; font-size: 0.9em; font-family: sans-serif; }
+  .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-family: sans-serif; }
+  .day { font-weight: bold; color: #7EC8E3; }
+  .review-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 18px 20px; font-family: sans-serif; margin-bottom: 15px; }
+  .rv-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .rv-author { font-weight: bold; font-size: 0.95em; }
+  .rv-stars { color: #FFD700; }
+  .rv-text { font-size: 0.88em; line-height: 1.65; opacity: 0.88; }
+  .review-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+  .review-links a { display: inline-block; padding: 10px 20px; border-radius: 6px; font-family: sans-serif; font-size: 0.9em; font-weight: bold; text-decoration: none; }
+  .rl-google { background: #4285F4; color: white; }
+  .rl-yelp { background: #D32323; color: white; }
+  .contact-box { background: #000e18; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; text-align: center; font-family: sans-serif; }
+  .phone { font-size: 2em; color: #7EC8E3; margin: 10px 0; }
+  footer { background: rgba(0,0,0,0.4); text-align: center; padding: 25px; font-family: sans-serif; font-size: 0.85em; color: #666; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🦐 Mariscos El Moreno</h1>
+  <p class="tagline">Fresh Mexican Seafood · Lynwood, CA</p>
+  <div class="badge">⭐ 4.5 · 1414 Reviews</div>
+</header>
+<nav>
+  <a href="#menu">Menu</a>
+  <a href="#hours">Hours</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="https://www.google.com/maps/place/?q=place_id:ChIJUwNwuGfMwoARZENgI2Ke1dQ" target="_blank" class="menu-modal-btn">📋 View on Maps</a>
+</nav>
+<div class="carousel-wrap">
+  <div class="carousel-inner">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwNwuGfMwoARZENgI2Ke1dQ/photos/AU_ZVEHEAjg13ohUV3lqESb_7sd0cw6uNYDvYZZ-77dySM_FDgsrzobwy3HRd4qd-0TN0-UioS1HcqyRkHQvJj-T5mOLCWfT389-Gy5H_d4uVb9Exlbm4bLproa3hEChSu7CNb_3_IERcjWe2yftCm8eSvTnY78gkL6INh_ubJKV080LkremeZszXV8J0RHIIIlda2qVIp1cdu-D07GjU6wA8-cTf7_Obsxwsp4YY6_78ZzWDL8b3VO2qpkC2XUF-uoqVxh84BdmR3ZiVGKTlXUfhOokPEc8J8NiteGTu4oS1_-l-Wq_CzrXCveHEaf3YPQPl4BDYWAVVQloL-_t8LHtojXOwRngQgygfJwdS1-62qeGhgdhuDJ-lC312LOps4BO74GUeJK8c8xl6g_ck5uFjTCOkQsH9Ebz_d650KEMqxY/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwNwuGfMwoARZENgI2Ke1dQ/photos/AU_ZVEFSflkVhkcJYYX1ux_nOD37aMomJCsFDdVd9SmWM3J7lfHuOCeUzsGc3PVkIyzNEqQGqGisob__FvgVmlqWVngg0dqQQdW7gcsz9i5EXvb-M7mVXHg39MHCbwfOxMp1vgzi7XjtQ_6WDSw4hNpyEamkQDJJjlUc0XVB1rRHi4QrHaRczS1wLgc9BumdrnEjxrV4VLWKEuXyw6cOJ9uxhGXfgR93k2XHShw8eXIelhq5rNDhATstqZWd5e_dMZMJ3_Nr24JNWXXTTXYvXXNKDnfNWSB4XtYUyLBOe9Feb2hw-qBOhYxmXAWfqFZRtTeEld9unuPkU6XWeHnKulfJm-_XHUddwO5L5VpLxmtdSJRndDWGBCt4TnvNi14movO4jUhANPMIwcl0psRduJYSQOUrTt9p_pqZ5ALGVF1i77q9XWECMS05SR-2J7TGJQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwNwuGfMwoARZENgI2Ke1dQ/photos/AU_ZVEEssJF6cuTa5s0VXrCX9MclAgJbPzrIUP9ZBCYCBhuho3liCQJc0S40aMBhKsgV9xFCbqLfLad7zNbGbgDlq2pzsv8DPmh09-rSeb3_TfrPdrqShA7r5rwc16oipzY6aBWTBbPaGauUSDEPbmGFepo6g_XbdzQ42d0OTPhuusarPG-KFgjO6ianmiQpi_b6SRuYyHAguUcoeGG8WQZiS-yw6flnHBox5qcqwOcagRDsDsjrAUIS-KZ-6vxbZ_S0czQyGBhN1PCy4o-0mcUfSuLNHHmWsNvzPwQwOm3eq3GRQQPvMaDeAqO1BSOSl86feudWZ4qQ3XBZOOzLVfLRZkatw0XAww7GrI1gJFHmJ84NqPiX6dAFyE9Noj2qbmGrkOQG5xD7cCHKTjxfD7Ka5lbpfR094r4Mll63UB4FBw8/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwNwuGfMwoARZENgI2Ke1dQ/photos/AU_ZVEHToSUeGAWIbAv7VqeL9vSd_dW3nm7CKjXcyw_r1gLQWLWgFU3HTOozc_DdanvKkvBV2hyZAOTcm0umyoz2UOHc57Oyty8hZUIUVzrafvxR2hmZjodr_4mjmIvxnGE6KgvFA-fYwwjoxNzSYBwrxaIzXTwwLex1w93eW4ubsCXKV5oMk5UJf63yfIfxfiOLqV_uu7h--NEpnjcMfEWR346uRLgoqwRbKGjtFlIdAQYxj4PQnu-tTL6m4x7RCYp7loOeFwIb4Yqz55omwA0rvfc8aAggV9mOa2ozzSOxZudwtlIgHr52g9k6Ik5g-oDKZ5i2LNchQ4xusQpFGKlbghjQ0v4dZsH1jhxUaAfPRiO1pvaPxD5iDN3SUqVFWY93G-7NlwJFci8qZglDiQcoH0aCdTxcltx5nM7CNgfhOBk/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwNwuGfMwoARZENgI2Ke1dQ/photos/AU_ZVEGNpG__QXuDPh6fM3F7UvAKTKw_N8oHaKuW3vvDhaa-AysV3pmvy1J3g9QkHO0eP4xRo2Jd_oEJEIVUJG-J9u7mABCECyqZccEwHpF6a_lEqXnR5VhI61gHu6vJAs99TJo0TKs0-7aeUQlsGaO9HvtfIT48E29Q_B0APMt-nR1YvyCa04NGAFuPitS4jpRXBZ3Ik24NZz-1hFwqoVYMG_x5rRDUeiPTE1BTzyK53h8tG624mQz8JIzWQ_QT_aVqJlPCA-vfF4VSQkqWTo4C6w4d-OnukQZe7P_z8x6tN0CJ0O4IRuzQZJjzULIJWTgwjdtXl7Sl8El__Wlk1OJSmehdUfFJEnrlKFjbmQCetkjjO98ThKPuSL7th_gRl2rZ0a6pHt3SpPeLIqi8CP7cy7niApp1gh4s1VEnc4qi-w78LBeswdv-bdWmVZZKEQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwNwuGfMwoARZENgI2Ke1dQ/photos/AU_ZVEHiUtHLQSZQKAv655GhD0XbsvDqInkN1lxaKBFLFP_rp02wItwnf5zefS_Ds1-P5RGIf7BjRKy0-9PWexuM4BidlK1Q-5uFtFsQERj7KeteGSqQ4smOOJ3QjnnCzcnZLQtXSIhZpCMrZEI0qlxX_HMCYle-8QtREFKWbhkFvI08vhpquUWYc44CDQ4RCTnLFT542MMDvTF-hwZeavg99Rd6LBzcOpWbtaMPxmSl8Z5WYwTK_u_rVggttUsAKSjR5PFDHc2ttFJAxxUhxY0DxtzrSLivEHgb9NcVorcmJ90iYtaRPvvfr2rsyztCSi4LZhEuk6gHg7EzbRpcOvv7C-vW2ZFNykG6B3AhoD1ynByW6HrZKUi88Nfji5azFgpNl29mg33DkrDaAdPunFCnojC7w4qTehFLtszdzlz8CmQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+  </div>
+  <button class="carousel-btn prev">&#8249;</button>
+  <button class="carousel-btn next">&#8250;</button>
+  <div class="carousel-dots">
+    <span  class="active"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="carousel-caption"></div>
+</div>
+<div class="hero-links">
+  <a href="tel:+13238101740" class="btn btn-call">📞 (323) 810-1740</a>
+  <a href="https://www.doordash.com/search/store/Mariscos%20El%20Moreno%20Lynwood" target="_blank" class="btn btn-doordash">🛵 DoorDash</a>
+  <a href="https://www.google.com/maps/place/?q=place_id:ChIJUwNwuGfMwoARZENgI2Ke1dQ" target="_blank" class="btn btn-maps">📍 Directions</a>
+</div>
+<div class="section" id="menu">
+  <h2>Menu Highlights</h2>
+  <div class="menu-grid">
+    <div class="menu-item"><span>🦐</span><p>Camarones a la Diabla</p></div>
+    <div class="menu-item"><span>🌮</span><p>Tacos de Camarón</p></div>
+    <div class="menu-item"><span>🦞</span><p>Crab Legs</p></div>
+    <div class="menu-item"><span>🥣</span><p>Ceviche</p></div>
+    <div class="menu-item"><span>🌊</span><p>Aguachiles</p></div>
+    <div class="menu-item"><span>🐙</span><p>Pulpo</p></div>
+  </div>
+</div>
+<div class="section" id="hours">
+  <h2>Hours</h2>
+  <div class="hours-grid">
+    <div class="day">Hours</div><div>Call to confirm current hours</div>
+  </div>
+  <p style="margin-top:15px; font-family:sans-serif; font-size:0.9em; opacity:0.7">📞 Call us at (323) 810-1740 for today's hours.</p>
+</div>
+<div class="section" id="reviews">
+  <h2>⭐ Real Reviews</h2>
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 Patricia Massaro</span><span class="rv-stars">★★★★★</span></div>
+      <div class="rv-text">"The seafood here is so good! Tha raw tuna appy was fresh and delicious as were the other dishes we ordered. This is the place for mariscos! I will be back!"</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 Flakiss</span><span class="rv-stars">★★★★★</span></div>
+      <div class="rv-text">"On my weekend road trip by myself,decided to stop at Mariscos El Moreno,not gonna lie I was in San Pedro trying find a restaurant ,didnt know wether to eat menudo,birria or mariscos,from place to place ,I stopped by El Moreno after stopping to see another near by Mariscos restaur"</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-top"><span class="rv-author">👤 K Martinez</span><span class="rv-stars">★★★★★</span></div>
+      <div class="rv-text">"Food here was delicious.
+I’m not a big fan on  raw seafood but this change my perspective.
+I can say is one of  the best I’ve had .
+The place has a small dine in area, but they make it work.
+I did see a lot of orders for take out, and I seen that the service was pretty fast.
+I de"</div>
+    </div>
+
+  <div class="review-links">
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJUwNwuGfMwoARZENgI2Ke1dQ" target="_blank" class="rl-google">🗺️ All Reviews on Google</a>
+    <a href="https://www.yelp.com/search?find_desc=mariscos+el+moreno&find_loc=Lynwood%2C+CA" target="_blank" class="rl-yelp">⭐ Reviews on Yelp</a>
+  </div>
+</div>
+<div class="section" id="contact">
+  <h2>Contact & Location</h2>
+  <div class="contact-box">
+    <div class="phone">📞 (323) 810-1740</div>
+    <div style="color:#aaa; margin-bottom:15px">11098 Atlantic Ave, Lynwood, CA 90262, USA</div>
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJUwNwuGfMwoARZENgI2Ke1dQ" target="_blank" class="btn btn-maps">📍 Open in Google Maps</a>
+  </div>
+</div>
+<footer><p>© 2025 Mariscos El Moreno · California</p></footer>
+<script>
+(function() {
+  var inner = document.querySelector('.carousel-inner');
+  var dots = document.querySelectorAll('.carousel-dots span');
+  var total = inner ? inner.children.length : 0;
+  var idx = 0;
+  function go(n) {
+    idx = (n + total) % total;
+    inner.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+  }
+  document.querySelector('.carousel-btn.prev').addEventListener('click', function(){ go(idx-1); });
+  document.querySelector('.carousel-btn.next').addEventListener('click', function(){ go(idx+1); });
+  dots.forEach(function(d,i){ d.addEventListener('click', function(){ go(i); }); });
+  setInterval(function(){ go(idx+1); }, 4000);
+  go(0);
+})();
+</script>
+</body>
+</html>
