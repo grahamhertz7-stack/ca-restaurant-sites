@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MexiNica Taco Truck — Alamo & Danville, CA</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #fafaf8;
+    --black: #111110;
+    --red: #c93030;
+    --green: #2a6e3f;
+    --mist: #f2f2f0;
+    --mid: #777772;
+    --border: rgba(17,17,16,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 5rem;
+    background: rgba(250,250,248,0.94);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--black);
+  }
+
+  .nav-logo span { color: var(--red); }
+
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--mid);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  .nav-cta {
+    background: var(--black) !important;
+    color: var(--white) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 6px;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--red) !important; }
+
+  /* ── LANG ── */
+  .lang-toggle {
+    display: flex;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--mid);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active { background: var(--black); color: var(--white); }
+  .lang-btn:hover:not(.active) { color: var(--black); }
+
+  .float-lang {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    z-index: 200;
+    display: flex;
+    border: 1px solid var(--border);
+    background: rgba(250,250,248,0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(17,17,16,0.1);
+  }
+
+  .float-lang .lang-btn { font-size: 0.85rem; padding: 0.5rem 0.9rem; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding: 10rem 5rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--mist);
+    z-index: 0;
+    clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fef2f2;
+    color: var(--red);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s ease forwards;
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s ease forwards;
+  }
+
+  .hero-title em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--red);
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.8;
+    max-width: 440px;
+    margin: 1.5rem 0 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s ease forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s ease forwards;
+  }
+
+  .hero-right {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.6s ease forwards;
+  }
+
+  .hero-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 4px 40px rgba(17,17,16,0.08);
+    border: 1px solid var(--border);
+  }
+
+  .hero-card-emoji { font-size: 5rem; display: block; margin-bottom: 1.5rem; }
+
+  .hero-card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-card-text { font-size: 0.9rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
+
+  .hero-card-location {
+    margin-top: 1.8rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .location-dot {
+    width: 8px; height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .location-text { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+  .location-text strong { color: var(--black); font-weight: 600; display: block; margin-bottom: 0.2rem; }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: var(--black);
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+    border-radius: 8px;
+  }
+
+  .btn-primary:hover { background: var(--red); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,48,48,0.25); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--black);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+    border-radius: 8px;
+  }
+
+  .btn-secondary:hover { border-color: var(--black); transform: translateY(-2px); }
+
+  /* ── STRIP ── */
+  .strip { background: var(--black); padding: 0.85rem 0; overflow: hidden; }
+
+  .strip-inner {
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+    animation: stripScroll 22s linear infinite;
+  }
+
+  @keyframes stripScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .strip-item {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250,250,248,0.6);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .strip-dot { width: 3px; height: 3px; background: var(--red); border-radius: 50%; }
+
+  /* ── ABOUT ── */
+  .about {
+    padding: 8rem 5rem;
+    background: var(--white);
+  }
+
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+
+  .about-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-title em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--red);
+  }
+
+  .about-body {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--black);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .stat-lbl {
+    font-size: 0.72rem;
+    color: var(--mid);
+    margin-top: 0.3rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  .quote-block {
+    background: var(--mist);
+    border-radius: 16px;
+    padding: 2.5rem;
+    border-left: 3px solid var(--red);
+  }
+
+  .quote-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--black);
+    margin-bottom: 1rem;
+  }
+
+  .quote-attr {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  /* ── MENU ── */
+  .menu-section {
+    padding: 8rem 5rem;
+    background: var(--mist);
+  }
+
+  .menu-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-header { margin-bottom: 4rem; }
+
+  .section-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--black);
+  }
+
+  .section-title em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--red);
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .menu-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 2.2rem 1.8rem;
+    border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+
+  .menu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(17,17,16,0.08); }
+
+  .menu-emoji { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+  .menu-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .menu-desc { font-size: 0.86rem; color: var(--mid); line-height: 1.65; font-weight: 300; margin-bottom: 1rem; }
+
+  .menu-tag {
+    display: inline-block;
+    background: #fef2f2;
+    color: var(--red);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+  }
+
+  /* ── REVIEWS ── */
+  .reviews {
+    padding: 8rem 5rem;
+    background: var(--white);
+  }
+
+  .reviews-inner { max-width: 1100px; margin: 0 auto; }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .review-card {
+    background: var(--mist);
+    border-radius: 14px;
+    padding: 2.2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(17,17,16,0.07); }
+
+  .review-stars { color: #e6a817; font-size: 0.85rem; margin-bottom: 1rem; }
+
+  .review-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+
+  .review-author {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  /* ── CTA ── */
+  .cta {
+    padding: 8rem 5rem;
+    background: var(--black);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '🚚';
+    position: absolute;
+    font-size: 30rem;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .cta-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-title em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--red);
+  }
+
+  .cta-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(250,250,248,0.5);
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 4rem;
+  }
+
+  .btn-white {
+    background: var(--white);
+    color: var(--black);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+    border-radius: 8px;
+  }
+
+  .btn-white:hover { background: var(--red); color: var(--white); transform: translateY(-2px); }
+
+  .btn-outline-white {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid rgba(250,250,248,0.2);
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+    border-radius: 8px;
+  }
+
+  .btn-outline-white:hover { border-color: var(--white); transform: translateY(-2px); }
+
+  .cta-info {
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(250,250,248,0.08);
+  }
+
+  .info-block { text-align: center; }
+
+  .info-lbl {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.4rem;
+  }
+
+  .info-val {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(250,250,248,0.8);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0a0a09;
+    padding: 2.5rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .footer-logo span { color: var(--red); }
+
+  .footer-tagline {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: rgba(250,250,248,0.3);
+  }
+
+  .footer-copy {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: rgba(250,250,248,0.2);
+    text-transform: uppercase;
+  }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 8rem 2rem 4rem; gap: 3rem; }
+    .hero-right { display: none; }
+    .about { padding: 5rem 2rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .menu-section { padding: 5rem 2rem; }
+    .menu-grid { grid-template-columns: 1fr 1fr; }
+    .reviews { padding: 5rem 2rem; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .cta { padding: 5rem 2rem; }
+    .cta-info { gap: 2rem; }
+    footer { padding: 2rem; flex-direction: column; text-align: center; }
+    .about-stats { gap: 2rem; flex-wrap: wrap; }
+  }
+
+  @media (max-width: 600px) { .menu-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Mexi<span>Nica</span></div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#menu" data-en="Menu" data-es="Menú">Menu</a></li>
+      <li><a href="#about" data-en="About" data-es="Nosotros">About</a></li>
+      <li><a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a></li>
+      <li><a href="#visit" class="nav-cta" data-en="Find Us" data-es="Encuéntranos">Find Us</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<!-- FLOATING TOGGLE -->
+<div class="float-lang">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('es')">ES</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag" data-en="🌮 Alamo & Danville, CA" data-es="🌮 Alamo y Danville, CA">🌮 Alamo & Danville, CA</div>
+    <h1 class="hero-title">Mexi<em>Nica</em><br>Taco Truck</h1>
+    <p class="hero-subtitle" data-en="Mexican and Nicaraguan food done right. Burritos, tacos, and more — made fresh, priced fair, served fast." data-es="Comida mexicana y nicaragüense bien hecha. Burritos, tacos y más — hecho fresco, precio justo, servido rápido.">Mexican and Nicaraguan food done right. Burritos, tacos, and more — made fresh, priced fair, served fast.</p>
+    <div class="hero-actions">
+      <a href="tel:+19254971082" class="btn-primary" data-en="📞 Call to Order" data-es="📞 Llama para Ordenar">📞 Call to Order</a>
+      <a href="#menu" class="btn-secondary" data-en="🌮 See Menu" data-es="🌮 Ver Menú">🌮 See Menu</a>
+      <a href="#visit" class="btn-secondary" data-en="Find the Truck" data-es="Encuéntranos">Find the Truck</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <span class="hero-card-emoji">🌯</span>
+      <div class="hero-card-title" data-en="Best burrito in town." data-es="El mejor burrito del área.">Best burrito in town.</div>
+      <p class="hero-card-text" data-en="Hands down the most authentic burrito in the area — at the best price. A local staple for years." data-es="Sin duda el burrito más auténtico del área — al mejor precio. Un clásico local por años.">Hands down the most authentic burrito in the area — at the best price. A local staple for years.</p>
+      <div class="hero-card-location">
+        <div class="location-dot"></div>
+        <div class="location-text">
+          <strong data-en="Near Oak Hill Park, Alamo" data-es="Cerca del Parque Oak Hill, Alamo">Near Oak Hill Park, Alamo</strong>
+          <span data-en="Call to confirm location for the day" data-es="Llama para confirmar la ubicación del día">Call to confirm location for the day</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-item">🌮 Mexican & Nicaraguan <span class="strip-dot"></span></span>
+    <span class="strip-item">⭐ 4.5 Stars · 18 Reviews <span class="strip-dot"></span></span>
+    <span class="strip-item">💰 $10–$20 <span class="strip-dot"></span></span>
+    <span class="strip-item">⚡ Fast Service <span class="strip-dot"></span></span>
+    <span class="strip-item">📍 Alamo & Danville <span class="strip-dot"></span></span>
+    <span class="strip-item">🌯 Best Burrito Around <span class="strip-dot"></span></span>
+    <span class="strip-item">🌮 Mexican & Nicaraguan <span class="strip-dot"></span></span>
+    <span class="strip-item">⭐ 4.5 Stars · 18 Reviews <span class="strip-dot"></span></span>
+    <span class="strip-item">💰 $10–$20 <span class="strip-dot"></span></span>
+    <span class="strip-item">⚡ Fast Service <span class="strip-dot"></span></span>
+    <span class="strip-item">📍 Alamo & Danville <span class="strip-dot"></span></span>
+    <span class="strip-item">🌯 Best Burrito Around <span class="strip-dot"></span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="about-inner">
+    <div class="reveal">
+      <p class="about-eyebrow" data-en="About the Truck" data-es="Sobre el Truck">About the Truck</p>
+      <h2 class="about-title" data-en="A local staple<br>for <em>years.</em>" data-es="Un favorito local<br>por <em>años.</em>">A local staple<br>for <em>years.</em></h2>
+      <p class="about-body" data-en="MexiNica is a taco truck serving Mexican and Nicaraguan food around Alamo and Danville. They park near Oak Hill Park and the church — locals know the spot." data-es="MexiNica es un taco truck que sirve comida mexicana y nicaragüense por Alamo y Danville. Se estacionan cerca del Parque Oak Hill y la iglesia — los locales conocen el lugar.">MexiNica is a taco truck serving Mexican and Nicaraguan food around Alamo and Danville. They park near Oak Hill Park and the church — locals know the spot.</p>
+      <p class="about-body" data-en="The burritos are what people talk about most. Authentic, filling, and priced better than anywhere else nearby. People have been regulars since their high school days." data-es="Los burritos son de lo que más habla la gente. Auténticos, llenadores y con mejor precio que cualquier otro lugar cercano. La gente ha sido cliente habitual desde sus días de preparatoria.">The burritos are what people talk about most. Authentic, filling, and priced better than anywhere else nearby. People have been regulars since their high school days.</p>
+      <a href="tel:+19254971082" class="btn-primary" style="margin-top:0.5rem;" data-en="📞 (925) 497-1082" data-es="📞 (925) 497-1082">📞 (925) 497-1082</a>
+      <div class="about-stats">
+        <div>
+          <div class="stat-val">4.5★</div>
+          <div class="stat-lbl" data-en="Google Rating" data-es="Calificación">Google Rating</div>
+        </div>
+        <div>
+          <div class="stat-val">$10</div>
+          <div class="stat-lbl" data-en="Starting Price" data-es="Desde">Starting Price</div>
+        </div>
+        <div>
+          <div class="stat-val">Years</div>
+          <div class="stat-lbl" data-en="Serving Locals" data-es="Sirviendo Locales">Serving Locals</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="quote-block">
+        <p class="quote-text" data-en='"Been coming to MexiNica for years since I was a student at MV. Hands down best and most authentic burrito in town at the best price. Always fast, great service."' data-es='"Llevo años viniendo a MexiNica desde que era estudiante en MV. Sin duda el mejor y más auténtico burrito del área al mejor precio. Siempre rápido, excelente servicio."'>"Been coming to MexiNica for years since I was a student at MV. Hands down best and most authentic burrito in town at the best price. Always fast, great service."</p>
+        <div class="quote-attr">— Miles S. · Google Review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="menu-section">
+  <div class="menu-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-en="What We Serve" data-es="Lo Que Servimos">What We Serve</p>
+      <h2 class="section-title" data-en="The <em>Menu</em>" data-es="El <em>Menú</em>">The <em>Menu</em></h2>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <span class="menu-emoji">🍽️</span>
+        <div class="menu-name" data-en="Platos (Plates)" data-es="Platos">Platos (Plates)</div>
+        <p class="menu-desc" data-en="Asada, Pastor, Pollo, Carnitas, Birria — $15 · Fajitas Mix, Fajitas Asada, Fajitas Pollo — $16 · Fajitas Camaron, Camarone Diabla — $17" data-es="Asada, Pastor, Pollo, Carnitas, Birria — $15 · Fajitas Mix, Fajitas Asada, Fajitas Pollo — $16 · Fajitas Camaron, Camarone Diabla — $17">Asada, Pastor, Pollo, Carnitas, Birria — $15 · Fajitas Mix, Fajitas Asada, Fajitas Pollo — $16 · Fajitas Camaron, Camarone Diabla — $17</p>
+        <span class="menu-tag" data-en="From $15" data-es="Desde $15">From $15</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-1">
+        <span class="menu-emoji">🌮</span>
+        <div class="menu-name" data-en="Tacos" data-es="Tacos">Tacos</div>
+        <p class="menu-desc" data-en="Choose from Asada, Pastor, Pollo, Carnitas, Chorizo, Lengua, Cabeza, Tripa, or Camaron. Add Tripa, Lengua, or Camaron for $1 extra." data-es="Elige entre Asada, Pastor, Pollo, Carnitas, Chorizo, Lengua, Cabeza, Tripa o Camarón. Agrega Tripa, Lengua o Camarón por $1 extra.">Choose from Asada, Pastor, Pollo, Carnitas, Chorizo, Lengua, Cabeza, Tripa, or Camaron. Add Tripa, Lengua, or Camaron for $1 extra.</p>
+        <span class="menu-tag" data-en="$3.00 each" data-es="$3.00 cada uno">$3.00 each</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-2">
+        <span class="menu-emoji">🌯</span>
+        <div class="menu-name" data-en="Burritos" data-es="Burritos">Burritos</div>
+        <p class="menu-desc" data-en="Burrito Regular $11 · Burrito Super $12. Loaded with your choice of meat and all the fixings." data-es="Burrito Regular $11 · Burrito Super $12. Cargado con tu carne favorita y todos los complementos.">Burrito Regular $11 · Burrito Super $12. Loaded with your choice of meat and all the fixings.</p>
+        <span class="menu-tag" data-en="From $11" data-es="Desde $11">From $11</span>
+      </div>
+      <div class="menu-card reveal">
+        <span class="menu-emoji">🥪</span>
+        <div class="menu-name" data-en="Tortas" data-es="Tortas">Tortas</div>
+        <p class="menu-desc" data-en="Torta Mexicana $11 · Torta Cubana $13. Mexican sandwiches on a bolillo roll with your choice of meat." data-es="Torta Mexicana $11 · Torta Cubana $13. Sándwiches mexicanos en bolillo con tu carne favorita.">Torta Mexicana $11 · Torta Cubana $13. Mexican sandwiches on a bolillo roll with your choice of meat.</p>
+        <span class="menu-tag" data-en="From $11" data-es="Desde $11">From $11</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-1">
+        <span class="menu-emoji">🫔</span>
+        <div class="menu-name" data-en="More Favorites" data-es="Más Favoritos">More Favorites</div>
+        <p class="menu-desc" data-en="Popusas $4 · Mulitas $3.50 · Quesabirrias $3.50 · Quesadilla $12 · Taco Plato $13" data-es="Pupusas $4 · Mulitas $3.50 · Quesabirrias $3.50 · Quesadilla $12 · Taco Plato $13">Popusas $4 · Mulitas $3.50 · Quesabirrias $3.50 · Quesadilla $12 · Taco Plato $13</p>
+        <span class="menu-tag" data-en="From $3.50" data-es="Desde $3.50">From $3.50</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-2">
+        <span class="menu-emoji">🦐</span>
+        <div class="menu-name" data-en="Tostadas & Breakfast" data-es="Tostadas y Desayunos">Tostadas & Breakfast</div>
+        <p class="menu-desc" data-en="Tostada Ceviche, Camaron, or Cueros — $5 each · Breakfast: Huevo Jamon, Huevo Chorizo, Huevo Mexicana, Huevos Estrellados — $14" data-es="Tostada Ceviche, Camarón o Cueros — $5 c/u · Desayunos: Huevo Jamón, Huevo Chorizo, Huevo Mexicana, Huevos Estrellados — $14">Tostada Ceviche, Camaron, or Cueros — $5 each · Breakfast: Huevo Jamon, Huevo Chorizo, Huevo Mexicana, Huevos Estrellados — $14</p>
+        <span class="menu-tag" data-en="From $5" data-es="Desde $5">From $5</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="reviews">
+  <div class="reviews-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-en="What People Say" data-es="Lo Que Dice la Gente">What People Say</p>
+      <h2 class="section-title" data-en="4.5 Stars · <em>18 Reviews</em>" data-es="4.5 Estrellas · <em>18 Reseñas</em>">4.5 Stars · <em>18 Reviews</em></h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-en='"Been coming to MexiNica Danville for years since I was a student at MV. Hands down best and most authentic burrito in town at the best price. Always fast, great service!!"' data-es='"Llevo años viniendo a MexiNica Danville desde que era estudiante en MV. Sin duda el mejor y más auténtico burrito del área al mejor precio. ¡Siempre rápido y excelente servicio!!"'>"Been coming to MexiNica Danville for years since I was a student at MV. Hands down best and most authentic burrito in town at the best price. Always fast, great service!!"</p>
+        <div class="review-author">Miles Smith · Google Review</div>
+      </div>
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-en='"Whenever I am in my hometown of Alamo and this truck is there, I stop by. Excellent, authentic Mexican food. They park over by Oak Hill Park and the church. Keep up the great work."' data-es='"Siempre que estoy en Alamo y el truck está ahí, me paro. Excelente comida mexicana auténtica. Se estacionan cerca del Parque Oak Hill y la iglesia. ¡Sigan así!"'>"Whenever I am in my hometown of Alamo and this truck is there, I stop by. Excellent, authentic Mexican food. They park over by Oak Hill Park and the church. Keep up the great work."</p>
+        <div class="review-author">Joe Cerletti · Google Review</div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text" data-en='"The food was much better than I had imagined. Pretty good food and service — my burrito was delish!"' data-es='"La comida estuvo mucho mejor de lo que esperaba. Buena comida y servicio — ¡mi burrito estaba delicioso!"'>"The food was much better than I had imagined. Pretty good food and service — my burrito was delish!"</p>
+        <div class="review-author">Sunny Lin · Local Guide · Google Review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="visit" class="cta">
+  <p class="cta-eyebrow reveal" data-en="Come Find Us" data-es="Ven a Encontrarnos">Come Find Us</p>
+  <h2 class="cta-title reveal" data-en="We're out there.<br><em>Come eat.</em>" data-es="Andamos por ahí.<br><em>Ven a comer.</em>">We're out there.<br><em>Come eat.</em></h2>
+  <p class="cta-sub reveal" data-en="Look for us near Oak Hill Park and the church in Alamo. Call ahead to confirm where we're parked." data-es="Búscanos cerca del Parque Oak Hill y la iglesia en Alamo. Llama antes para confirmar dónde estamos.">Look for us near Oak Hill Park and the church in Alamo. Call ahead to confirm where we're parked.</p>
+  <div class="cta-actions reveal">
+    <a href="tel:+19254971082" class="btn-white" data-en="📞 Call (925) 497-1082" data-es="📞 Llamar (925) 497-1082">📞 Call (925) 497-1082</a>
+    <a href="https://maps.google.com/?q=Oak+Hill+Park,+Alamo,+CA+94507" target="_blank" class="btn-outline-white" data-en="📍 Oak Hill Park, Alamo" data-es="📍 Parque Oak Hill, Alamo">📍 Oak Hill Park, Alamo</a>
+  </div>
+  <div class="cta-info reveal">
+    <div class="info-block">
+      <div class="info-lbl" data-en="Hours" data-es="Horario">Hours</div>
+      <div class="info-val" data-en="Closes 4 PM" data-es="Cierra 4 PM">Closes 4 PM</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="Service" data-es="Servicio">Service</div>
+      <div class="info-val" data-en="Dine-In & Takeout" data-es="En el Lugar y Para Llevar">Dine-In & Takeout</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="Where" data-es="Dónde">Where</div>
+      <div class="info-val" data-en="Alamo & Danville, CA" data-es="Alamo y Danville, CA">Alamo & Danville, CA</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="Price" data-es="Precio">Price</div>
+      <div class="info-val">$10–$20</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Mexi<span>Nica</span> Taco Truck</div>
+  <div class="footer-tagline" data-en="Best burrito in town. Best price around." data-es="El mejor burrito del área. El mejor precio.">Best burrito in town. Best price around.</div>
+  <div class="footer-copy">© 2025 MexiNica · Alamo & Danville, CA</div>
+</footer>
+
+<script>
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) el.innerHTML = text;
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+    document.documentElement.lang = lang;
+  }
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
