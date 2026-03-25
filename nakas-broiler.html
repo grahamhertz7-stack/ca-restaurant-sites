@@ -3,182 +3,396 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naka's Broiler | Compton, CA – Home Cooking Done Right</title>
+<title>Naka's Broiler — Compton, CA · Home Cooking Done Right</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --white: #fafaf8;
+    --black: #111110;
+    --accent: #c93030;
+    --accent-light: #fef2f2;
+    --mist: #f2f2f0;
+    --mid: #777772;
+    --border: rgba(17,17,16,0.08);
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Georgia', serif; background: #0d1a0d; color: #e8f5e8; }
-  header { background: linear-gradient(135deg, #1B4332, #2D6A4F); padding: 60px 20px; text-align: center; }
-  header h1 { font-size: 3em; letter-spacing: 2px; }
-  header p.tagline { font-size: 1.2em; margin-top: 10px; color: #95D5B2; font-style: italic; }
-  .badge { display: inline-block; background: #95D5B2; color: #0d1a0d; padding: 6px 18px; border-radius: 20px; font-weight: bold; margin-top: 15px; font-family: sans-serif; }
-  nav { background: #0d2b0d; display: flex; justify-content: center; gap: 30px; padding: 15px; flex-wrap: wrap; }
-  nav a { color: #95D5B2; text-decoration: none; font-family: sans-serif; font-weight: bold; }
-  .hero-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 30px 20px; background: #0d2b0d; }
-  .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-size: 1em; font-weight: bold; text-decoration: none; font-family: sans-serif; }
-  .btn-call { background: #27AE60; color: white; }
-  .btn-doordash { background: #FF3008; color: white; }
-  .btn-maps { background: #4285F4; color: white; }
-  .section { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
-  h2 { font-size: 1.8em; color: #95D5B2; margin-bottom: 20px; border-bottom: 2px solid #2D6A4F; padding-bottom: 10px; }
-  .about { background: #0d2b0d; border-left: 4px solid #2D6A4F; padding: 20px; border-radius: 0 8px 8px 0; font-family: sans-serif; line-height: 1.7; }
-  .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-top: 20px; }
-  .menu-item { background: #0d2b0d; border: 1px solid #2D6A4F; border-radius: 8px; padding: 15px; text-align: center; }
-  .menu-item span { font-size: 1.5em; }
-  .menu-item p { margin-top: 8px; font-size: 0.9em; font-family: sans-serif; }
-  .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-family: sans-serif; }
-  .day { font-weight: bold; color: #95D5B2; }
-  .contact-box { background: #0d2b0d; border: 1px solid #2D6A4F; border-radius: 12px; padding: 25px; text-align: center; font-family: sans-serif; }
-  .phone { font-size: 2em; color: #95D5B2; margin: 10px 0; }
-  footer { background: #060f06; text-align: center; padding: 25px; font-family: sans-serif; font-size: 0.85em; color: #888; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--black); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
 
-  .carousel-wrap { position: relative; overflow: hidden; height: 360px; background: #000; }
-  .carousel-inner { display: flex; transition: transform 0.7s ease; height: 100%; }
-  .carousel-inner img { min-width: 100%; height: 360px; object-fit: cover; flex-shrink: 0; }
-  .carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.65)); padding: 15px 20px; font-family: sans-serif; font-size: 0.9em; color: #eee; }
-  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; font-size: 1.6em; padding: 10px 16px; cursor: pointer; z-index: 10; border-radius: 4px; transition: background 0.2s; }
-  .carousel-btn:hover { background: rgba(0,0,0,0.8); }
-  .carousel-btn.prev { left: 10px; } .carousel-btn.next { right: 10px; }
-  .carousel-dots { position: absolute; bottom: 10px; right: 15px; display: flex; gap: 7px; }
-  .carousel-dots span { width: 9px; height: 9px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; display: inline-block; transition: background 0.3s; }
-  .carousel-dots span.active { background: #fff; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 5rem; background: rgba(250,250,248,0.94); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--black); }
+  .nav-logo span { color: var(--accent); }
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--mid); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta { background: var(--black) !important; color: var(--white) !important; padding: 0.55rem 1.4rem; border-radius: 6px; font-size: 0.8rem !important; font-weight: 600 !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--accent) !important; }
 
-  .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.95em; }
+  .lang-toggle { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .lang-btn { background: transparent; border: none; color: var(--mid); font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; padding: 0.35rem 0.7rem; cursor: pointer; transition: all 0.2s; }
+  .lang-btn.active { background: var(--black); color: var(--white); }
+  .lang-btn:hover:not(.active) { color: var(--black); }
+  .float-lang { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; display: flex; border: 1px solid var(--border); background: rgba(250,250,248,0.95); backdrop-filter: blur(8px); border-radius: 6px; overflow: hidden; box-shadow: 0 4px 20px rgba(17,17,16,0.1); }
+  .float-lang .lang-btn { font-size: 0.85rem; padding: 0.5rem 0.9rem; }
 
-  .reviews-section { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
-  .reviews-section h2 { font-size: 1.8em; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 10px; }
-  .review-cards { display: grid; gap: 18px; }
-  .review-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 18px 20px; font-family: sans-serif; }
-  .review-card .rv-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-  .review-card .rv-author { font-weight: bold; font-size: 0.95em; }
-  .review-card .rv-stars { color: #FFD700; font-size: 1em; }
-  .review-card .rv-text { font-size: 0.88em; line-height: 1.65; opacity: 0.88; }
-  .review-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
-  .review-links a { display: inline-block; padding: 10px 20px; border-radius: 6px; font-family: sans-serif; font-size: 0.9em; font-weight: bold; text-decoration: none; }
-  .rl-google { background: #4285F4; color: white; }
-  .rl-yelp { background: #D32323; color: white; }
+  .hero { min-height: 100vh; padding: 10rem 5rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; overflow: hidden; background: var(--white); }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: var(--mist); z-index: 0; clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%); }
+  .hero-left { position: relative; z-index: 2; opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent-light); color: var(--accent); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.8rem; opacity: 0; animation: fadeUp 0.7s 0.4s ease forwards; }
+  .hero-title { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.04em; color: var(--black); margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.8s 0.5s ease forwards; }
+  .hero-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--accent); }
+  .hero-subtitle { font-size: 1.05rem; font-weight: 300; color: var(--mid); line-height: 1.8; max-width: 440px; margin: 1.5rem 0 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.7s ease forwards; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.9s ease forwards; }
+  .hero-right { position: relative; z-index: 2; opacity: 0; animation: fadeUp 0.9s 0.6s ease forwards; }
+  .hero-card { background: var(--white); border-radius: 20px; padding: 3rem 2.5rem; box-shadow: 0 4px 40px rgba(17,17,16,0.08); border: 1px solid var(--border); }
+  .hero-card-emoji { font-size: 5rem; display: block; margin-bottom: 1.5rem; }
+  .hero-card-title { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--black); margin-bottom: 0.8rem; letter-spacing: -0.02em; }
+  .hero-card-text { font-size: 0.9rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
+  .hero-card-location { margin-top: 1.8rem; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.8rem; }
+  .location-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .location-text { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+  .location-text strong { color: var(--black); font-weight: 600; display: block; margin-bottom: 0.2rem; }
 
+  .btn-primary { background: var(--black); color: var(--white); padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: all 0.25s; display: inline-block; border-radius: 8px; }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,48,48,0.25); }
+  .btn-secondary { background: transparent; color: var(--black); padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: 1.5px solid var(--border); cursor: pointer; transition: all 0.25s; display: inline-block; border-radius: 8px; }
+  .btn-secondary:hover { border-color: var(--black); transform: translateY(-2px); }
+
+  .strip { background: var(--black); padding: 0.85rem 0; overflow: hidden; }
+  .strip-inner { display: flex; gap: 3rem; white-space: nowrap; animation: stripScroll 22s linear infinite; }
+  @keyframes stripScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .strip-item { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,250,248,0.6); display: flex; align-items: center; gap: 1rem; }
+  .strip-dot { width: 3px; height: 3px; background: var(--accent); border-radius: 50%; }
+
+  .about { padding: 8rem 5rem; background: var(--white); }
+  .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem; align-items: center; }
+  .about-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .about-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--black); margin-bottom: 1.5rem; }
+  .about-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--accent); }
+  .about-body { font-size: 1rem; font-weight: 300; color: var(--mid); line-height: 1.85; margin-bottom: 1.2rem; }
+  .about-stats { display: flex; gap: 3rem; margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+  .stat-val { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--black); letter-spacing: -0.03em; line-height: 1; }
+  .stat-lbl { font-size: 0.72rem; color: var(--mid); margin-top: 0.3rem; font-weight: 400; letter-spacing: 0.05em; }
+  .quote-block { background: var(--mist); border-radius: 16px; padding: 2.5rem; border-left: 3px solid var(--accent); }
+  .quote-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; font-style: italic; line-height: 1.8; color: var(--black); margin-bottom: 1rem; }
+  .quote-attr { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+
+  .gallery { padding: 0 5rem 6rem; background: var(--white); }
+  .gallery-inner { max-width: 1100px; margin: 0 auto; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  .gallery-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); transition: transform 0.3s; }
+  .gallery-grid img:hover { transform: scale(1.02); }
+
+  .menu-section { padding: 8rem 5rem; background: var(--mist); }
+  .menu-inner { max-width: 1100px; margin: 0 auto; }
+  .section-header { margin-bottom: 4rem; }
+  .section-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; color: var(--black); }
+  .section-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--accent); }
+  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .menu-card { background: var(--white); border-radius: 14px; padding: 2.2rem 1.8rem; border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s; cursor: default; }
+  .menu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(17,17,16,0.08); }
+  .menu-emoji { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .menu-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+  .menu-desc { font-size: 0.86rem; color: var(--mid); line-height: 1.65; font-weight: 300; margin-bottom: 1rem; }
+  .menu-tag { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 100px; }
+
+  .reviews { padding: 8rem 5rem; background: var(--white); }
+  .reviews-inner { max-width: 1100px; margin: 0 auto; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+  .review-card { background: var(--mist); border-radius: 14px; padding: 2.2rem; transition: transform 0.3s, box-shadow 0.3s; }
+  .review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(17,17,16,0.07); }
+  .review-stars { color: #e6a817; font-size: 0.85rem; margin-bottom: 1rem; }
+  .review-text { font-family: 'Instrument Serif', serif; font-size: 1rem; font-style: italic; line-height: 1.8; color: var(--black); margin-bottom: 1.5rem; }
+  .review-author { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); }
+
+  .cta { padding: 8rem 5rem; background: var(--black); text-align: center; position: relative; overflow: hidden; }
+  .cta::before { content: '🍳'; position: absolute; font-size: 30rem; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; pointer-events: none; }
+  .cta-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; position: relative; z-index: 1; }
+  .cta-title { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; color: var(--white); margin-bottom: 1.2rem; position: relative; z-index: 1; }
+  .cta-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--accent); }
+  .cta-sub { font-size: 1rem; font-weight: 300; color: rgba(250,250,248,0.5); margin-bottom: 3rem; position: relative; z-index: 1; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; margin-bottom: 4rem; }
+  .btn-white { background: var(--white); color: var(--black); padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: all 0.25s; display: inline-block; border-radius: 8px; }
+  .btn-white:hover { background: var(--accent); color: var(--white); transform: translateY(-2px); }
+  .btn-outline-white { background: transparent; color: var(--white); padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: 1.5px solid rgba(250,250,248,0.2); cursor: pointer; transition: all 0.25s; display: inline-block; border-radius: 8px; }
+  .btn-outline-white:hover { border-color: var(--white); transform: translateY(-2px); }
+  .cta-info { display: flex; gap: 4rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; padding-top: 3rem; border-top: 1px solid rgba(250,250,248,0.08); }
+  .info-block { text-align: center; }
+  .info-lbl { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .info-val { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500; color: rgba(250,250,248,0.8); }
+
+  footer { background: #0a0a09; padding: 2.5rem 5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+  .footer-logo span { color: var(--accent); }
+  .footer-tagline { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 0.9rem; color: rgba(250,250,248,0.3); }
+  .footer-copy { font-size: 0.68rem; letter-spacing: 0.08em; color: rgba(250,250,248,0.2); text-transform: uppercase; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 8rem 2rem 4rem; gap: 3rem; }
+    .hero-right { display: none; }
+    .about { padding: 5rem 2rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .gallery { padding: 0 2rem 4rem; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .menu-section { padding: 5rem 2rem; }
+    .menu-grid { grid-template-columns: 1fr 1fr; }
+    .reviews { padding: 5rem 2rem; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .cta { padding: 5rem 2rem; }
+    .cta-info { gap: 2rem; }
+    footer { padding: 2rem; flex-direction: column; text-align: center; }
+    .about-stats { gap: 2rem; flex-wrap: wrap; }
+  }
+  @media (max-width: 600px) { .menu-grid { grid-template-columns: 1fr; } .gallery-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
-<header>
-  <h1>🍳 Naka's Broiler</h1>
-  <p class="tagline">Family-Owned. Home-Cooked. Compton Proud.</p>
-  <div class="badge">⭐ 4.2 · 69 Reviews</div>
-</header>
+
 <nav>
-  <a href="#about">About</a>
-  <a href="#menu">Menu</a>
-  <a href="#hours">Hours</a>
-  <a href="#contact">Contact</a>
-  <a href="https://www.google.com/maps/place/?q=place_id:ChIJgVC_oEzKwoARSbymWy1QPUQ" target="_blank" class="menu-modal-btn">📋 View Menu</a>
+  <div class="nav-logo">Naka's <span>Broiler</span></div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#menu" data-en="Menu" data-es="Menú">Menu</a></li>
+      <li><a href="#about" data-en="About" data-es="Nosotros">About</a></li>
+      <li><a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a></li>
+      <li><a href="#visit" class="nav-cta" data-en="Find Us" data-es="Encuéntranos">Find Us</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
 </nav>
-<div class="carousel-wrap">
-    <div class="carousel-inner">
-    <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEEk_mDa6ef4BM8B3_IRR9F6KEOZpzO3DEYczkup118gTplzinNKnB9tlGp2a_yDpZZgcpRYuHZzxFPy0kyq2KJ7LC4tfbxbaS0kagDvKNJdelckqvLRpwXT9pKJZZvmvwXLMbSVBVormZSFKM9yE6NjTZih1qJ5N_56JTB2iJojj-WuK_GuU9LSBAwMYg3rPbCQgqFEgXn3nwAcd-zfg0IjSsQ0ugYTvml3plepZiqNxGCBHTASgtIOPRjiorRakwFdB9OGpOXhxmD_IH9FZFOiNSvohp7k_Cf1ujj_cRzvL2vddzBiiwlsva_q4DFxTV6zJN-dSdfvmazT5XKcEZcosTZ0CAFZm1GP1z6wCcXgZSmC_7hNn0IIGj32JiIU9myZ4Vr3yophjoHkEPRMb71KUTXf7k7TXR5Uo1QEfgcEW5k/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEG6TRgyrroUknPt0wfi_C4DXbfivLrPPdvOEqYTb7jdjUu7JWLTSmz5xyaTkkwaqf7QZmudtKJvui9nJrrmFDHNUOnKfBC7fNellZzkAOnkqufXQHXu1jqEtKf2gX4mHlrIT1dNP94Ju99I_UKh6cx-qfgjZ2hIJB6J8Mz7La1oEY-nFGyCC8tTAGNEn_HATc7AXBbNpB95PNIHLKra2EPoBpU5ojfGK8L6yNTuF0ORPx7XI-JWA1DHKiBzYCk1XfYOqb2YoVZmaoPNDnN-QW19SLg5_DApYiHKAoiGyRyoM8GX85ohhsHswwjUgp60yoPdGMNUiJsZ59gADaYXGG7VjtBFJILzv_NQHpjWzhRx8zLh5l_7Mlihxbz9n-A_HB4y2R6y_cnSTJnWrkDg2pDx3LafzBIcDzoKsk1Vmsw/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEG1Hx6BosigiucD-y4Fp5wMUfUnLrWp3XkcJCUMGsLgC8ZSt0xkP2Knn5PEnBv4feC8PsJUeLUUOYY0UvmUw8qtu02BYCa8NzJ2bKBTFYZdSDt2ukiPgE_IgZiO3T3UMhneWqd-c1cXrGZmcjQgpMSULPipgpOl2LmtIXkg1XZ7NpoLD6743_Lxxe7Ol7V2PhLm9pb0ml9vlAagt1sGknTaZpenWgHCm31xBeqPp-2e1BEVECxAcEMZ2FMy0yfW8uUP6YfWcnWULNQIEgghGpD4AbutrJl0CsfFRh7JESJxJuD4OdIEFdMCcM4qktmzioHGnphdaVYBWqhVO3E8-oqQR77ZkhDyNbfYr1tAFJNfnoGeN6fVa5ZTf63SU7skyVYOdTmKU3FRrc-53Wmn2uxSGvYqPos1antzSE3Q3rc/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEE-cvT61jQy59_qF_G9srkmRsRuiszzASXw8PanpX-nzktl_7xurgtcgbjJc2HP5mOjEXXXmr3o3emio5OY4v2aTrgKZcekENyK1kOyd8rpZOAdz7GhKPFLmk0rP5vruLbRzmmzkatdYARPg_kcSW9mxt-jwtXrt26k0z0cFDx6tYQyGla7rfYuPlA6FJ04AXYboWKOQeO-pAEkAp-y4ReKStxeC_uBaK746SnZZWxlHJaIQvUxNX74rE3_55zRUlG_wO5FcwciNIgbPffztqv5_QxGe7J5TNQZ4Pm59SPStnY-AB2ekPl7u_ZKPiKTe38LbV7B0KWoUrcI1T_OveqPPH2-M5yR_QyORhStuxHiFhc3KSRgawYCy_BPw9r4IRGNU14nifJqPRqtFncLapn8IBdyEHkHJBY0nVPk59WrcF4/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEEPwRwzUQ6UVwMlaool0GJB5vkUJixiDHFg1XtCbM8IKlkIdcARx90n3_N7gu3ANppVkg52j5WmpRDJKhBetXteR3P3lEol-mKn7h9WG3SAi2zT3y07jnU7Rpv7Ozbxblq3JLV-0-nvuJVATCG0enl1GqTt47B9recv_g5t_gYNDPTlDC2lFU8UqxVAukY-iDI0DfUpLaWsJXgZ3QHMoOKlA-evt62L9k8uH0X4VhXxcuipTEMhhVbBE759gQDM_Qmh7LmYULUVF4k59oWPBMBonmsavPyk-FzlZr5aKtTlyWS_r0wnswFxKIfMlOZvQxcx3YkC13NHp7hcF2NhGuSwtLeLAFhedljmIhSp59KHKnzIrhzL9vARCZU8IBvyzBCcVbMwp-c4pFe-9I9_-Rp1yZXLdaQCjMglveB21sY/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-    <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEEACWm2HqgUYsR4pXURHthT4Zp0qBSRu2GubpgY1xONZ5Ei5Zs-CAe5H7_Vs2mS0SF2L--PM1aDCXxRN5Nomy9-19YKVNtY8clIAK_XczqTJ0z9hQYQAXipeTvyDccki0eTo_LverKbqagTE15xtMQnMe-AppW4r-p2iWj4tIXMZVu-wvC9CyxRDAJ5zmRiQbrQm8MUclyzcGsQKRIS7zdBrbORSzM054hLN6rjfhFL0tz5ANPTl1tflz1t0t88oQANsHtWCD1sifGZYhEvgtV49XeVJZeYfStIiNfscXxy9L4_QcNU3iyZ_1Y0K_-utVJC0_ALbvxp84P4ZTUQLin325y3kYJ8FHheu7NXjRMJM1jWzK0VAkQsFNWKxDQ6Qd5Gwhrl1PX6kYH9VK-066qFDBvh-6ILykAqkysEP7Q/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
-  </div>
-  <button class="carousel-btn prev">&#8249;</button>
-  <button class="carousel-btn next">&#8250;</button>
-    <div class="carousel-dots">
-    <span class="active"></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div class="carousel-caption"></div>
+
+<div class="float-lang">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('es')">ES</button>
 </div>
-<div class="hero-links">
-  <a href="tel:+13235665450" class="btn btn-call">📞 (323) 566-5450</a>
-  <a href="https://www.doordash.com/search/store/Naka%27s%20Broiler%20Compton" target="_blank" class="btn btn-doordash">🛵 DoorDash</a>
-  <a href="https://www.google.com/maps/search/Naka%27s+Broiler+1961+W+El+Segundo+Blvd+Compton+CA" target="_blank" class="btn btn-maps">📍 Get Directions</a>
-</div>
-<div class="section" id="about">
-  <h2>About Naka's</h2>
-  <div class="about">
-    A family-owned gem in Compton known for perfectly seasoned pork chop breakfasts, juicy burgers, and fresh homemade cooking. The owner is hands-on and passionate about every plate that goes out. Generous portions, great prices — this is the kind of place you keep coming back to.
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag" data-en="🍳 Compton, CA" data-es="🍳 Compton, CA">🍳 Compton, CA</div>
+    <h1 class="hero-title">Naka's <em>Broiler</em></h1>
+    <p class="hero-subtitle" data-en="Family-owned comfort food done right. Pork chop breakfasts, juicy burgers, and home-cooked plates — made fresh in Compton, Mon–Fri." data-es="Comida casera familiar bien hecha. Desayunos de chuleta de cerdo, hamburguesas jugosas y platos caseros — frescos en Compton, lun–vie.">Family-owned comfort food done right. Pork chop breakfasts, juicy burgers, and home-cooked plates — made fresh in Compton, Mon–Fri.</p>
+    <div class="hero-actions">
+      <a href="tel:+13235665450" class="btn-primary" data-en="📞 Call to Order" data-es="📞 Llama para Ordenar">📞 Call to Order</a>
+      <a href="#menu" class="btn-secondary" data-en="🍳 See Menu" data-es="🍳 Ver Menú">🍳 See Menu</a>
+      <a href="#visit" class="btn-secondary" data-en="Find Us" data-es="Encuéntranos">Find Us</a>
+    </div>
   </div>
-</div>
-<div class="section" id="menu">
-  <h2>Favorites</h2>
-  <div class="menu-grid">
-    <div class="menu-item"><span>🍳</span><p>Pork Chop Breakfast</p></div>
-    <div class="menu-item"><span>🍟</span><p>Grits</p></div>
-    <div class="menu-item"><span>🍔</span><p>Burgers & Fries</p></div>
-    <div class="menu-item"><span>🥚</span><p>Eggs Any Style</p></div>
-    <div class="menu-item"><span>🥔</span><p>Home Fries</p></div>
-    <div class="menu-item"><span>🥪</span><p>Lunch Plates</p></div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <span class="hero-card-emoji">🍳</span>
+      <div class="hero-card-title" data-en="Home cooking. Compton proud." data-es="Cocina casera. Orgullo de Compton.">Home cooking. Compton proud.</div>
+      <p class="hero-card-text" data-en="The owner is hands-on and passionate about every plate. Generous portions, great prices — this is the kind of place you keep coming back to." data-es="El dueño supervisa cada plato con pasión. Porciones generosas, excelentes precios — el tipo de lugar al que siempre vuelves.">The owner is hands-on and passionate about every plate. Generous portions, great prices — this is the kind of place you keep coming back to.</p>
+      <div class="hero-card-location">
+        <div class="location-dot"></div>
+        <div class="location-text">
+          <strong data-en="1961 W El Segundo Blvd, Compton" data-es="1961 W El Segundo Blvd, Compton">1961 W El Segundo Blvd, Compton</strong>
+          <span data-en="Mon–Fri · 7 AM – 4 PM" data-es="Lun–Vie · 7 AM – 4 PM">Mon–Fri · 7 AM – 4 PM</span>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<div class="section" id="hours">
-  <h2>Hours</h2>
-  <div class="hours-grid">
-    <div class="day">Mon–Fri</div><div>7 AM – 4 PM</div>
-    <div class="day">Saturday</div><div>Closed</div>
-    <div class="day">Sunday</div><div>Closed</div>
-  </div>
-</div>
-<div class="section" id="contact">
-  <h2>Contact & Location</h2>
-  <div class="contact-box">
-    <div class="phone">📞 (323) 566-5450</div>
-    <div style="color:#ccc; margin-bottom:15px">1961 W El Segundo Blvd, Compton, CA</div>
-    <a href="https://www.google.com/maps/search/Naka%27s+Broiler+1961+W+El+Segundo+Blvd+Compton+CA" target="_blank" class="btn btn-maps">📍 Open in Google Maps</a>
+</section>
+
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-item">🍳 Home Cooking <span class="strip-dot"></span></span>
+    <span class="strip-item">⭐ 4.2 Stars · 69 Reviews <span class="strip-dot"></span></span>
+    <span class="strip-item">🥩 Pork Chop Breakfast <span class="strip-dot"></span></span>
+    <span class="strip-item">🍔 Burgers & Fries <span class="strip-dot"></span></span>
+    <span class="strip-item">📍 Compton, CA <span class="strip-dot"></span></span>
+    <span class="strip-item">⏰ Mon–Fri Only <span class="strip-dot"></span></span>
+    <span class="strip-item">🍳 Home Cooking <span class="strip-dot"></span></span>
+    <span class="strip-item">⭐ 4.2 Stars · 69 Reviews <span class="strip-dot"></span></span>
+    <span class="strip-item">🥩 Pork Chop Breakfast <span class="strip-dot"></span></span>
+    <span class="strip-item">🍔 Burgers & Fries <span class="strip-dot"></span></span>
+    <span class="strip-item">📍 Compton, CA <span class="strip-dot"></span></span>
+    <span class="strip-item">⏰ Mon–Fri Only <span class="strip-dot"></span></span>
   </div>
 </div>
 
-<div class="reviews-section" id="reviews">
-  <h2>⭐ Real Reviews</h2>
-  <div class="review-cards">
-    <div class="review-card">
-      <div class="rv-top"><span class="rv-author">👤 Zion Russe</span><span class="rv-stars">★☆☆☆☆</span></div>
-      <div class="rv-text">"Was not allowed to dine in so when I arrived back home the food was cold the omelet was a egg thin and a crepe dessert folded over a egg The owner is RUDE his weird and I will not ever refer his food to no one Bad Business. The owner brought out the food in a bag would not allow "</div>
+<section id="about" class="about">
+  <div class="about-inner">
+    <div class="reveal">
+      <p class="about-eyebrow" data-en="About Naka's" data-es="Sobre Naka's">About Naka's</p>
+      <h2 class="about-title" data-en="Family-owned.<br>Compton <em>proud.</em>" data-es="Negocio familiar.<br>Orgullo de <em>Compton.</em>">Family-owned.<br>Compton <em>proud.</em></h2>
+      <p class="about-body" data-en="A family-owned gem in Compton known for perfectly seasoned pork chop breakfasts, juicy burgers, and fresh homemade cooking. The owner is hands-on and passionate about every plate that goes out." data-es="Una joya familiar en Compton conocida por sus desayunos de chuleta perfectamente sazonada, hamburguesas jugosas y cocina casera fresca. El dueño supervisa con pasión cada platillo.">A family-owned gem in Compton known for perfectly seasoned pork chop breakfasts, juicy burgers, and fresh homemade cooking. The owner is hands-on and passionate about every plate that goes out.</p>
+      <p class="about-body" data-en="Generous portions at great prices — this is the kind of breakfast spot that keeps the neighborhood coming back. Open weekdays only, 7 AM to 4 PM." data-es="Porciones generosas a excelentes precios — el tipo de lugar de desayuno que hace que el vecindario siga regresando. Abierto solo entre semana, de 7 AM a 4 PM.">Generous portions at great prices — this is the kind of breakfast spot that keeps the neighborhood coming back. Open weekdays only, 7 AM to 4 PM.</p>
+      <a href="tel:+13235665450" class="btn-primary" style="margin-top:0.5rem;" data-en="📞 (323) 566-5450" data-es="📞 (323) 566-5450">📞 (323) 566-5450</a>
+      <div class="about-stats">
+        <div>
+          <div class="stat-val">4.2★</div>
+          <div class="stat-lbl" data-en="Google Rating" data-es="Calificación">Google Rating</div>
+        </div>
+        <div>
+          <div class="stat-val">69</div>
+          <div class="stat-lbl" data-en="Reviews" data-es="Reseñas">Reviews</div>
+        </div>
+        <div>
+          <div class="stat-val">7AM</div>
+          <div class="stat-lbl" data-en="Opens Daily" data-es="Abre Cada Día">Opens Daily</div>
+        </div>
+      </div>
     </div>
-    <div class="review-card">
-      <div class="rv-top"><span class="rv-author">👤 Michawn Browning</span><span class="rv-stars">★☆☆☆☆</span></div>
-      <div class="rv-text">"Came here for the first time and the guy the owner is very rude to his customers. I was going to leave the first time he was rude but we decided to support a local black owned business. He comes to my car while I’m opening my food checking it to tell us we gotta eat somewhere els"</div>
-    </div>
-    <div class="review-card">
-      <div class="rv-top"><span class="rv-author">👤 Geoffrey G</span><span class="rv-stars">★★☆☆☆</span></div>
-      <div class="rv-text">"First time I ever walked in a place that served prepared food and said, "Don't eat in here." There were tables and chairs that I guess the people don't want to use. The owner may have high blood pressure or diabetes. Because there was literally no salt on the burger and fries. It"</div>
+    <div class="reveal reveal-delay-1">
+      <div class="quote-block">
+        <p class="quote-text" data-en='"There were tables and chairs... the burger and fries were part of the experience. Compton\'s own comfort food spot."' data-es='"Había mesas y sillas... las hamburguesas y papas fritas fueron parte de la experiencia. El lugar de comida casera de Compton."'>"There were tables and chairs... the burger and fries were part of the experience. Compton's own comfort food spot."</p>
+        <div class="quote-attr">— Geoffrey G. · Google Review</div>
+      </div>
     </div>
   </div>
-  <div class="review-links">
-    <a href="https://www.google.com/maps/place/?q=place_id:ChIJgVC_oEzKwoARSbymWy1QPUQ" target="_blank" class="rl-google">🗺️ See All Reviews on Google</a>
-    <a href="https://www.yelp.com/biz/nakas-broiler-compton" target="_blank" class="rl-yelp">⭐ Read Reviews on Yelp</a>
+</section>
+
+<div class="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-grid reveal">
+      <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEEk_mDa6ef4BM8B3_IRR9F6KEOZpzO3DEYczkup118gTplzinNKnB9tlGp2a_yDpZZgcpRYuHZzxFPy0kyq2KJ7LC4tfbxbaS0kagDvKNJdelckqvLRpwXT9pKJZZvmvwXLMbSVBVormZSFKM9yE6NjTZih1qJ5N_56JTB2iJojj-WuK_GuU9LSBAwMYg3rPbCQgqFEgXn3nwAcd-zfg0IjSsQ0ugYTvml3plepZiqNxGCBHTASgtIOPRjiorRakwFdB9OGpOXhxmD_IH9FZFOiNSvohp7k_Cf1ujj_cRzvL2vddzBiiwlsva_q4DFxTV6zJN-dSdfvmazT5XKcEZcosTZ0CAFZm1GP1z6wCcXgZSmC_7hNn0IIGj32JiIU9myZ4Vr3yophjoHkEPRMb71KUTXf7k7TXR5Uo1QEfgcEW5k/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Naka's Broiler food" loading="lazy">
+      <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEG6TRgyrroUknPt0wfi_C4DXbfivLrPPdvOEqYTb7jdjUu7JWLTSmz5xyaTkkwaqf7QZmudtKJvui9nJrrmFDHNUOnKfBC7fNellZzkAOnkqufXQHXu1jqEtKf2gX4mHlrIT1dNP94Ju99I_UKh6cx-qfgjZ2hIJB6J8Mz7La1oEY-nFGyCC8tTAGNEn_HATc7AXBbNpB95PNIHLKra2EPoBpU5ojfGK8L6yNTuF0ORPx7XI-JWA1DHKiBzYCk1XfYOqb2YoVZmaoPNDnN-QW19SLg5_DApYiHKAoiGyRyoM8GX85ohhsHswwjUgp60yoPdGMNUiJsZ59gADaYXGG7VjtBFJILzv_NQHpjWzhRx8zLh5l_7Mlihxbz9n-A_HB4y2R6y_cnSTJnWrkDg2pDx3LafzBIcDzoKsk1Vmsw/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Naka's Broiler food" loading="lazy">
+      <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEG1Hx6BosigiucD-y4Fp5wMUfUnLrWp3XkcJCUMGsLgC8ZSt0xkP2Knn5PEnBv4feC8PsJUeLUUOYY0UvmUw8qtu02BYCa8NzJ2bKBTFYZdSDt2ukiPgE_IgZiO3T3UMhneWqd-c1cXrGZmcjQgpMSULPipgpOl2LmtIXkg1XZ7NpoLD6743_Lxxe7Ol7V2PhLm9pb0ml9vlAagt1sGknTaZpenWgHCm31xBeqPp-2e1BEVECxAcEMZ2FMy0yfW8uUP6YfWcnWULNQIEgghGpD4AbutrJl0CsfFRh7JESJxJuD4OdIEFdMCcM4qktmzioHGnphdaVYBWqhVO3E8-oqQR77ZkhDyNbfYr1tAFJNfnoGeN6fVa5ZTf63SU7skyVYOdTmKU3FRrc-53Wmn2uxSGvYqPos1antzSE3Q3rc/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Naka's Broiler food" loading="lazy">
+      <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEE-cvT61jQy59_qF_G9srkmRsRuiszzASXw8PanpX-nzktl_7xurgtcgbjJc2HP5mOjEXXXmr3o3emio5OY4v2aTrgKZcekENyK1kOyd8rpZOAdz7GhKPFLmk0rP5vruLbRzmmzkatdYARPg_kcSW9mxt-jwtXrt26k0z0cFDx6tYQyGla7rfYuPlA6FJ04AXYboWKOQeO-pAEkAp-y4ReKStxeC_uBaK746SnZZWxlHJaIQvUxNX74rE3_55zRUlG_wO5FcwciNIgbPffztqv5_QxGe7J5TNQZ4Pm59SPStnY-AB2ekPl7u_ZKPiKTe38LbV7B0KWoUrcI1T_OveqPPH2-M5yR_QyORhStuxHiFhc3KSRgawYCy_BPw9r4IRGNU14nifJqPRqtFncLapn8IBdyEHkHJBY0nVPk59WrcF4/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Naka's Broiler food" loading="lazy">
+      <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEEPwRwzUQ6UVwMlaool0GJB5vkUJixiDHFg1XtCbM8IKlkIdcARx90n3_N7gu3ANppVkg52j5WmpRDJKhBetXteR3P3lEol-mKn7h9WG3SAi2zT3y07jnU7Rpv7Ozbxblq3JLV-0-nvuJVATCG0enl1GqTt47B9recv_g5t_gYNDPTlDC2lFU8UqxVAukY-iDI0DfUpLaWsJXgZ3QHMoOKlA-evt62L9k8uH0X4VhXxcuipTEMhhVbBE759gQDM_Qmh7LmYULUVF4k59oWPBMBonmsavPyk-FzlZr5aKtTlyWS_r0wnswFxKIfMlOZvQxcx3YkC13NHp7hcF2NhGuSwtLeLAFhedljmIhSp59KHKnzIrhzL9vARCZU8IBvyzBCcVbMwp-c4pFe-9I9_-Rp1yZXLdaQCjMglveB21sY/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Naka's Broiler food" loading="lazy">
+      <img src="https://places.googleapis.com/v1/places/ChIJgVC_oEzKwoARSbymWy1QPUQ/photos/AU_ZVEEACWm2HqgUYsR4pXURHthT4Zp0qBSRu2GubpgY1xONZ5Ei5Zs-CAe5H7_Vs2mS0SF2L--PM1aDCXxRN5Nomy9-19YKVNtY8clIAK_XczqTJ0z9hQYQAXipeTvyDccki0eTo_LverKbqagTE15xtMQnMe-AppW4r-p2iWj4tIXMZVu-wvC9CyxRDAJ5zmRiQbrQm8MUclyzcGsQKRIS7zdBrbORSzM054hLN6rjfhFL0tz5ANPTl1tflz1t0t88oQANsHtWCD1sifGZYhEvgtV49XeVJZeYfStIiNfscXxy9L4_QcNU3iyZ_1Y0K_-utVJC0_ALbvxp84P4ZTUQLin325y3kYJ8FHheu7NXjRMJM1jWzK0VAkQsFNWKxDQ6Qd5Gwhrl1PX6kYH9VK-066qFDBvh-6ILykAqkysEP7Q/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Naka's Broiler food" loading="lazy">
+    </div>
   </div>
 </div>
 
-<footer><p>© 2025 Naka's Broiler · Compton, CA · Breakfast & Lunch</p></footer>
+<section id="menu" class="menu-section">
+  <div class="menu-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-en="What We Serve" data-es="Lo Que Servimos">What We Serve</p>
+      <h2 class="section-title" data-en="The <em>Menu</em>" data-es="El <em>Menú</em>">The <em>Menu</em></h2>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <span class="menu-emoji">🥩</span>
+        <div class="menu-name" data-en="Pork Chop Breakfast" data-es="Desayuno de Chuleta">Pork Chop Breakfast</div>
+        <p class="menu-desc" data-en="The house specialty — perfectly seasoned pork chops served with eggs, grits, and home fries. The dish people come back for." data-es="La especialidad de la casa — chuletas de cerdo perfectamente sazonadas servidas con huevos, grits y papas fritas caseras.">The house specialty — perfectly seasoned pork chops served with eggs, grits, and home fries. The dish people come back for.</p>
+        <span class="menu-tag" data-en="House Specialty" data-es="Especialidad">House Specialty</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-1">
+        <span class="menu-emoji">🍔</span>
+        <div class="menu-name" data-en="Burgers & Fries" data-es="Hamburguesas y Papas">Burgers & Fries</div>
+        <p class="menu-desc" data-en="Classic American burgers made fresh to order. Served with crispy fries and all the fixings — Compton's comfort classic." data-es="Hamburguesas americanas clásicas hechas al momento. Servidas con papas crujientes y todos los acompañamientos.">Classic American burgers made fresh to order. Served with crispy fries and all the fixings — Compton's comfort classic.</p>
+        <span class="menu-tag" data-en="Lunch" data-es="Almuerzo">Lunch</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-2">
+        <span class="menu-emoji">🍳</span>
+        <div class="menu-name" data-en="Eggs Any Style" data-es="Huevos al Gusto">Eggs Any Style</div>
+        <p class="menu-desc" data-en="Scrambled, fried, or over easy — eggs served your way with toast, home fries, and your choice of meat." data-es="Revueltos, fritos o estrellados — huevos servidos a tu gusto con tostadas, papas caseras y tu elección de carne.">Scrambled, fried, or over easy — eggs served your way with toast, home fries, and your choice of meat.</p>
+        <span class="menu-tag" data-en="Breakfast" data-es="Desayuno">Breakfast</span>
+      </div>
+      <div class="menu-card reveal">
+        <span class="menu-emoji">🟡</span>
+        <div class="menu-name" data-en="Grits" data-es="Grits">Grits</div>
+        <p class="menu-desc" data-en="Creamy Southern-style grits made fresh every morning. The perfect complement to your pork chop breakfast plate." data-es="Grits cremosos estilo sureño hechos frescos cada mañana. El acompañamiento perfecto para tu desayuno de chuleta.">Creamy Southern-style grits made fresh every morning. The perfect complement to your pork chop breakfast plate.</p>
+        <span class="menu-tag" data-en="Side" data-es="Guarnición">Side</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-1">
+        <span class="menu-emoji">🥔</span>
+        <div class="menu-name" data-en="Home Fries" data-es="Papas Caseras">Home Fries</div>
+        <p class="menu-desc" data-en="Seasoned home fries cooked crispy on the outside, soft on the inside. A breakfast must-have at Naka's Broiler." data-es="Papas caseras sazonadas, crujientes por fuera y suaves por dentro. Un imprescindible del desayuno en Naka's Broiler.">Seasoned home fries cooked crispy on the outside, soft on the inside. A breakfast must-have at Naka's Broiler.</p>
+        <span class="menu-tag" data-en="Side" data-es="Guarnición">Side</span>
+      </div>
+      <div class="menu-card reveal reveal-delay-2">
+        <span class="menu-emoji">🍽️</span>
+        <div class="menu-name" data-en="Lunch Plates" data-es="Platos de Almuerzo">Lunch Plates</div>
+        <p class="menu-desc" data-en="Daily lunch plates served fresh from the kitchen. A rotating selection of soul food classics made with care and flavor." data-es="Platos de almuerzo frescos de la cocina cada día. Una selección rotativa de clásicos de soul food hechos con cariño.">Daily lunch plates served fresh from the kitchen. A rotating selection of soul food classics made with care and flavor.</p>
+        <span class="menu-tag" data-en="Lunch" data-es="Almuerzo">Lunch</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="reviews">
+  <div class="reviews-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-en="What People Say" data-es="Lo Que Dice la Gente">What People Say</p>
+      <h2 class="section-title" data-en="4.2 Stars · <em>69 Reviews</em>" data-es="4.2 Estrellas · <em>69 Reseñas</em>">4.2 Stars · <em>69 Reviews</em></h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★☆☆☆☆</div>
+        <p class="review-text" data-en='"Was not allowed to dine in so when I arrived back home the food was cold. The owner brought out the food in a bag."' data-es='"No me permitieron comer adentro, así que cuando llegué a casa la comida estaba fría. El dueño sacó la comida en una bolsa."'>"Was not allowed to dine in so when I arrived back home the food was cold. The owner brought out the food in a bag."</p>
+        <div class="review-author">Zion Russe · Google Review</div>
+      </div>
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-stars">★☆☆☆☆</div>
+        <p class="review-text" data-en='"Came here for the first time and the guy the owner is very rude to his customers. We decided to support a local black owned business."' data-es='"Vine por primera vez y el dueño es muy grosero con sus clientes. Decidimos apoyar un negocio local afroamericano."'>"Came here for the first time and the guy the owner is very rude to his customers. We decided to support a local black owned business."</p>
+        <div class="review-author">Michawn Browning · Google Review</div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-stars">★★☆☆☆</div>
+        <p class="review-text" data-en='"First time I ever walked in a place that served prepared food and said, \"Don\'t eat in here.\" There were tables and chairs that I guess the people don\'t want to use."' data-es='"Primera vez que entro a un lugar con comida preparada y me dicen: \"No coma aquí.\" Había mesas y sillas que supongo nadie quiere usar."'>"First time I ever walked in a place that served prepared food and said, &quot;Don't eat in here.&quot; There were tables and chairs that I guess the people don't want to use."</p>
+        <div class="review-author">Geoffrey G. · Google Review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="cta">
+  <p class="cta-eyebrow reveal" data-en="Come Find Us" data-es="Ven a Encontrarnos">Come Find Us</p>
+  <h2 class="cta-title reveal" data-en="Hot plates.<br><em>Fresh daily.</em>" data-es="Platillos calientes.<br><em>Frescos cada día.</em>">Hot plates.<br><em>Fresh daily.</em></h2>
+  <p class="cta-sub reveal" data-en="Open Monday through Friday, 7 AM to 4 PM. Find us at 1961 W El Segundo Blvd in Compton." data-es="Abierto de lunes a viernes, de 7 AM a 4 PM. Encuéntranos en 1961 W El Segundo Blvd en Compton.">Open Monday through Friday, 7 AM to 4 PM. Find us at 1961 W El Segundo Blvd in Compton.</p>
+  <div class="cta-actions reveal">
+    <a href="tel:+13235665450" class="btn-white" data-en="📞 Call (323) 566-5450" data-es="📞 Llamar (323) 566-5450">📞 Call (323) 566-5450</a>
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJgVC_oEzKwoARSbymWy1QPUQ" target="_blank" class="btn-outline-white" data-en="📍 1961 W El Segundo Blvd" data-es="📍 1961 W El Segundo Blvd">📍 1961 W El Segundo Blvd</a>
+  </div>
+  <div class="cta-info reveal">
+    <div class="info-block">
+      <div class="info-lbl" data-en="Hours" data-es="Horario">Hours</div>
+      <div class="info-val" data-en="Mon–Fri · 7 AM – 4 PM" data-es="Lun–Vie · 7 AM – 4 PM">Mon–Fri · 7 AM – 4 PM</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="Closed" data-es="Cerrado">Closed</div>
+      <div class="info-val" data-en="Sat & Sun" data-es="Sáb y Dom">Sat &amp; Sun</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="Location" data-es="Ubicación">Location</div>
+      <div class="info-val" data-en="Compton, CA" data-es="Compton, CA">Compton, CA</div>
+    </div>
+    <div class="info-block">
+      <div class="info-lbl" data-en="Rating" data-es="Calificación">Rating</div>
+      <div class="info-val">4.2★ · 69 Reviews</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Naka's <span>Broiler</span></div>
+  <div class="footer-tagline" data-en="Family-Owned. Home-Cooked. Compton Proud." data-es="Negocio Familiar. Cocina Casera. Orgullo de Compton.">Family-Owned. Home-Cooked. Compton Proud.</div>
+  <div class="footer-copy">© 2025 Naka's Broiler · Compton, CA</div>
+</footer>
 
 <script>
-(function() {
-  var inner = document.querySelector('.carousel-inner');
-  var dots = document.querySelectorAll('.carousel-dots span');
-  var captions = ["Photo 1", "Photo 2", "Photo 3", "Photo 4", "Photo 5", "Photo 6"];
-  var total = inner ? inner.children.length : 0;
-  var idx = 0;
-  function go(n) {
-    idx = (n + total) % total;
-    inner.style.transform = 'translateX(-' + (idx * 100) + '%)';
-    dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
-    var cap = document.querySelector('.carousel-caption');
-    if(cap) cap.textContent = captions[idx] || '';
+  let currentLang = 'en';
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) el.innerHTML = text;
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+    document.documentElement.lang = lang;
   }
-  var prev = document.querySelector('.carousel-btn.prev');
-  var next = document.querySelector('.carousel-btn.next');
-  if(prev) prev.addEventListener('click', function(){ go(idx-1); });
-  if(next) next.addEventListener('click', function(){ go(idx+1); });
-  dots.forEach(function(d,i){ d.addEventListener('click', function(){ go(i); }); });
-  setInterval(function(){ go(idx+1); }, 4000);
-  go(0);
-})();
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
