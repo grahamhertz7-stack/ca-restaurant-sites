@@ -37,6 +37,17 @@
   footer { background: #0d0500; text-align: center; padding: 25px; font-family: sans-serif; font-size: 0.85em; color: #888; }
   .stars { color: #FFD700; font-size: 1.3em; }
   .rating-line { font-family: sans-serif; margin-top: 5px; font-size: 0.9em; }
+  .carousel-wrap { position: relative; overflow: hidden; height: 360px; background: #000; }
+  .carousel-inner { display: flex; transition: transform 0.7s ease; height: 100%; }
+  .carousel-inner img { min-width: 100%; height: 360px; object-fit: cover; flex-shrink: 0; }
+  .carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.65)); padding: 15px 20px; font-family: sans-serif; font-size: 0.9em; color: #eee; }
+  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; font-size: 1.6em; padding: 10px 16px; cursor: pointer; z-index: 10; border-radius: 4px; transition: background 0.2s; }
+  .carousel-btn:hover { background: rgba(0,0,0,0.8); }
+  .carousel-btn.prev { left: 10px; } .carousel-btn.next { right: 10px; }
+  .carousel-dots { position: absolute; bottom: 10px; right: 15px; display: flex; gap: 7px; }
+  .carousel-dots span { width: 9px; height: 9px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; display: inline-block; transition: background 0.3s; }
+  .carousel-dots span.active { background: #fff; }
+
 </style>
 </head>
 <body>
@@ -52,6 +63,23 @@
   <a href="#hours">Hours</a>
   <a href="#contact">Contact & Directions</a>
 </nav>
+<div class="carousel-wrap">
+  <div class="carousel-inner">
+    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=900&h=360&fit=crop&auto=format" alt="Fried Chicken" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=900&h=360&fit=crop&auto=format" alt="Mac & Cheese" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=900&h=360&fit=crop&auto=format" alt="Soul Food Plate" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1488477181899-a7760cdc4ff3?w=900&h=360&fit=crop&auto=format" alt="Banana Pudding" loading="lazy">
+  </div>
+  <button class="carousel-btn prev">&#8249;</button>
+  <button class="carousel-btn next">&#8250;</button>
+  <div class="carousel-dots">
+    <span  class="active"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="carousel-caption"></div>
+</div>
 
 <div class="hero-links">
   <a href="tel:+14243814410" class="btn btn-call">📞 Call to Order</a>
@@ -102,6 +130,31 @@
 <footer>
   <p>© 2025 Alma's Place · Compton, CA · Soul Food Done Right</p>
 </footer>
+
+
+<script>
+(function() {
+  var inner = document.querySelector('.carousel-inner');
+  var dots = document.querySelectorAll('.carousel-dots span');
+  var captions = ['Fried Chicken', 'Mac & Cheese', 'Soul Food Plate', 'Banana Pudding'];
+  var total = inner ? inner.children.length : 0;
+  var idx = 0;
+  function go(n) {
+    idx = (n + total) % total;
+    inner.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+    var cap = document.querySelector('.carousel-caption');
+    if(cap) cap.textContent = captions[idx] || '';
+  }
+  var prev = document.querySelector('.carousel-btn.prev');
+  var next = document.querySelector('.carousel-btn.next');
+  if(prev) prev.addEventListener('click', function(){ go(idx-1); });
+  if(next) next.addEventListener('click', function(){ go(idx+1); });
+  dots.forEach(function(d,i){ d.addEventListener('click', function(){ go(i); }); });
+  setInterval(function(){ go(idx+1); }, 4000);
+  go(0);
+})();
+</script>
 
 </body>
 </html>
