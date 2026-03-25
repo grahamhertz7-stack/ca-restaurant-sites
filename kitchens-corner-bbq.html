@@ -43,6 +43,7 @@
   .carousel-dots span { width: 9px; height: 9px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; display: inline-block; transition: background 0.3s; }
   .carousel-dots span.active { background: #fff; }
 
+  .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.95em; }
 </style>
 </head>
 <body>
@@ -55,18 +56,23 @@
   <a href="#menu">Menu</a>
   <a href="#hours">Hours</a>
   <a href="#contact">Contact & Directions</a>
+  <a href="https://www.google.com/maps/place/?q=place_id:ChIJUwC7jYPNwoARecTi3G9yTgI" target="_blank" class="menu-modal-btn">📋 View Menu</a>
 </nav>
 <div class="carousel-wrap">
-  <div class="carousel-inner">
-    <img src="https://images.unsplash.com/photo-1544025162-d76538580961?w=900&h=360&fit=crop&auto=format" alt="BBQ Ribs" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=900&h=360&fit=crop&auto=format" alt="Smoked Brisket" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1558030006-c2630745a58b?w=900&h=360&fit=crop&auto=format" alt="BBQ Combo Plate" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=900&h=360&fit=crop&auto=format" alt="Beef Ribs" loading="lazy">
+    <div class="carousel-inner">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwC7jYPNwoARecTi3G9yTgI/photos/AU_ZVEHkw6VzFbF3sgx27bCm5nXxZ67cITs3h21V0WT-2nugY1g1KuY-36EHjF8gPO8RBvFNnOqMYfPM_9Wofasf61Yz_yJ8epw4RgK4EwkB9qPNxHuJn1-wzMQcxSZtdeskU1n5_kbQHXGzTE_lmT46KI8CUFW24-HH47pAgeoyGmgscuQFai4NiN8gcpJdhAnrY1rDj4iL1pRfnOsbUdTD1oglYeRtcVmexPzG3-1SR_DsCg3NDVMzLNfzGSZA48D7MRWjqVBznX-NBLyOUbSPXL1mrldoFrRYQmXG47s5W__hVijmYq-FKquaZyd4uGNuFD6rT4OVblA1tiHHASklYXB90ntDjPN-SaLOgBReZ2OX5-qwHfo7Vl56uLIm0oOMZd8JJW3NBnIShOUTolQfkfkCx3zOmNe3txH0_E_NeMs/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwC7jYPNwoARecTi3G9yTgI/photos/AU_ZVEGgdvtMOWy9T0PBRg14m1Fh-NNYffXY3OigXttUXTfJjhhtQku6MZXZTNq88yYrvRHQBF8VwarcOtbu7cpkgAGakRdkN6-1gbAKfvbio4hoDRnZYGPR2dNO0nxy2vIyliJnTfqDnmiDZCApmUSw_zWudo3qP3jG19DRhNQCrHNyEzU14z1ruagNNUFK7I0wywlsx9beJswt3FnFe6U-bVmNPOLnWh4xEYVOvq-kav5iFRJ_wLGA0GyeXEDOBbMFMFgQbfHWIJltUErYJGt9HBEd01377LPgON0UzILGbYAYGa1TRG3WYTXPdrVnUfvJAqXdyXNQr-6gt7kSygFgVIQA6KppCEZJIqwr3BZ_tGRkUqUdVmAIhJvUXyAdEmGTsqQjD_clAwoeOn2_AjY7J2FwYJOwUxum36MQYCOUcvJCy_k/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwC7jYPNwoARecTi3G9yTgI/photos/AU_ZVEGVIUIRfZl22IJwjZicYl03u0D2W8zSUN5WKktJlDRDU1xQ1fTZT0HcXp2x6DWhn552OxdO6aV6dQUFJ4b2uMTD9iIX4for9JnX0aeTNV66L5atPIUZtkC5s488cM43ZHAbCC3VTuQ9x6hQdQeoojVWVQ-SqSrx5VRve-yzo24cI6Bhs8A-vhycdaLzRC5eW2FbA541vHpFF3W1mbzYsZuAkVNlDznUZwqJcz2UlmjX6BuKjS_ENBSlrHhzqxleHVkcSyZbYIAOfig0_cB7wLzl_BpwrihnUMm_MBhADvBBDlwpmG_ChSfZ5guMEvRED218_Zy7Oj-zkJ9Sn8pUHZFYvbmAidFHmXPbnNOTdeSBv-2fi9m6v1UTqJqbflcuIKdM1tbcI5Yi_DlJXzTxQHDTYtdYxMnw4d94GC4uEW1SQa0AUliNquICda03RA/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwC7jYPNwoARecTi3G9yTgI/photos/AU_ZVEFV03IWnJWCVBUYb3-8qHPsxv885l_fR1lOoiXFxBpmJMmjhWAkMe6tb1bKFiReo8G7I2SNWvga2Gp0gNFx2ViONUz51vuKSlw5IChb_QDfuT0Ia3U6MOONe_9I28QzlN1XMtd3znVNvvnQZBznJdj90m0LsmfZyfQ2KJaGe_Ne5aQIvzVYW_Nq_8-J9QJjnbT2nKoFRZlZbuIQwVilW780GIBYcrY-hTvSGE2Rp67cwRZGVXFvw5LFJuvF7K-Mz7ifATl3PSgWBXsGjQUATFE-ZzmkC23ycY1UmnSPm40OjjtwI1aPskGzq8bj_OASdOfeuqPSLZAfO21jufwsJUS7h6uh691rOvydY7UC-6HGtI0UbCc6Pf4q-m8234E7oYke-3Hpf_nTuWMS8bF1Jub1519dMK7Dw6zLzHsp2iY/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwC7jYPNwoARecTi3G9yTgI/photos/AU_ZVEGlx_TW74KkRmL5AyjGIKYgb5rz09XjxWIemj-wwcFPsG8g4wY4lF_9b0diUB7BMck1zNcJ73Aow3AiieiPHv7OITYe5ngn3-r8-QSTXMu4YDYG59VIiB6S253HU1UlGmZLlr2d51dX-E7f5lPqOjCpouTqnA7Y8caNCRrgUXf67iiaq3EgFS0ck32szCgrxLemNxYMvUjklwNX4MZ8qBzDLxLGQc5_6PU69R2AFun1siawuCz5KVic5xAnSTvGugg2BLSeNosLdiJv0lvLrSfap8-NYTH6Nt2HfLq0p8QLyiEfzInvrQab2aR7UitPLuf58CB3JjGppC9g8qC-LHcXjT6EGF2W-ZeJAw5N4o7BeNZ78G-DrH9A6R5_h2OkYdC11COXcyyQ7ZbmK4n-cG-QEY7-dt7vPEl8nXtqJuycKaY/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJUwC7jYPNwoARecTi3G9yTgI/photos/AU_ZVEE9wuAMpp67pF6Vl_ClGdkYE-lSY-AJ666zacuNrzziCKmvzr0smXbXc0ru9uX3nJRVgx0Y4WKmw4Fc91zsp22EXZW8_8qlT4ix5lhXe4rwIgEN6S6E97LXpseM0VyeGgcgo7N3wfVKEsvzW7u3B2kDFRvIo8E20n4nvhZ0nOtbapZsugg7YK-4jJ0HztaihX0dZ9M4oI-6_rUtZ7rVUooGE7RdpRrAb3Lf2AyDP0nr6yyVjMotJ2B-jZ1uAB7Xb5r8t5RVlktHHZRHN8SaAbywKXOGWsPhRTaJnbN0nBfk5b01ZXfeXuZDRhv-TtCLZObDX6-aGOASArch_D0Z7gjWbmncgvroDIRePsY3CBGIys-hl93vfOKVegbiyDT95JlKu4f7A_qLs_6Kk8HuBMBl_v9TAysYuUvMJQgT_KizBOHzVZvYX8zmtfg3mQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
   </div>
   <button class="carousel-btn prev">&#8249;</button>
   <button class="carousel-btn next">&#8250;</button>
-  <div class="carousel-dots">
-    <span  class="active"></span>
+    <div class="carousel-dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
     <span></span>
     <span></span>
     <span></span>
@@ -113,7 +119,7 @@
 (function() {
   var inner = document.querySelector('.carousel-inner');
   var dots = document.querySelectorAll('.carousel-dots span');
-  var captions = ['BBQ Ribs', 'Smoked Brisket', 'BBQ Combo Plate', 'Beef Ribs'];
+  var captions = ["Photo 1", "Photo 2", "Photo 3", "Photo 4", "Photo 5", "Photo 6"];
   var total = inner ? inner.children.length : 0;
   var idx = 0;
   function go(n) {

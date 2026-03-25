@@ -41,6 +41,7 @@
   .carousel-dots span { width: 9px; height: 9px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; display: inline-block; transition: background 0.3s; }
   .carousel-dots span.active { background: #fff; }
 
+  .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.95em; }
 </style>
 </head>
 <body>
@@ -53,18 +54,23 @@
   <a href="#menu">Menu</a>
   <a href="#hours">Hours</a>
   <a href="#contact">Contact</a>
+  <a href="https://www.google.com/maps/place/?q=place_id:ChIJE-a5Sey2woARIOmT8DcN7fo" target="_blank" class="menu-modal-btn">📋 View Menu</a>
 </nav>
 <div class="carousel-wrap">
-  <div class="carousel-inner">
-    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900&h=360&fit=crop&auto=format" alt="Carnitas Tacos" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?w=900&h=360&fit=crop&auto=format" alt="Taco Plate" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1551504734-5da7e163b9f9?w=900&h=360&fit=crop&auto=format" alt="Chilaquiles Burrito" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1624476116305-1a69fde2daec?w=900&h=360&fit=crop&auto=format" alt="Fresh Quesadilla" loading="lazy">
+    <div class="carousel-inner">
+    <img src="https://places.googleapis.com/v1/places/ChIJE-a5Sey2woARIOmT8DcN7fo/photos/AU_ZVEHL_l8WSVJJ8hT7sxQKXFsSVWnKecWUQtvaCxRXKO7NWx-ReRxsuECpRHGewqlgfb2O-t3Pxepl6Vin0yQTpm0ZNZaQyn7flkNa_t5_6-yjw4vvzwppzqwjUn00XG2SLfPPYRfYQtPJAm340T5KwbNTXBAz_HSoYkfl3P2QSReoEH92bMI5Kabm3wiGNbmmlgdd1-nqumP9SxbKt2RTEdyl7OEgA_lskfAEwKQWIcpZ4XTAQuhXQhW3VO9tP1BiyI8yxuePZmae8nf6HnqTdYhbuMi62bNES_9gpMTgf4jJYQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJE-a5Sey2woARIOmT8DcN7fo/photos/AU_ZVEG6CPx2VYzSsKgVdiMWnKJI3mEjqKaZsnQDGEsuQA_WH0oDu7ccZ-TgnAHBk62mRGOavUJ46_9u1VcTUJeqwVttpXaUrlHhQ-Gh_75HMvSS8vEBtwFHvBfsD5KCnZ5mgQGFAMHdRo69LgIDDTKqqBzht5QPpwJGMkLP3zXzc4s704cXW_uwdbMBKpDYHyuyyvxFbgP09ViX49wiPljiKu89Bh7aU9jmB5EH5vJGhFljvFU1UE3TpgbO67LZY1Hq4pkAILQM7x9meK8gs7Vf3YtoMnWVAdWpO1W1fSRLNgTZOA/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJE-a5Sey2woARIOmT8DcN7fo/photos/AU_ZVEFrjVcRj24txiSmdM46I-0SRNN99EqKygGZldkzTw6gtIjWbCGypas6atPslQFdSAjnW60BJcsn5v4zEzzdZATGc4xbROZURvcqXLqA7ulkkjol43fphDYw4RVDNWZdx5lHm1VkJFYuBQogbL0ec0BTB7nkuSTCdEC70bNXp7BopFczM9spMZACR1jzpQe7zLcREPsHXgpmMr-gRwHDofcKmjHDzhqcft3sMqqA9lyAzHzs2ruGIbZ192rcVrAXkMWVdomCbr4XxohYOoK4EVi29ZcRTTcQa0kBDuu_YQIXgzQm9dVxcOo3qghXq2fnqfn7lszcAQrKogjQCynJxpEF-XZWcDvR5q6ePS9EU2gQHQ1qGsNq2FnroXVUvV7OrE7OKA8Whc_TtS1Lunxynl0bdvuZrFwp90So2omQ8RY/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJE-a5Sey2woARIOmT8DcN7fo/photos/AU_ZVEHfBJ5wjlB5VqLvNJInXT5k9daa9yTkihYpy-S_crPp9gxX4UtIPu_whn3My8qnvYTKDTj8bAWI-nlQ9NulhxqioO1N-_1lWfgoreMRBMsxXCCePDdF0q5p2DzdqlxcD8DZj5VxJ3E-sFmSLROXJcQggLuud-VGir2PD8KFpgeSCvwPOyZBjdzzbMGYtONtb2Oq1po_TFYYMqiowdRM1yUf7ZBzVgzoD7jq-LIumDQqYo47XHhEYvl2R-pzJR61SqglYwN-F-s_odTa92NLxYTosN1VaJrxPpz4WNSzlgpSAVNEl5F0MjrhhPuNGmRalGZB6UaXHZ5tlha3FjB5keF4qBtCF1zLWMHFkNVq9A09akwB48b0-TKmqNLvhVCLFbrRy3r7g2h27cD46s_urqWHZAPJMR6nLyq5Ja4H-UuS5E8/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJE-a5Sey2woARIOmT8DcN7fo/photos/AU_ZVEHoKZC4ZtKir_QXJvmK897Ic3rf695euypfJosqs4zeEF9oHTt-4-87m2YG8MaCGKa68gss1SQ1Unit_2ZaYAy3NWaUDn_CGVvRoRDjPDucGjxsbW61tHTxwK7Q_YZudbh4tc6D4PYvujz0YErE8SeRgkLKRCmuz-xfZIubc_T3FU27Gpo8YeIDi2GvfxSD_oB_28Ddyi7c4XA6p5LcGX9CS7znP9p3LxkoJEpmXqLNQVVb3SM2Ua_UCHrZXNDuLO4VBf1dGTOt6siSC0gVf1_UUKUmMTnsjaFdZsAtIxuWiNcCl3LWLrS7fCYUF4IGessgSqhzv96ptNX-Gz88bPxdRERta5Xxh7hq36bIxksaVNK9r1cKaZTU4ZcrTUkXaX-Cv9YG-V1cZMHhtU7SSrrepoghMjhk14SI1cme7Jsm/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJE-a5Sey2woARIOmT8DcN7fo/photos/AU_ZVEFhSidqmVe707YIlEsnlRWDt84yMwB77u5hDz436k5HLp-xuxo70YZGzPrB22Vyn6AiiNSsvHiVZqD0dSG4AhxGnSkOXrJHq2-kCHwarxIE3InrTUH1V3H_IINPooQrmgwdZHCXDnUnqn29Kntl0EUE_1dRXxFwAV4PEZzIv04RcJg_xpi_n2uvwcoUMvW3FMmL3pKDNuzZEuBnNvrXYKXaHgMs1jgXSclS4m5fM3NlRLUAEOAaSOMY78NeTK2bjQurNzNrzytMMEF7hpDndhcUN-ugUbdPuiQRfjuhtNrCHQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
   </div>
   <button class="carousel-btn prev">&#8249;</button>
   <button class="carousel-btn next">&#8250;</button>
-  <div class="carousel-dots">
-    <span  class="active"></span>
+    <div class="carousel-dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
     <span></span>
     <span></span>
     <span></span>
@@ -108,7 +114,7 @@
 (function() {
   var inner = document.querySelector('.carousel-inner');
   var dots = document.querySelectorAll('.carousel-dots span');
-  var captions = ['Carnitas Tacos', 'Taco Plate', 'Chilaquiles Burrito', 'Fresh Quesadilla'];
+  var captions = ["Photo 1", "Photo 2", "Photo 3", "Photo 4", "Photo 5", "Photo 6"];
   var total = inner ? inner.children.length : 0;
   var idx = 0;
   function go(n) {

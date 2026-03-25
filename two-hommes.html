@@ -41,6 +41,7 @@
   .carousel-dots span { width: 9px; height: 9px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; display: inline-block; transition: background 0.3s; }
   .carousel-dots span.active { background: #fff; }
 
+  .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.95em; }
 </style>
 </head>
 <body>
@@ -53,18 +54,23 @@
   <a href="#menu">Menu</a>
   <a href="#hours">Hours</a>
   <a href="#contact">Contact</a>
+  <a href="https://www.google.com/maps/place/?q=place_id:ChIJE2iu8PyxwoAR0xugqezXqWQ" target="_blank" class="menu-modal-btn">📋 View Menu</a>
 </nav>
 <div class="carousel-wrap">
-  <div class="carousel-inner">
-    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=900&h=360&fit=crop&auto=format" alt="Jollof Rice & Lamb" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1544025162-d76538580961?w=900&h=360&fit=crop&auto=format" alt="Braised Short Rib" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=900&h=360&fit=crop&auto=format" alt="Garlic Noodles" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900&h=360&fit=crop&auto=format" alt="African Fusion Dish" loading="lazy">
+    <div class="carousel-inner">
+    <img src="https://places.googleapis.com/v1/places/ChIJE2iu8PyxwoAR0xugqezXqWQ/photos/AU_ZVEGt49Hur4nkowsQCZkHON_pvHcSdD5pCj-H3AkTl4Ckx85AJtobv0cTbdUvG9ScawjXrXuAsKcJnUkb5WLbzgwmzWPydF4UDIZLWTB5rUq5HSSePNE1URVDy5EiHP5vJIUPfT9jgxtHvY8Hf4iZuREBcC_KCTXeXb9dmD0fN9TsPLe_YOd9d3eaWm8JyAs71D-dwiHPi_pgbtsFQhEv2WciwNXiOMgz9ya3vGPKClF61tyVxlKdvhqEB1t3ftHfSX-oP_YJbNW--lj_QJFJbspEjrg58Op4IyTcJ9QDRXQW5A/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJE2iu8PyxwoAR0xugqezXqWQ/photos/AU_ZVEGTUuldsSuJWc-G9_VlKGPioF-_UdzZ707NcIqNYmsROxIA05-qQeDOhyQYQfABdGl-RLfBiApMSMT5f6ayREQWDqPIfp2BAbZwFC2zExoKMhwklYHOs2JwyjdIDPNZx52NgDdnaAvX_3PYRYYyh0oFwFgZdOaBZnW293vvA3WVyY6d0IB65IKBbMGMNy1LEuzbTN616rdzhCqZbFhh0twlAXPKH6pplnMUrODT45ebSktXn7LMIkrBiDVDAOnb6bzuy0j6FKClEYcRUSlNaTnEuApMX6xwQvu7FED10P2ONg/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJE2iu8PyxwoAR0xugqezXqWQ/photos/AU_ZVEEbz-OicuVjapQ-6_01dnqEtdnqKCSa4kdM1qB8RuEjMq1QuEF_TyzEy3XaPoo_xZBjMJ5ve911A6TLM6q_NK6hLBs7d1Vg0zUBjSUiIezlS3iFq4Xm3_sJYnHQwOSvuQq3DXjK3x3s9Rjc5vHnOjFU4pW6WezAdehQui7rqVRtaEk2sIOrCBuwVpX3t3BGYj863liXNV5OqKgpF9hnOQKCVBpUEF1RmV0vGYu8Xx--4Yf_H8dqQQu-m9CMWvPsI6dphvIttrWHKajyaKrlvUuoeWk7oVHjgOcWbtCeFlPI4fWf04Yg0m70h_B9Lc4BSPVNba7elwXHG-B5zOGgr0NUooC6YOBMD0eZcY5xmF0mFsGz4BosUHX5PpJ0nv_MoRg_BWirqKnHWMvWaaTX-Htj66V5kxRcEXAGCxICYKg/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJE2iu8PyxwoAR0xugqezXqWQ/photos/AU_ZVEFLk3VzSczG0EVJzmW2RGuKQIXh5mZFgQviccnoB9XcfY6dMMWCd4JIxwE0u4gAVcDWVzFJVq0ubplfOQM6M5U9cJzbPDJIVWGRf8__LgPfTMHWpNPKJIHvwCsWTtv-ivbL0G6Fx-J3knkqySGOYHkZ--jp5UoP2xdpF2Y5cZwz990p3Zmd48iCd1Dm9QjBuXJSnJg7eL3g0HULXZfSQVVAQViZuGEZUWRb-X_bvk9d5IKtNq6FQ9mT5IxV78z6T3bqaL0DCOtfKTGZ7H_yVyrEioAEA-878A_3GIEA2joyioNvVSOuHEFXZJggHPx6DISpFs_RdjbxKYQAudQBM3FgtFwZd4BnQoKvqXfs08Sf0GrWyXRwCNj4ALuSqpDqtaV3RTEYWKAaI-pQTctE3omlzA3sKSadiUkSOcnnQC0/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJE2iu8PyxwoAR0xugqezXqWQ/photos/AU_ZVEGgcwzb9y4WoJalbCdf3wdWRjvNOc-Olpav02uN2BywgEqV6IwZe0qrq-E7GdNhVhHZ0dlomduQ6ByFuNNl892oe8XzzHCG6xRX0a-jzkmfHlIN08i5IWILbgDKMb60k-T7Ikocdzhn3kLyHFhUjyfDME4VWzivgIJ5_IQFc-6tPmMcV9uuvKrtdbtOyOFOXGNxZ-Eewzx1wdBlLsuC4n-ijAzR8JTD35JJNax9M320u0DyJ-7jJKUS6c1RSR6t7FrwaGbaZXUdfqr22j1uSdqJPQeVCTyLwTyNDMRrQAzN0d2fv_tkJ2HNQnf7jXIkKfcO4kZcc3T23HERJT8XCcZy_638E6DNyRI9NdqnzD3KhtL4XQatNM6tMtydby_GxBFgjTZs_LaaJcPa0O6tOcKnSf108_9EVeseb4lmt5w/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJE2iu8PyxwoAR0xugqezXqWQ/photos/AU_ZVEHffVNFLfYCIcOrzSso9OiatsTqaHcdDfQ0kEypQMyDDhULCvN7xgKxAUJSxKw8aQ_MJnmMbiQYRRTSfXGRoDhFqYcUARTpbwZByWV6SIU89cr8pQP2LhJY3284qYLE4XYX_PBv7NIJgwd_yAzHdSf5b0tdFHAbNdc3JzdjlskHt-UioCFGOwc4qd3Jjib8dGq5iQffGZKF-vqzc54QYnG9ibY87LbsXjGiK9_xV9G2JnINQegL71Lteo4vz462Xriuq4w6It-Cyp4Tq9vVfq-uhWSTgA-HBiHaofECCuZwHys_C_tZc6NRRB4JMNU_8wdXoB-CuKAE4BnpRaJehlbTD2ad1A58zHe3GAIi1h2-qGQd3D3j4hP95EN0Oxyhr9DoxorRhVfyquhhEcBrXRPjawpwjwN9PBSIbiu_rPYnp7U/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
   </div>
   <button class="carousel-btn prev">&#8249;</button>
   <button class="carousel-btn next">&#8250;</button>
-  <div class="carousel-dots">
-    <span  class="active"></span>
+    <div class="carousel-dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
     <span></span>
     <span></span>
     <span></span>
@@ -112,7 +118,7 @@
 (function() {
   var inner = document.querySelector('.carousel-inner');
   var dots = document.querySelectorAll('.carousel-dots span');
-  var captions = ['Jollof Rice & Lamb', 'Braised Short Rib', 'Garlic Noodles', 'African Fusion Dish'];
+  var captions = ["Photo 1", "Photo 2", "Photo 3", "Photo 4", "Photo 5", "Photo 6"];
   var total = inner ? inner.children.length : 0;
   var idx = 0;
   function go(n) {

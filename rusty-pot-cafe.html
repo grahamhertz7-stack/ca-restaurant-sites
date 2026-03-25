@@ -41,6 +41,7 @@
   .carousel-dots span { width: 9px; height: 9px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; display: inline-block; transition: background 0.3s; }
   .carousel-dots span.active { background: #fff; }
 
+  .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.95em; }
 </style>
 </head>
 <body>
@@ -53,18 +54,23 @@
   <a href="#menu">Menu</a>
   <a href="#hours">Hours</a>
   <a href="#contact">Contact</a>
+  <a href="https://www.google.com/maps/place/?q=place_id:ChIJcZjf9AG3woARtuMPblEtqpE" target="_blank" class="menu-modal-btn">📋 View Menu</a>
 </nav>
 <div class="carousel-wrap">
-  <div class="carousel-inner">
-    <img src="https://images.unsplash.com/photo-1484723091739-30acaf20d3d4?w=900&h=360&fit=crop&auto=format" alt="Chicken & Waffles" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=900&h=360&fit=crop&auto=format" alt="Breakfast Sandwich" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=900&h=360&fit=crop&auto=format" alt="Belgian Waffle" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=900&h=360&fit=crop&auto=format" alt="Morning Plate" loading="lazy">
+    <div class="carousel-inner">
+    <img src="https://places.googleapis.com/v1/places/ChIJcZjf9AG3woARtuMPblEtqpE/photos/AU_ZVEEM8yx1JAdrgn6GscI4Q723elUMwQjcQXSCKTWVy9HonPYYBHIfEZFA43ttryT097PBzoxDmdvtO51DRy_MwM5AoW9Mx5QDNwbKr7UzskceczoqRaEJpiWIwrYfLDGs1NyHDdHiZAw0PXzCpvmxses82JhlVKzMb84G15Kmc8uN94l0E_mRaQIfi4oh5wTg40veKIcXVI7Isd6Wn_J3KYA7w7UcF_G-k8tA8D4DXYAxVwE4ZT0m0wvy5Byiw773Hnozq7PGixHzTLS3XPk5peh4K84hWFjrukE69hsj8hNU-4j-Q3oEE3ZzMrD_LR1y1xqRbbor0fGlX1JNse5NsvsR4_y7IxST2c1BYuLdPx-QZS0i3Et023nGGKq8HbMjUg-DvUxSKEeGTMJN99U4L_GEwRWRaKxp7IAbxyei54S-/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJcZjf9AG3woARtuMPblEtqpE/photos/AU_ZVEHasFZdbrmvHfwTm8lVQHhzzDOywC4knkueJRGWxhvC-bXk5nIY907pkc7OVRhfKFSOGbtgHrMPi7TLtduvpL9SexuY3aj9EX2bJjF_feimVKLDmxfN-KcNzKQ95WXKeTMecCdNOZAM9vFF0cRoH5ycInrV9l-67y7zhEV_JYDawA0VbuAvyr5vQtTVcMEsRnX05_zy8Sc9DPwTu0uRAv0naapzfBCiyMllMvEI70_Pz6t4ykbJdqAXenXc3H_ymwFK0Isc-XWNQpAdSG70W_GxSjRrdTSyMopRX2DFrXszFw/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJcZjf9AG3woARtuMPblEtqpE/photos/AU_ZVEGK2KBKPRBED70xA4Q6zjFlJPx_P0ZTUJqYCXhGKtyCbQgwyN5apna6JrsR96NkT4du-427hkZx9b3fmMynHtrVbQYlmowWNcO2um6umQxBnibxVx35OuV5cNFQpJyvVdarzMqXLcqj8Qbhi2cYT34nmLXwI20xYVuPVvb-4LH-IHBYvnZAAU8dmElqRFjDRb-zQBYYp573cqBPLFo6BvIv9YjBTbEwL8uNoqop1Dvuk13buD-ocS8nDrBNi2nPjMOtiSjwyxJ6MmIPB-qmiXsBfObeRjqFV_oKS4j3OQrmzd8ffJAz9eJp0h3Y24mIgFwwM9KkhgvCq1_uWCKFxPynWxXwREmefK4wpoGA7WiHW0e4Vi021itUd1ZvDNZsMQtkx4f-eb_4FNIy7HL2yFxL4dv7FtvoaMqiE2096kA1HnWjTHCqGd_xF48SXw/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJcZjf9AG3woARtuMPblEtqpE/photos/AU_ZVEFJV0cElp-SJih98pKruEAV20AK_FrBBJvcN11rxTKfABHq-dMrPwLBIZXdQfcCl7HnXi93h3QQlbmRI95fKhuf0ewSWJiCV5Um9TIIbwnlV2QYrqf-2WEePEKBheoZVp-uY7cYaYOp9zMJXwf9ra0acxmriqp4sCV-imH69xg-kja9Z6NwHV7bUDhYimoPgO8kVXrbat64WZgvcYs-paKOQDri13ERTZ3N_QXAjDZugkzV9RETRpUR_V0hmHTIW4MB5KHf8ByDb5r0A0SiWHWB7AZ8i9TZHd-rjHOLOmGKyBuHufhSreNUe2tof-kKB2FJPzI3xUc8dJCt955iBXVoQe94-irP2xiu1lZFEylAvZpT5qAmJgS5jOnIlGPPkitu1jJXrDzNfEweR1Z9jthLrnN8VPDZvp1HP6ex4RQWTQ9wWA2jteuAabFmmw/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJcZjf9AG3woARtuMPblEtqpE/photos/AU_ZVEEPDc8l92ODB7jngyMUCN-OgsZ6BMXuYOYQWQC4CtBVjcCM3Ns74gZJIRIEqalhOzoi1R3LQqLjJijIVhrHbHLzoRfaBFWYk3UbN1xy7PLJ-wc9t313T8q8b115GBwEPNKc_txrtEcD1o6DYKRzgGeP9aHOqAtG2Ijk-tfIipAhlipP8rf6WLyoY4NLRCG0XT6YCsPHAKCCHatPe4T27PkuFA3HMumgNJ0iVu17buount84lnVxcc4UdS9ogaat_qKzib5pVeK5bITenfvCl20Nr9wEzTqMQsG9T_UfiYpzig/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJcZjf9AG3woARtuMPblEtqpE/photos/AU_ZVEEmqQrbGiR8U_AdebTeD2yOpfIaASSuJyexLrKRg5MopRGeoSfOfYK9Gm-IlQfQXJ7-DDZdhuaCxhtTxrK7T3R4ce7sgrF-cMd2fxTvebhddYYkQfqNOy7F0WX_G7R6rIdyNloCGENtWB1vZnwXmUtFsrKSzJGX5BeaPN41O6odzRWEc3a2iA0LQW6NeNndHWWK_VkhNhIbzQ96QSqKe4-Q3d-hqeH6gmtCK1xgNlCyXHjZZd_bJr9yVfUBpF4SnUnmnNRvegEhyYtD8tV4iwPgVfBMF_bMDWqgGeY6zgLLBw/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
   </div>
   <button class="carousel-btn prev">&#8249;</button>
   <button class="carousel-btn next">&#8250;</button>
-  <div class="carousel-dots">
-    <span  class="active"></span>
+    <div class="carousel-dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
     <span></span>
     <span></span>
     <span></span>
@@ -109,7 +115,7 @@
 (function() {
   var inner = document.querySelector('.carousel-inner');
   var dots = document.querySelectorAll('.carousel-dots span');
-  var captions = ['Chicken & Waffles', 'Breakfast Sandwich', 'Belgian Waffle', 'Morning Plate'];
+  var captions = ["Photo 1", "Photo 2", "Photo 3", "Photo 4", "Photo 5", "Photo 6"];
   var total = inner ? inner.children.length : 0;
   var idx = 0;
   function go(n) {

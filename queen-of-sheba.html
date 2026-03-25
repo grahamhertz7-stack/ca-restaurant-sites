@@ -43,6 +43,7 @@
   .carousel-dots span { width: 9px; height: 9px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; display: inline-block; transition: background 0.3s; }
   .carousel-dots span.active { background: #fff; }
 
+  .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.95em; }
 </style>
 </head>
 <body>
@@ -55,18 +56,23 @@
   <a href="#menu">Menu</a>
   <a href="#hours">Hours</a>
   <a href="#contact">Contact</a>
+  <a href="https://www.google.com/maps/place/?q=place_id:ChIJH5NoMA63woARgEEtho7M0BE" target="_blank" class="menu-modal-btn">📋 View Menu</a>
 </nav>
 <div class="carousel-wrap">
-  <div class="carousel-inner">
-    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900&h=360&fit=crop&auto=format" alt="Ethiopian Platter" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=900&h=360&fit=crop&auto=format" alt="Injera & Tibis" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&h=360&fit=crop&auto=format" alt="Vegetarian Combo" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1544025162-d76538580961?w=900&h=360&fit=crop&auto=format" alt="Lamb Awaze" loading="lazy">
+    <div class="carousel-inner">
+    <img src="https://places.googleapis.com/v1/places/ChIJH5NoMA63woARgEEtho7M0BE/photos/AU_ZVEGDIQgktpCcqBTO3IOhFQz2nKX5VY-wVoKUtp-yMKcBbuEi3LRpFf5DOFfNds0W3K0zIhqPwvHrOwG3fSTLGptbZ4IrVgQyarNvhlsyHvUJS-QHukluANjE3rHqluHDUAC6MYqpX4q-ADcuRSPphBoHMN26tTwDg5nfghKIanbmlYiu4ISrVikuYtUGvvWVtmgoBYKXqAa9ISjW4vJ0P7adqruBXjPDuCkABtyKLs-XMQ0k_lMZ3aRBpKVzE9-_RfP5j0bTn-kioMn7aQYd3qn3f063Gs9GMfyRqpefdwJxQQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJH5NoMA63woARgEEtho7M0BE/photos/AU_ZVEE69hKbV1e-1sf6ChE7poc7oMZLDNIoScPYH6C86ZDHL5AUoKt5WPrBPwf4IJw92ZRQDgbDL6GKOS-G490LC17QnEyfgIu91LdrIG415KOEiHYym8Owbmuvkf1lk6iy7VGVXVlo17--5lrmP7SZSjcPSA-8rEGt_pOoytnqQTH4WqzVjMh1_axIcrImfVRWNO21qukewqI0Tclb787fDoZ1Q9seYJxrO8cEQNvPzk-mRvWBbKJz7wuwjwAfrSgyqi2zoaXfQOOHjaxrKhBZigzbLbmeRLGxn3sfdE0ajnNJNpckfFS2YWJS5w77l_k3SANUOfLfCeWuC3YcQaoVPS-ZjkevZ5ErsEQex-9WA318WHURS45GGXzeaG01mfwPCnc0YprQDxyx50OvfD6vhzNyEYkUK32bcDyKW6asYUbmU_pYmj3qzuLsgAl9/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJH5NoMA63woARgEEtho7M0BE/photos/AU_ZVEEqpp2gfrJbLbf28K4LaQRZprOtAy3nmHhUF_G6NSeFtzrjgQZMU72_KMIt5oCMKn7T1ytz0Hk5rmD__G25_d-dFUGOVcqTZehNuQVW-v4PsRezFfm3pkX64lEoyfKUCPZmC2cSmHhO3HuRNY69Cb9RQOZ39cnUyvdHsPkHNMCz7B041AmEP648pwK8ANLetQhWb93Y4fdwyBcUOT_xlwDvjt8OWWhz9lNFkPH8hNeSnOGn-9Y5jKAmwHDU_uLdYJaecfLTKeKgYCQGCnJOKFMnccV_RDZFqCTFquyNq6qtgw/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJH5NoMA63woARgEEtho7M0BE/photos/AU_ZVEF4G19OxKWAHOHPFeuhZjcAGCIoMr7G8us1hklPWxtdYOMC48yDfWdo54nSQGwBrFWLdHRkyMdiQ5Qrh-ZOn0NCOY3HonmTB4pdkp6FvviLOsIA7nYBxaly4zxF1u0K1BxT4mdo3kE8K_zyZRtwkbYRsGwAzCq22jGIHil3xEVW6-N7gqJXGedjNZLwUNn3XUxbUp2dYeCTH6dhvEzFKOjE5M9e8V1ZJnqGL74EMxEyBJSFHAOkKGHE51XflGSAb6IjbC36EJ--j-LyRPyu3KClLG-O_RwGU0ejSdRgd-XvMCAK9Tjzqb6nSwplBPBmGhC4j67YB5IIgK1m5wwL-d6x_iB6Fhwm5F6e0djiA-Gy6s5JxV2Ga0O1M26zzSnwJI6mZ6lsIsX1Aun4SIYojmzxGqha65EOETcMwNUaYZ-fyvwjQixRizX7k0AMng/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJH5NoMA63woARgEEtho7M0BE/photos/AU_ZVEH0L9us1z_oP9_pkY67crLijbOd89hN73gvrifCvoP_KtfzdR6uXgNxGdGxuGcg2QMoLoFw3ObOD75MCheWAKdHrmz_EOO7ChWxJyomcDS1e9diI8OHJKQT28DfoSyuuBD8xDNt-ghaXpKCyZwDZANaY-p6gr5UkAqts9DPu9KyuRVULvMasNgoH5AauhlIfDd59LVFDvuhgj_2u15uixO5W2UDIZJTGFWqvQoenzHEqtEijesV3-iv_U788rF1jJrb013TZxOucJe5iEPZAVOER3uutOntViG1kKDuYqVLN34NqJk312l7unUDDXL5I-2LmGVVPx-9o8HkaO_BcaTjzvxGnr6cM8H_lo4wFLtWfx_wk6KKu2-tMW7sq9XDaw5q9hQxrErVYQcV5O5yBgmjxeDg-nT22YcLy-8dxwRAjPWX9lfAmgJ4rDySKg/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJH5NoMA63woARgEEtho7M0BE/photos/AU_ZVEGg5GojCWKO2wl_QhbdRZgHz_B4xQ_OVBPCtPz2KKIyJR9ZCeMczq5NVgGyCWclZcSrgreNn7sEVAK9v7swJuB7yTz162gtt9UU048UF7MnB5mBx0xX0OXE9RU7mcGyxK-1oEV2WT2T6XifIAbGy8xgNJo6cpLiA7YpDuFgdOr7OkUKaWsuBdTmMoOBxN9td-C0Y3NhwC1qa6dt8hlMoYHvsDFr1REhoJMbc35gs3iJ1L5aEJDlICLMOhIAO12cPd2WmGTejmqhBriElKJwAO-xwYoUT2UuSITOsl2vOlKbPsghlIbWODcS7sG3cZxdEDAuuBFHCMpFXHU19HC3CJFotNeUwGzrlzV1yIclNEUHNg5Zw9Nw9TjzZzko00Sma2EQ2oqC257amQg1UwlLIuvgYyFUQp6Hf0bNArP1BkiL5X8Ir0gIoMkkBv0O/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
   </div>
   <button class="carousel-btn prev">&#8249;</button>
   <button class="carousel-btn next">&#8250;</button>
-  <div class="carousel-dots">
-    <span  class="active"></span>
+    <div class="carousel-dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
     <span></span>
     <span></span>
     <span></span>
@@ -121,7 +127,7 @@
 (function() {
   var inner = document.querySelector('.carousel-inner');
   var dots = document.querySelectorAll('.carousel-dots span');
-  var captions = ['Ethiopian Platter', 'Injera & Tibis', 'Vegetarian Combo', 'Lamb Awaze'];
+  var captions = ["Photo 1", "Photo 2", "Photo 3", "Photo 4", "Photo 5", "Photo 6"];
   var total = inner ? inner.children.length : 0;
   var idx = 0;
   function go(n) {

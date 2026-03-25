@@ -48,6 +48,7 @@
   .carousel-dots span { width: 9px; height: 9px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; display: inline-block; transition: background 0.3s; }
   .carousel-dots span.active { background: #fff; }
 
+  .menu-modal-btn { display:inline-block; background:#27AE60; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-family:sans-serif; font-weight:bold; font-size:0.95em; }
 </style>
 </head>
 <body>
@@ -62,18 +63,23 @@
   <a href="#menu">Menu</a>
   <a href="#hours">Hours</a>
   <a href="#contact">Contact & Directions</a>
+  <a href="https://www.google.com/maps/place/?q=place_id:ChIJLZoTGm3LwoAR_819KHkpIhw" target="_blank" class="menu-modal-btn">📋 View Menu</a>
 </nav>
 <div class="carousel-wrap">
-  <div class="carousel-inner">
-    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=900&h=360&fit=crop&auto=format" alt="Fried Chicken" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=900&h=360&fit=crop&auto=format" alt="Mac & Cheese" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=900&h=360&fit=crop&auto=format" alt="Soul Food Plate" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1488477181899-a7760cdc4ff3?w=900&h=360&fit=crop&auto=format" alt="Banana Pudding" loading="lazy">
+    <div class="carousel-inner">
+    <img src="https://places.googleapis.com/v1/places/ChIJLZoTGm3LwoAR_819KHkpIhw/photos/AU_ZVEE9ab3DSlMMx9Bh1C--DIgPJ1AYIuFKDsr9db6IAhCjxH6t0WLTfZo7ICdPSAQVv0U8XMVrhEa-0eXHgCSpVcf-32-ZXV8XjPB6xTc4b2BPrf3s0U9cepr7bIPhY3DRmFWRkd-6VvLbvjcafSiRGotexSFzkMlnFlwXsp1JhifT_bRjQl4hYIux00fQ8c0B5_nSRbu0_bddb-rufdr-li_Mj4DJPWfB3GAV82qr1kzR5w2J4WkCMyoxjCBbqHYA-VNo9oyNRiVqEMKW-7hauoqA9If80W2a2rezJlNpHL_Kog/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJLZoTGm3LwoAR_819KHkpIhw/photos/AU_ZVEE3bC6dzWhOnPnZLP3sXvOVeKmkB9h79ApKlCMfOWXgDudt-9slplgnF1qwN_3vfmB4VCxiwLTm8ytWI_krp27FVfhvfbZhrqUcGSJCPqWRqLArmaE8J3yZwUh01SSQNMmaaghAUpHEO0OS6-bPNAYI2yrvhn6gH9_TYdgitAT5j_H1rZCw7UJxhfzrV3Om9ptbBh2tXtht6h98GsRyRymvygRUJI8-k_8pTsWW1TwWLTCVgsOFMCryw_uXE27tYZV91Fp0czi4EoXN7EaBtQCNrHoo5ZcLumVZJIpBTNtcjw/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJLZoTGm3LwoAR_819KHkpIhw/photos/AU_ZVEEUlooqCoyT2Uob6CbH6J5slGng0jwN-CVkjpAnj0fucjbRGGlugDAaf0yO_0dJberUaveivGp-4uhT-a4fSwp7eqBH3xSsL4naaVpR9iXfpjdXg4Zi8-sybANo-euThUXWn4DVJNbfWg7MJ6yDTvXkeETuRriS1uxgzyKYjZp6_m6_O7vlDMUmfNfD4aWPw5e4-ezieYRTKoM_kWoWPW2Xtt5crJo2p7oYMBNqCSAJEwtXRGfBkRZ20tBawUAMoYR_RyYDkDncWcsa4EQm9B92lw9Ko6uW8KPhHrCaEpu1IA/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJLZoTGm3LwoAR_819KHkpIhw/photos/AU_ZVEH3iREkiML3ebj97RMX8q7ptnAdficCAWv2QE7Fcw5Bp1MGXmGU6hV8RrKX1u2Owd1NHzBPytYuU9y2rFWAvZk5X1xchbSrmyvuT3GEAS2iMEDpokFjmqUX0iKihj8LDly2zl2fzai6cGJXByj99GxvyQdSba5kSkfr0OJokcvGoZXLX2VRm8Ev5pXeEtnEsrqUmOOG_YoWqImUehB74P5WMwDKjIy1-2DmxnXEnAYntR1mUq8KYvFS9tzeZtGghEQ01U50LvLiRWWlQgXWPsfERka6vE7H7bxvoGujJ4D5Ww/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJLZoTGm3LwoAR_819KHkpIhw/photos/AU_ZVEF2s8RBCqswgcxqDTZWkqcYyLs3MZ3vIkPtsm1BP50uidTv5wP88UYR6lR0ZM3YzHimoemzzweCGYu2HMJZBfTJdkIE2MYb2q-wAzsPYaWwo6Ho_tEH46Z982WLJKlpFwTa9UMkB764D8zLspc3keNp5tb68C6-ZHfMCIzfgO7MMs27XmMY5KmwGF6rmgL7-5EF9lI6EX56Zrk3BUWRgHal9OcKTSskDIgpWRiHjEDln7cP0bYwBMxCRKKPWJS0i1cJ7kay9dtIrhiDPoCcaUww8OHrJPgqW0YWbKl1kI9riYyKbEJchqN_9Xg9v2VhePGGF7i0D7dF7ZI6oVucpXviYClQ2jd94bG11HHGSlPLC1cv2reuczz9RAQfVc8OHvuedKhy4UjGUvXVDysHpsp8yvUIwb_Wjj5jvfFd3e5z7jQ/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
+    <img src="https://places.googleapis.com/v1/places/ChIJLZoTGm3LwoAR_819KHkpIhw/photos/AU_ZVEGtSwOb-bzR2UL-oKnFov7kcdUliFJPpFG3wJ2eeWbSIo-omlx5Y_famcmrTZZN6Zp0j5DM7S4AfXBksrfOz_HUSXeCY6g-TW2oP1aWEQaTi0Riv4-N67C1NhVbtCKDmzVGYp4rkDQLw_03_xFdMugmxRWcBh6f_QmovEejIAlvQ4Dj572rTTPm0lERmKjHtASmc8tTi3vUWMSbGkRPyaYBZpzhHCnjNOAjYNPoomDPVniNQzk29kfmBQOacgyNEA-qC0nmPLZSWZYlO_EXhB9h9GHo26yfs9ZJRg3Se_qlolUEpVn5ldkmnFV6xEYmTjBJIpuUNtSN6902NJ5UC0dP3bkW4O8VmB4XJhvUP1tPDxm_nob_0qgbyodqLlEJrZ56ltJ9c7moHXmYY1M2bQz-f8UIvYh11bzFqlnXumE/media?maxWidthPx=900&maxHeightPx=400&key=AIzaSyBEsdWLSEA0oCncUcGFL0lNBcdG46gl-ac&skipHttpRedirect=false" alt="Food photo" loading="lazy">
   </div>
   <button class="carousel-btn prev">&#8249;</button>
   <button class="carousel-btn next">&#8250;</button>
-  <div class="carousel-dots">
-    <span  class="active"></span>
+    <div class="carousel-dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
     <span></span>
     <span></span>
     <span></span>
@@ -136,7 +142,7 @@
 (function() {
   var inner = document.querySelector('.carousel-inner');
   var dots = document.querySelectorAll('.carousel-dots span');
-  var captions = ['Fried Chicken', 'Mac & Cheese', 'Soul Food Plate', 'Banana Pudding'];
+  var captions = ["Photo 1", "Photo 2", "Photo 3", "Photo 4", "Photo 5", "Photo 6"];
   var total = inner ? inner.children.length : 0;
   var idx = 0;
   function go(n) {
